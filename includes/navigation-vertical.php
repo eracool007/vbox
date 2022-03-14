@@ -1,0 +1,51 @@
+<aside class="col-right">
+    <?php
+    
+   $featuredItem = Random::randomItem($conn, $feature);
+ 
+   //$categoryArray = new Categories($conn);
+   //$categoryA=$categoryArray->allCategoriesArray;
+    
+    
+    ?>
+                    <div class="cat-blog-box">
+
+                        <div class="cat-blog  align-text-c">
+                        <?php 
+                        if(!empty($featuredItem)){ ?>    
+                            <a href="single-recette.php?id=<?= $featuredItem[0]['id']; ?>" >
+                            <img class="img-resp" src="images/assets/<?= $featuredItem[0]['image'] ?>" alt="<?= $featuredItem[0]['altImage']?>" title="<?= $featuredItem[0]['altImage']?>"></a>
+                            <div class="cat-blog-title">
+                                <?= $featuredItem[0]['titre'] ?> 
+                            </div>
+                        <?php } ?>
+                            <div class="align-text-l">
+                                <h4 id="menu-cat-title">Naviguer les recettes par catégorie</h4>
+                                <nav>
+                                    <ul class="ul-cat">
+                                        <?php
+                                        if(!empty($categoryA)){ 
+
+                                            foreach($categoryA as $category){ ?>
+                                                <li class="li-cat">
+                                                    
+                                                    <a href="single-categorie.php?id=<?= $category['id_categorie']; ?>" class="a-cat">
+                                                        <?=  $category['nom_categorie']; ?>  
+                                                    </a> - <?php $number = Categories::countCategories($conn, $category['id_categorie']); 
+                                                    echo $number[0];?>
+                                                </li>
+                                            
+                                            
+                                        <?php }} ?>
+                                        
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    
+                </aside>
+                
