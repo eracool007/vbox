@@ -10,6 +10,31 @@ $type="blog";
 $feature = 'recette';
 
 ?>
+
+<?php
+if(isset($_GET['id'])){
+    
+    $numId = $_GET['id'];  
+    settype($numId, 'integer');
+    $singleArticle = GetRecord::getSelectedRecord($conn, "tb_article", $numId);
+
+    $titre= $singleArticle[0]['titre'];
+    $texte = $singleArticle[0]['texte'];
+    $publishedDate = $singleArticle[0]['date'];
+    $image = $singleArticle[0]['image'];
+    $altImage = $singleArticle[0]['altImage'];
+    
+    } else {
+
+        //ManageError::showErrorPage($type);
+        //exit; 
+    }
+
+    if (empty($singleArticle)){
+        ManageError::showErrorPage($type);
+        exit; 
+    }
+?>
 <header>
   <?php
   require 'includes/navigation.php';
@@ -18,55 +43,18 @@ $feature = 'recette';
 ?>
 
 </header>
-<?php
-if(isset($_GET['id'])){
-    
-    $numId = $_GET['id'];  
-    settype($numId, 'integer');
-    $singleArticle = GetRecord::getSelectedRecord($conn, "tb_article", $numId);
-    
-
-    } else {
-
-        ManageError::showErrorPage($type);
-        exit; 
-    }
-
-    if (empty($singleArticle)){
-        ManageError::showErrorPage($type);
-        exit; 
-    }
-
-?>
-
 <!--section articles-->
 <section>
 
     <div class="row1">
         <div class="main-content">
             <div class="row1">
-                <div
-                class="col-left">
-                    <div id="blog-img" class="bg-image-blog" title="<?= $singleArticle[0]['altImage']?>"></div>
-                    <h2 class="section-title pb-0"><?= $singleArticle[0]['titre']?></h2>
-                    <!--Article complet-->
-                    <p class="date"><?= $singleArticle[0]['date']?></p>
-                    <p class="p-single">
-                        <?= $singleArticle[0]['texte']?>
-                    </p>
-                </div>
-                <!--fin col-left-->
-                <!--section menu des categories-->
-
-                <?php 
+                <h2>Modifier un article</h2>
                 
-                require 'includes/navigation-vertical.php'; ?>
-            <!--fin column-right-->    
+                <?php require 'includes/article-form.php'; ?>
+
             <!--fin row1-->    
             </div>
     </div>
     </div>
     </section>  
-    <script>loadImage("<?= $singleArticle[0]['image']; ?>", "blog-img"); </script>
-
-<?php require 'includes/footer.php'; ?>

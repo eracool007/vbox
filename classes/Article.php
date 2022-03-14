@@ -95,22 +95,19 @@
         
     }
     /**------------------------------------------------------
-    * Get the latest article
+    * Add article into db
     * 
     * @param object $conn Connection to the db
     * 
-    * @return array of latest article
+    */
     
-    public static function getLatestArticle($conn){
+    public static function insertArticle($conn){
         
-        $sql = "SELECT * 
-                FROM tb_article
-                ORDER BY date DESC
-                LIMIT 1;";
+        $sql = "INSERT INTO tb_article
+                VALUES (titre, texte, date, image, altImage);";
+                
 
-        $result = $conn->query($sql);
-        return $result->fetch(PDO::FETCH_ASSOC);
         
-    }*/
+    }
 
  }

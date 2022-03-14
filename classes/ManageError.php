@@ -18,7 +18,7 @@
     */
     public static function showErrorPage($type){
 
-     $back = index.php;   
+     $back = "index.php";   
 
       if (isset($type)){ 
          switch ($type) {
@@ -40,9 +40,8 @@
          }
          
       }
-
       
-      header("location: index.php?error=$msg&back=$back");
+      header("Location: index.php?error=$msg&back=$back");
       exit;
    }
 }

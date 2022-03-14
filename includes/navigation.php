@@ -1,7 +1,6 @@
 <?php
       $categoryArray = new Categories($conn);
-      $categoryA=$categoryArray->allCategoriesArray; 
- 
+      $categoryA=$categoryArray->allCategoriesArray;
 ?>
 <div class="fixed-top">
       <div class="row1 bg-dark">
@@ -23,16 +22,15 @@
                 <li><a href="recettes.php">Recettes <i class="fas fa-caret-down"></i></a>
                   <ul>
                     <div class="sub-nav">
-                        <?php
-                        if (!empty($categoryA)) { 
-                            foreach ($categoryA as $category){ ?>
+                        <?php if (!empty($categoryA)) { 
+                            foreach ($categoryA as $category){?>
                                 <div class="div-nav">
                                   <li class="sub-nav-li">
                                     <a href="single-categorie.php?id= <?= $category['id_categorie']; ?>" class="a-cat">
                                    <?= $category['nom_categorie']; ?> </a>
                                   </li>
                                 </div>  
-                        <?php } } ?>
+                        <?php } }?>
                     </div>
                   </ul>
                 </li>

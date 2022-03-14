@@ -13,6 +13,62 @@ $type="admin";
 
 /*indicates wich type to feature in right navigation*/
 $feature = 'recette';
+$errors = [];
+
+$titre='';
+$texte= '';
+$publishedDate = '';
+$image = '';
+$altImage = '';
+
+
+$article = new Article();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+    $titre= $_POST['titre'];
+    $texte = $_POST['texte'];
+    $publishedDate = $_POST['date'];
+    $image = $_POST['image'];
+    $altImage = $_POST['altImage'];
+
+    if($titre == ''){
+        $errors[]= 'Titre requis';
+    }
+
+    if($texte == ''){
+        $errors[] = 'Contenu requis';
+    }
+
+    if($publishedDate != ''){
+        $date_time= date_create_from_format('Y-m-d H:i:s', $publishedDate);
+
+        if($date_time === false){
+            $error[] = 'Mauvais format de date';
+        } else {
+            $date_errors = date_get_last_errors();
+            if($date_errors['warning_count'] > 0) {
+                $error[] = 'Mauvais format de date';
+            }
+        }
+    }
+
+    if(empty($errors)){
+
+        $article->titre = $_POST['titre'];
+        $article->texte = $_POST['texte'];
+
+        if ($article->date == ''){
+            $article->date = null; 
+        } else {
+            $article->date = $_POST['date'];
+        }
+        
+        $article->image = $_POST['image'];
+        $article->altImage = $_POST['altImage'];
+    }
+}
+
 
 ?>
 <header>
@@ -23,26 +79,6 @@ $feature = 'recette';
 ?>
 
 </header>
-<?php
-if(isset($_GET['id'])){
-    
-    $numId = $_GET['id'];  
-    settype($numId, 'integer');
-    $singleArticle = GetRecord::getSelectedRecord($conn, "tb_article", $numId);
-    
-
-    } else {
-
-        ManageError::showErrorPage($type);
-        exit; 
-    }
-
-    if (empty($singleArticle)){
-        ManageError::showErrorPage($type);
-        exit; 
-    }
-
-?>
 <!--Add article-->
 <section>
 
@@ -50,11 +86,14 @@ if(isset($_GET['id'])){
         <div class="main-content">
             <div class="row1">
                 <h2>Ajouter un article</h2>
+                
+                <?php require 'includes/article-form.php'; ?>
+
             <!--fin row1-->    
             </div>
     </div>
     </div>
     </section>  
-    <script>loadImage("<?= $singleArticle[0]['image']; ?>", "blog-img"); </script>
+    
 
 <?php require 'includes/footer.php'; ?>
