@@ -2,9 +2,9 @@
 
 require 'includes/init.php';
 require 'includes/head.php';
-if(!isLoggedIn()){
-    die("non autorise");
-} 
+
+Auth::requireLogin();
+
 $conn = require 'includes/db.php';
 
 /*variable for type of header*/
@@ -37,7 +37,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $singleArticle->altImage = $_POST['altImage'];
 
     if($singleArticle->updateArticle($conn)){
-            header("Location: single-blog.php?id={$singleArticle->id}");
+        
+        Url::redirect("/single-blog.php?id=$singleArticle->id");
+            
     }
 }
 

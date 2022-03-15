@@ -2,9 +2,9 @@
 
 require 'includes/init.php';
 require 'includes/head.php';
-if(!isLoggedIn()){
-    die("non autorise");
-}
+
+Auth::requireLogin();
+
 $conn = require 'includes/db.php';
 
 /*variable for type of header*/
@@ -32,7 +32,8 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
     
     if ($singleArticle->deleteArticle($conn)){
         
-        header("location: blog.php");
+        Url::redirect("/blog.php");
+        
     }
 }
 ?>

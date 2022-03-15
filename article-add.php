@@ -3,9 +3,8 @@
 require 'includes/init.php';
 require 'includes/head.php';
 
-if(!isLoggedIn()){
-    die("non autorise");
-}
+Auth::requireLogin();
+
 $conn = require 'includes/db.php';
 
 
@@ -25,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($singleArticle->addArticle($conn)){
        $numId = intval($singleArticle->id); 
       
-        header("Location: single-blog.php?id=$numId");
+        Url::redirect("/single-blog.php?id=$numId");
     }
 }
 

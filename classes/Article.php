@@ -25,7 +25,7 @@
     /** @var varchar 255 */
     public $altImage;
 
-    /** @var array */
+    /** @var array Error array*/
      public $error = [];
     
      

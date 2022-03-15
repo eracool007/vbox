@@ -1,5 +1,4 @@
 <?php 
-require 'includes/auth.php';
 
 if(!isset($_SESSION)) {
   session_start();
@@ -8,16 +7,16 @@ if(!isset($_SESSION)) {
  
 } else {
   
-  if(isLoggedIn())
+  if(Auth::isLoggedIn())
   {
   
   $log="Quitter";
-  $logLink = "logout.php";
+  $logLink = "/vbox/logout.php";
   
   } else {
   
       $log="Se connecter";
-      $logLink = "login.php";
+      $logLink = "/vbox/login.php";
    }
 }
 

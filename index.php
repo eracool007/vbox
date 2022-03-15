@@ -12,7 +12,7 @@ $conn = require 'includes/db.php';
       ?>
   
     </header>
-<!--if error in $_GET(index.php?error=true) insert error message here-->
+<!--Error messages here-->
 
 <?php
   if(isset($_GET['error'])){

@@ -27,16 +27,38 @@
     /** @var pdate Published date */
     public $pdate;
 
-    /** @var varchar 50 */
-    public $imgFilename;
+    /** @var varchar 50 Image file name*/
+    public $imagef;
 
-    /** @var array to contain all categories */
- 
+    /** @var varchar 255 Image alt text and photo credits*/
+    public $altImage;
+
+    /** @var int Preparation time in minutes*/
+    public $preparation;
     
+    /** @var int Cooking time in minutes*/
+    public $cuisson;
 
+     /** @var int Number of portions*/
+     public $portion;
 
-
-
+    /** @var array Error array*/
+    public $error = [];
+    
+    public function __constructor($id, $titre, $description, $instructions, $notes, $pdate, $imagef, $altImage, $preparation, $cuisson, $portion) {
+        $this->id = $id;
+        $this->titre = $titre;
+        $this->description = $description;
+        $this->instructions = $instructions;
+        $this->notes = $notes;
+        $this->pdate= $pdate;
+        $this->imagef= $imagef;
+        $this->altImage= $altImage;
+        $this->preparation = $preparation;
+        $this->cuisson = $cuisson;
+        $this->portion = $portion;
+    }
+    
     /**---------------------------------------------  
     * Get all recipies
     * @param object $conn Connection to db
@@ -76,6 +98,34 @@
         if($stmt->execute()){
            
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        
+    }
+
+    /**----------------------------------------------------------- 
+    * Get recipe by ID
+    *
+    * @param conn db connection
+    * 
+    * @param id Recipe ID
+    * 
+    * @return object of selected record
+    */
+    public static function getRecipeById($conn, $id){
+        
+       
+        $sql="SELECT * 
+        FROM tb_recette 
+        WHERE id = :id;";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Recette');
+        
+        if($stmt->execute()){
+           
+            return $stmt->fetch();
         }
         
     }

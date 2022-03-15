@@ -43,6 +43,7 @@ $numberOfCards = 0;
                         <!--Debut carte recette-->
                         <?php
                          if (empty($categoryItems)){
+                           $type="single-categorie-none";
                            ManageError::showErrorPage($type);
                            exit;
                              

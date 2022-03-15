@@ -25,7 +25,7 @@ if(isset($_GET['id'])){
   $numId =  $_GET['id'];
   settype($numId, 'integer');
    
-  $singleRecette = GetRecord::getSelectedRecord($conn, "tb_recette", $numId);
+  $singleRecette = Recette::getRecipeById($conn, $numId);
   
 } else {
    
@@ -39,7 +39,7 @@ if (empty($singleRecette)){
   exit;
 }
 
-$categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
+$categoryList = Categories::getCategory($conn, $singleRecette->id, false);
 ?>
     <main>
       <section>
@@ -48,13 +48,13 @@ $categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
             <!--Details de la recette-->
 
             <div class="row1">
-              <div id="recipe-main" title="<?= $singleRecette[0]['altImage']; ?>" class="col-left-cat">
+              <div id="recipe-main" title="<?= $singleRecette->altImage; ?>" class="col-left-cat">
              
-                  <h1 class="main-title-recipe"><?= $singleRecette[0]['titre']; ?></h1>
+                  <h1 class="main-title-recipe"><?= $singleRecette->titre; ?></h1>
                   <p class="recipe-info">
-                    Préparation:   <?= $singleRecette[0]['preparation']; ?> min.<br>
-                    Cuisson:   <?= $singleRecette[0]['cuisson']; ?> min.<br>
-                    Portions:   <?= $singleRecette[0]['portion']; ?>
+                    Préparation:   <?= $singleRecette->preparation; ?> min.<br>
+                    Cuisson:   <?= $singleRecette->cuisson; ?> min.<br>
+                    Portions:   <?= $singleRecette->portion; ?>
                   </p>
                 
                 <div class="social">
@@ -101,7 +101,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
               <div class="row1">
                 <h3 class="h3-sm">DESCRIPTION</h3>
                 <p class="p-single">
-                <?= $singleRecette[0]['description']; ?>
+                <?= $singleRecette->description; ?>
                 </p>
             </div>
               
@@ -112,7 +112,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
                   <h3 class="h3-sm">INGREDIENTS</h3>
                   <ul class="ingredients">
                     <?php
-                    $listeIngredients = Ingredients::getIngredients($conn, $singleRecette[0]['id']);
+                    $listeIngredients = Ingredients::getIngredients($conn, $singleRecette->id);
                     if (!empty($listeIngredients)) {
                       
                       foreach($listeIngredients as $ing){ 
@@ -144,20 +144,20 @@ $categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
               <div class="row1">
                 <h3 class="h3-sm">PREPARATION</h3>
                 <p class="p-single">
-                <?= $singleRecette[0]['instructions']; ?>
+                <?= $singleRecette->instructions; ?>
               </p>
             
             </div>
             </section>
 
             <?php 
-            if($singleRecette[0]['notes'] && $singleRecette[0]['notes'] != ""){ ?>
+            if($singleRecette->notes && $singleRecette->notes != ""){ ?>
               <section class="mt-0">
                 <div class="bg-light-yellow">
                     <div class="row1 p-sm">
                     <h3 class="h3-sm">NOTES</h3>
                     <p class="p-single p-sm">
-                    <?= $singleRecette[0]['notes']; ?>
+                    <?= $singleRecette->notes; ?>
                     </p>
                     </div>
                 </div>
@@ -168,7 +168,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
         </div>
       </section>
   
-      <script>loadImage("<?= $singleRecette[0]['imagef']; ?>", "recipe-main"); </script>
+      <script>loadImage("<?= $singleRecette->imagef; ?>", "recipe-main"); </script>
 
 <?php require 'includes/footer.php'; ?>
 <?php ob_end_flush(); ?>

@@ -2,7 +2,8 @@
     <?php
     
    $featuredItem = Random::randomItem($conn, $feature);
- 
+    ($feature=="blog") ? $featureLink="single-blog.php" : $featureLink="single-recette.php";
+    
    //$categoryArray = new Categories($conn);
    //$categoryA=$categoryArray->allCategoriesArray;
     
@@ -13,7 +14,7 @@
                         <div class="cat-blog  align-text-c">
                         <?php 
                         if(!empty($featuredItem)){ ?>    
-                            <a href="single-recette.php?id=<?= $featuredItem[0]['id']; ?>" >
+                            <a href="<?= $featureLink;?>?id=<?= $featuredItem[0]['id']; ?>" >
                             <img class="img-resp" src="images/assets/<?= $featuredItem[0]['imagef'] ?>" alt="<?= $featuredItem[0]['altImage']?>" title="<?= $featuredItem[0]['altImage']?>"></a>
                             <div class="cat-blog-title">
                                 <?= $featuredItem[0]['titre'] ?> 

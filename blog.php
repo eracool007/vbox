@@ -51,12 +51,14 @@ $imgDirectory = 'blog';
                     
                     <div class="column25 mb-sm">
                         <div class="card-p0 shadow">
+                          <article>
                             <a class="deco-none" href="single-blog.php?id=<?= $article['id']; ?>">
                             <div class="bg-image" id="<?= $idName ?>" title="<?= $article['altImage']; ?>"></div></a>
                             <div class="card-inner">
                                 <p><h4><?= $article['titre']; ?></h4> </p>
                                 <p class="p-blog-intro"><?= substr($article['texte'], 0, 50) . "... "; ?> <a class="footer-links" href="single-blog.php?<?= $article['id']; ?>">Lire</a></p>
                             </div>
+                          </article>
                         </div>
                     </div>
 

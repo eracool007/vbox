@@ -10,6 +10,7 @@
           </div>
           <div class="column50 align-text-r account">
             <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>" class="login"><?= $log ?></a>
+            <!-- <?php if($log == "Quitter") : ?>  | <a class="login" href="/vbox/admin/">Gérer</a><?php endif; ?> -->
           </div>
         </div>
       </div>

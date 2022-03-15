@@ -30,8 +30,12 @@
             $msg = "La recette n'existe pas ou la page a été supprimée";
             $back="recettes.php";
             break;
-         case "categorie":
+         case "single-categorie":
             $msg = "La catégorie n'existe pas";
+            $back = "recettes.php";
+            break;
+         case "single-categorie-none":
+            $msg="Aucune recette dans cette catégorie";
             $back = "recettes.php";
             break;
          default:
@@ -41,7 +45,7 @@
          
       }
       
-      header("Location: index.php?error=$msg&back=$back");
+      Url::redirect("/index.php?error=$msg&back=$back");
       exit;
    }
 }

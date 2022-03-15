@@ -5,9 +5,9 @@ $conn = require 'includes/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(User::auth($conn, $_POST['email'], $_POST['password'])){
-        $_SESSION['is_logged_in'] = true;
         
-        header("location: index.php");
+        Auth::login();
+        Url::redirect('/');
 
     }else {
         $error = "Information de connection erronée.";
