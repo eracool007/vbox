@@ -81,7 +81,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
       <?php } ?>
     
     <?php if(!empty($featuredArticle)) { ?>
-    <script>loadImage("<?= $featuredArticle->image; ?>", "featured_article_image")</script>
+    <script>loadImage("<?= $featuredArticle->imagef; ?>", "featured_article_image")</script>
     <?php } ?>
     <?php 
       if(!empty($lastRecipies)) { 
@@ -89,7 +89,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
           $count=$i;
           $idName = "recipe" . strval($count) ?>
 
-          <script>loadImage("<?= $lastRecipies[$i]['image']; ?>", <?= '"' . $idName . '"'; ?>); </script>
+          <script>loadImage("<?= $lastRecipies[$i]['imagef']; ?>", <?= '"' . $idName . '"'; ?>); </script>
 
         <?php
         }

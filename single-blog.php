@@ -8,14 +8,9 @@ $type="blog";
 
 /*indicates wich type to feature in right navigation*/
 $feature = 'recette';
+$errorMsg = "L'article n'existe pas ou la page a été supprimée";  
+?>
 
-?>
-<header>
-  <?php
-  require 'includes/navigation.php';
-  require 'includes/header-subpage.php';   
-  $errorMsg = "L'article n'existe pas ou la page a été supprimée";           
-?>
 
 </header>
 <?php
@@ -23,7 +18,7 @@ if(isset($_GET['id'])){
     
     $numId = $_GET['id'];  
     settype($numId, 'integer');
-    $singleArticle = GetRecord::getSelectedRecord($conn, "tb_article", $numId);
+    $singleArticle = Article::getArticleById($conn, $numId);
     
 
     } else {
@@ -38,7 +33,12 @@ if(isset($_GET['id'])){
     }
 
 ?>
-
+<header>
+  <?php
+  require 'includes/navigation.php';
+  require 'includes/header-subpage.php';   
+           
+?>
 <!--section articles-->
 <section>
 
@@ -47,12 +47,16 @@ if(isset($_GET['id'])){
             <div class="row1">
                 <div
                 class="col-left">
-                    <div id="blog-img" class="bg-image-blog" title="<?= $singleArticle[0]['altImage']?>"></div>
-                    <h2 class="section-title pb-0"><?= $singleArticle[0]['titre']?></h2>
+                    <div id="blog-img" class="bg-image-blog" title="<?= htmlspecialchars($singleArticle->altImage); ?>"></div>
+                    <h2 class="section-title pb-0"><?= htmlspecialchars($singleArticle->titre); ?></h2>
+                    <?php 
+                    if ($log == "Quitter") :?>
+                        <a href="article-edit.php?id=<?= $singleArticle->id; ?>" class="footer-links">Modifier</a> | <a href="article-delete.php?id=<?= $singleArticle->id; ?>" class="footer-links"> Supprimer</a>
+                    <?php endif; ?>
                     <!--Article complet-->
-                    <p class="date"><?= $singleArticle[0]['date']?></p>
+                    <p class="date"><?= $singleArticle->pdate; ?></p>
                     <p class="p-single">
-                        <?= $singleArticle[0]['texte']?>
+                        <?= htmlspecialchars($singleArticle->texte);?>
                     </p>
                 </div>
                 <!--fin col-left-->
@@ -67,6 +71,6 @@ if(isset($_GET['id'])){
     </div>
     </div>
     </section>  
-    <script>loadImage("<?= $singleArticle[0]['image']; ?>", "blog-img"); </script>
+    <script>loadImage("<?= $singleArticle->imagef; ?>", "blog-img"); </script>
 
 <?php require 'includes/footer.php'; ?>

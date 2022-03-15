@@ -27,7 +27,12 @@ $imgDirectory = 'blog';
     <div class="row1">
         <div class="main-content align-text-l">
         <h2 class="section-title">Bienvenue sur notre blog!</h2>
+        <?php 
+                    if ($log == "Quitter") :?>
+                        <p><a href="article-add.php" class="footer-links">Ajouter un article</a> </p>
+                    <?php endif; ?>
           <h3>Résultats 1-<?=$numberOfArticles ?> de <?= $numberOfArticles ?></h3><br>
+         
         </div>
     </div>
     <div class="row1">
@@ -98,7 +103,7 @@ $imgDirectory = 'blog';
           $count=$i;
           $idName = "article" . strval($count) ?>
 
-          <script>loadImage("<?= $articleArray[$i]['image']; ?>", <?= '"' . $idName . '"'; ?>); </script>
+          <script>loadImage("<?= $articleArray[$i]['imagef']; ?>", <?= '"' . $idName . '"'; ?>); </script>
 
         <?php
         }

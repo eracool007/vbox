@@ -73,13 +73,13 @@ $type = "recette";
         </div>
       </section>
       
-      <script>loadImage("<?= $vedette[0]['image']; ?>", "recette_vedette"); </script>
+      <script>loadImage("<?= $vedette[0]['imagef']; ?>", "recette_vedette"); </script>
       <?php 
         
         for ($i = 0; $i < count($categories->allCategoriesArray); $i++){ ?>
        
         <script>
-          loadImage("<?= $categories->allCategoriesArray[$i]['image']; ?>", "img-cat<?= $i; ?>"); 
+          loadImage("<?= $categories->allCategoriesArray[$i]['imagef']; ?>", "img-cat<?= $i; ?>"); 
         </script>
           
         <?php } ?>

@@ -10,12 +10,12 @@ if(!isset($_SESSION)) {
   
   if(isLoggedIn())
   {
-    
+  
   $log="Quitter";
   $logLink = "logout.php";
   
   } else {
-      
+  
       $log="Se connecter";
       $logLink = "login.php";
    }

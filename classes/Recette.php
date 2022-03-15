@@ -24,8 +24,8 @@
     /** @var text */
     public $notes;
 
-    /** @var date */
-    public $date;
+    /** @var pdate Published date */
+    public $pdate;
 
     /** @var varchar 50 */
     public $imgFilename;
@@ -46,7 +46,7 @@
     public static function getAllRecipies($conn){
         $sql= "SELECT *
             FROM tb_recette
-            ORDER BY date DESC";
+            ORDER BY pdate DESC";
         
         $result = $conn->query($sql);
 
@@ -63,11 +63,11 @@
      */
     public static function getRecipesByCategory($conn, $catId){
      
-        $sql="SELECT r.id, r.titre, r.image, r.altImage, r.date
+        $sql="SELECT r.id, r.titre, r.imagef, r.altImage, r.pdate
         FROM tb_recette as r
         LEFT JOIN tb_liste_categories AS l on r.id = l.id_recette
         WHERE l.id_nom_categorie= :catId
-        ORDER BY r.date DESC;";
+        ORDER BY r.pdate DESC;";
       
         $stmt = $conn->prepare($sql);
 

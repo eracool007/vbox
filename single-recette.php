@@ -168,7 +168,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette[0]['id'], false);
         </div>
       </section>
   
-      <script>loadImage("<?= $singleRecette[0]['image']; ?>", "recipe-main"); </script>
+      <script>loadImage("<?= $singleRecette[0]['imagef']; ?>", "recipe-main"); </script>
 
 <?php require 'includes/footer.php'; ?>
 <?php ob_end_flush(); ?>
