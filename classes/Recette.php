@@ -129,6 +129,44 @@
         }
         
     }
+
+    /**------------------------------------------------------
+    * Validate recipe record
+    * 
+    * @return bool True if no error
+    */
+    protected function validateRecipe(){
+        if($this->titre =='') {
+            $this->error[] = "Titre requis";
+        }
+        if($this->pdate != ''){
+            $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
+    
+            if($date_time === false){
+                $this->error[] = 'Mauvais format de date';
+            } else {
+                $date_errors = date_get_last_errors();
+                if($date_errors['warning_count'] > 0) {
+                    $this->error[] = 'Mauvais format de date';
+                }
+            }
+        }
+        return empty($this->error);
+    }
+
+    /**------------------------------------------------------
+    * Add recipe into db
+    * 
+    * @param object $conn Connection to the db
+    * 
+    * @return boolean True if added, False otherwise
+    */
+    public function addRecipe($conn){
+
+
+    }
+
+
     
  }
     

@@ -105,23 +105,17 @@
     /**------------------------------------------------------
     * Validate article record
     * 
-    * @param varchar 255 $titre required Article title
-    * @param text $texte required Article content
-    * @param pdate $pdate Published date
-    * @param varchar 100 $imagef Article image filename
-    * @param varchar 255 $altImage Image alternate text and photo credits if required
-    * 
     * @return bool True if no error
     */
     protected function validateArticle()
     {
         
         if($this->titre == ''){
-            $this->errors[]= 'Titre requis';
+            $this->error[]= 'Titre requis';
         }
     
         if($this->texte == ''){
-            $this->errors[] = 'Contenu requis';
+            $this->error[] = 'Contenu requis';
         }
     
         if($this->pdate != ''){
@@ -136,7 +130,7 @@
                 }
             }
         }
-        return empty($this->errors);
+        return empty($this->error);
     }
     
 
