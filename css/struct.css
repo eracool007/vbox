@@ -137,6 +137,18 @@
   text-align: left;
   background-color: #fff;
   margin: 0 15px 5px 0px;
+ height: 350px;
+ max-height: 350px;
+  
+}
+.card-p0b {
+  padding: 0;
+  text-align: left;
+  background-color: #fff;
+  margin: 0 15px 5px 0px;
+ height: 300px;
+ max-height: 300px;
+  
 }
 
 .card25 {

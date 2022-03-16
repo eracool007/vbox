@@ -60,7 +60,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
               ?>
 
               <div class="column33">
-                <div class="card-p0 shadow">
+                <div class="card-p0b shadow">
                   <a href="single-recette.php?id=<?= $recipe['id']; ?>">
                   <div class="bg-image" id="<?= $idName; ?>" title="<?= $recipe['altImage']; ?>"></div></a>
                   <div class="card-inner">
