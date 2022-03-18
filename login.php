@@ -43,7 +43,7 @@ $conn = require 'includes/db.php';
             </div>
             <div>
                 <label form="password">Password</label>
-                <input name="password" id="password">
+                <input type="password" name="password" id="password">
             </div>
             <button>Connecter!</button>
         </form>

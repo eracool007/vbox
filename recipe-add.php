@@ -11,7 +11,11 @@ $conn = require 'includes/db.php';
 /*variable for type of header*/
 $type="admin";
 
-$singleRecipe = new Recipe();
+$singleRecipe = new Recette();
+$recipeCat = [];
+$recipeIng = array(
+
+);
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
@@ -25,20 +29,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $singleRecipe->preparation= $_POST['preparation'];
     $singleRecipe->cuisson= $_POST['cuisson'];
     $singleRecipe->portion= $_POST['portion'];
+
+    //put selected category ids in array
+    if(isset($_POST['cat'])){
+        
+        foreach($_POST['cat'] as $cat){
+
+            $recipeCat[] = $cat;
+      
+        }
+        
+    }
+   
+    //put ingredients in array
+   if(isset($_POST['ing'])){
     
+    $i=0;
+    foreach ($_POST['ing'] as $ingredient){
+       $recipeIng[] = $ingredient; 
+       $i++;
+    } 
+
+   } 
+
     if($singleRecipe->addRecipe($conn)){
        $numId = intval($singleRecipe->id); 
       
         Url::redirect("/single-recette.php?id=$numId");
     }
+
+
 }
-//--------------ici
+
+//$categoryList= new Categories();
+$allCategories = Categories::getAllCategories($conn);
 
 ?>
 <header>
   <?php
   require 'includes/navigation.php';
-
+  require 'includes/header-subpage.php';   
   $errorMsg = "La recette n'existe pas ou la page a été supprimée";           
 ?>
 
@@ -59,5 +89,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
     </section>  
     
-
+<script src="js/admin.js"></script>
 <?php require 'includes/footer.php'; ?>

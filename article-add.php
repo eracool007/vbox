@@ -23,9 +23,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($singleArticle->addArticle($conn)){
        $numId = intval($singleArticle->id); 
-      
-        Url::redirect("/single-blog.php?id=$numId");
+       Url::redirect("/single-blog.php?id=$numId");
     }
+     
 }
 
 

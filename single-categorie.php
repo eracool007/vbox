@@ -53,7 +53,7 @@ $numberOfCards = 0;
                             $numberOfCards++;
                           ?>
                             <div class="column25 mb-sm">
-                                <div class="card-p0 shadow">
+                                <div class="card-p0b shadow">
                                     <a href="single-recette.php?id=<?= $categoryItem['id']; ?>"><div class="bg-image" id="img-recette<?= $count; ?>" title="<?= $categoryItem['altImage']; ?>"></div></a>
                                     <div class="card-inner">
                                         <p><h4><?= $categoryItem['titre']; ?></h4> </p>

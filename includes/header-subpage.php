@@ -11,6 +11,11 @@ switch($type) {
     $mainTitle = "Recettes par catégories";
     $sousTitre = "";
     break;
+    
+  case "admin";
+    $mainTitle = "Administration";
+    $sousTitre ="";
+    break;
 
   case "single-categorie":
     if(isset($_GET['id'])){

@@ -1,5 +1,7 @@
 <?php
-                if(! empty($singleArticle->errors)): ?>
+                 
+                if(!empty($singleArticle->errors)): ?>
+                
                     <?php foreach($singleArticle->errors as $error): ?>
                         <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $error; ?></p>
                     <?php endforeach; ?>
@@ -18,7 +20,8 @@
                     </div>
                     <div>
                         <label for="date">Date</label>
-                        <input type="datetime-local" name="date" id="date" value="<?= htmlspecialchars($singleArticle->pdate); ?>">
+                       
+                        <input type="date" name="date" id="date" value="<?= htmlspecialchars($singleArticle->pdate); ?>">
                     </div>
 
                     <div>

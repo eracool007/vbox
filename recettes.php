@@ -9,7 +9,8 @@ $type = "recette";
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';
   $vedette = Random::randomItem($conn, "recette");
-  $categories = new Categories($conn);
+  //$categories = new Categories($conn);
+  $categories = Categories::getAllCategories($conn);
   
   ?>
 
@@ -55,13 +56,13 @@ $type = "recette";
           <div class="main-content">
              <!--Debut carte categorie-->
              <?php 
-             for ($i = 0; $i < count($categories->allCategoriesArray); $i++){ ?>
+             for ($i = 0; $i < count($categories); $i++){ ?>
 
              <div class="column25 mb-sm">
               <div class="card-p0b shadow">
-                <a href="single-categorie.php?id=<?= $categories->allCategoriesArray[$i]['id_categorie']; ?>"><div class="bg-image" id="img-cat<?= $i; ?>" title="<?= $categories->allCategoriesArray[$i]['altImage']; ?>"></div></a>
+                <a href="single-categorie.php?id=<?= $categories[$i]['id_categorie']; ?>"><div class="bg-image" id="img-cat<?= $i; ?>" title="<?= $categories[$i]['altImage']; ?>"></div></a>
                 <div class="card-inner">
-                  <p><h4><?= $categories->allCategoriesArray[$i]['nom_categorie']; ?></h4></p>
+                  <p><h4><?= $categories[$i]['nom_categorie']; ?></h4></p>
                 </div>
               </div>
             </div>              
@@ -76,10 +77,10 @@ $type = "recette";
       <script>loadImage("<?= $vedette[0]['imagef']; ?>", "recette_vedette"); </script>
       <?php 
         
-        for ($i = 0; $i < count($categories->allCategoriesArray); $i++){ ?>
+        for ($i = 0; $i < count($categories); $i++){ ?>
        
         <script>
-          loadImage("<?= $categories->allCategoriesArray[$i]['imagef']; ?>", "img-cat<?= $i; ?>"); 
+          loadImage("<?= $categories[$i]['imagef']; ?>", "img-cat<?= $i; ?>"); 
         </script>
           
         <?php } ?>

@@ -43,7 +43,7 @@
      public $portion;
 
     /** @var array Error array*/
-    public $error = [];
+    public $errors = [];
     
     public function __constructor($id, $titre, $description, $instructions, $notes, $pdate, $imagef, $altImage, $preparation, $cuisson, $portion) {
         $this->id = $id;
@@ -137,21 +137,48 @@
     */
     protected function validateRecipe(){
         if($this->titre =='') {
-            $this->error[] = "Titre requis";
+            $this->errors[] = "Titre requis";
         }
-        if($this->pdate != ''){
+        
+        /*if($this->pdate != ''){
+
             $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
-    
+            
+
             if($date_time === false){
-                $this->error[] = 'Mauvais format de date';
+                
+                $this->errors[] = 'Mauvais format de date';
+                
             } else {
                 $date_errors = date_get_last_errors();
                 if($date_errors['warning_count'] > 0) {
-                    $this->error[] = 'Mauvais format de date';
+                    $this->errors[] = 'Mauvais format de date';
                 }
             }
+        } */
+        
+        if($this->preparation !=""){
+            
+            if(! is_numeric($this->preparation)){
+            $this->errors[] = "Le temps de preparation doit être indiqué par un chiffre";
+            }
         }
-        return empty($this->error);
+
+        if($this->cuisson !=""){
+            
+            if(! is_numeric($this->cuisson)){
+            $this->errors[] = "Le temps de cuisson doit être indiqué par un chiffre";
+            }
+        }
+
+        if($this->cuisson !=""){
+            
+            if(! is_numeric($this->cuisson)){
+            $this->errors[] = "Le temps de cuisson doit être indiqué par un chiffre";
+            }
+        }
+
+        return empty($this->errors);
     }
 
     /**------------------------------------------------------
@@ -163,10 +190,57 @@
     */
     public function addRecipe($conn){
 
+        //temp
+        return false; exit; 
 
+        if($this->validateRecipe()){
+            
+            $sql = "INSERT INTO tb_recette(titre, description, instructions, notes, pdate, imagef, altImage, preparation, cuisson, portion)
+            VALUES (:titre, :description, :instructions, :notes, :pdate, :imagef, :altImage, :preparation, :cuisson, :portion);";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(':titre', $this->titre, PDO::PARAM_STR);
+            $stmt->bindValue(':instructions', $this->instructions, PDO::PARAM_STR);
+            $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+            $stmt->bindValue(':notes', $this->notes, PDO::PARAM_STR);
+            $stmt->bindValue(':imagef', $this->imagef, PDO::PARAM_STR);
+            $stmt->bindValue(':altImage', $this->altImage, PDO::PARAM_STR);
+           
+            if($this->pdate ==''){
+                $stmt->bindValue(':pdate', null, PDO::PARAM_NULL);
+            } else {
+                $stmt->bindValue(':pdate', $this->pdate, PDO::PARAM_STR);
+            }
+
+            if($this->preparation ==''){
+                $stmt->bindValue(':preparation', null, PDO::PARAM_NULL);
+            } else {
+                $stmt->bindValue(':preparation', $this->preparation, PDO::PARAM_INT);
+            }
+
+            if($this->cuisson ==''){
+                $stmt->bindValue(':cuisson', null, PDO::PARAM_NULL);
+            } else {
+                $stmt->bindValue(':cuisson', $this->cuisson, PDO::PARAM_INT);
+            }
+
+            if($this->portion ==''){
+                $stmt->bindValue(':portion', null, PDO::PARAM_NULL);
+            } else {
+                $stmt->bindValue(':portion', $this->portion, PDO::PARAM_INT);
+            }
+
+            if($stmt->execute()){
+                $this->id = $conn->lastInsertId();
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+        
     }
-
-
     
  }
     

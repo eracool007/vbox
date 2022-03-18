@@ -31,10 +31,11 @@ if(!isset($_SESSION)) {
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/struct.css" />
-    <script
+    <script src="https://kit.fontawesome.com/146f5f72b9.js" crossorigin="anonymous"></script>
+    <!--<script
       src="https://kit.fontawesome.com/4592bcc5fd.js"
       crossorigin="anonymous"
-    ></script>
+    ></script>-->
     <script src="js/script.js"></script>
     <title>V-Box : La boîte à recette végane</title>
   </head>

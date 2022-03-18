@@ -6,7 +6,8 @@
     
    //$categoryArray = new Categories($conn);
    //$categoryA=$categoryArray->allCategoriesArray;
-    
+  
+  
     
     ?>
                     <div class="cat-blog-box">

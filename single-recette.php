@@ -119,7 +119,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
                         ?>
                         <li class="ing">
                         <input type="checkbox" id="ing<?= $ing['id']; ?>" name="ingredient<?= $ing['id']; ?>" value="ingredient<?= $ing['id']; ?>">
-                        <label for="ingredient<?= $ing['id']; ?>"> <?= $ing['qty']; ?> <?= $ing['unite']; ?> <?= $ing['item']; ?>
+                        <label for="ingredient<?= $ing['id']; ?>"> <?= $ing['item']; ?>
                         
                       </label>
                         

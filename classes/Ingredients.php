@@ -6,6 +6,24 @@
  */
 class Ingredients {
 
+    /**@var int $id Ingredient id */
+    public $id;
+
+    /**@var int $id_recette Recipe id */
+    public $id_recipe;
+
+    /**@var varchar 150 $item Ingredient item */
+    public $item;
+
+
+    public function __constructor($id, $id_recette, $item){
+        
+        $this->id = $id;
+        $this->id_recette = $id_recette;
+        $this->item = $item;
+
+    }
+
     /**
      * Gets ingredients by recipe id
      * 
@@ -15,7 +33,7 @@ class Ingredients {
      * @return array Ingredient array
      */
     
-    public static function getIngredients($conn, $idNum) {
+     public static function getIngredients($conn, $idNum) {
         $sql ="SELECT *
             From tb_liste_ingredients
             WHERE id_recette = :idNum";

@@ -1,6 +1,5 @@
 <?php
-      $categoryArray = new Categories($conn);
-      $categoryA=$categoryArray->allCategoriesArray;
+     $categoryA=Categories::getAllCategories($conn);
 ?>
 <div class="fixed-top">
       <div class="row1 bg-dark">

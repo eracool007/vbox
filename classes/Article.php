@@ -26,7 +26,7 @@
     public $altImage;
 
     /** @var array Error array*/
-     public $error = [];
+     public $errors = [];
     
      
 
@@ -109,28 +109,31 @@
     */
     protected function validateArticle()
     {
-        
+         
         if($this->titre == ''){
-            $this->error[]= 'Titre requis';
+            
+            $this->errors[]= 'Titre requis';
         }
     
         if($this->texte == ''){
-            $this->error[] = 'Contenu requis';
+            $this->errors[] = 'Contenu requis';
         }
     
-        if($this->pdate != ''){
-            $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
-    
+        /*if($this->pdate != ''){
+           $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
+           
             if($date_time === false){
-                $this->error[] = 'Mauvais format de date';
+                $this->errors[] = 'Mauvais format de date';
             } else {
                 $date_errors = date_get_last_errors();
                 if($date_errors['warning_count'] > 0) {
-                    $this->error[] = 'Mauvais format de date';
+                    $this->errors[] = 'Mauvais format de date';
                 }
             }
-        }
-        return empty($this->error);
+        }*/
+        return empty($this->errors);
+        
+        
     }
     
 
@@ -145,6 +148,7 @@
     public function addArticle($conn){
         
         if($this->validateArticle()){
+            
              $sql = "INSERT INTO tb_article (titre, texte, pdate, imagef, altImage)
                 VALUES (:titre, :texte, :pdate, :imagef, :altImage);";
 

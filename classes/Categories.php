@@ -1,7 +1,7 @@
 <?php
 
 /**
- * class getting and containing all categories
+ * class for recipe category list
  * 
  */
 class Categories {
@@ -11,12 +11,32 @@ class Categories {
      */
     public $allCategoriesArray=[];
 
+    /** @var int $id*/
+    public $id;
+
+    /** @var int $id_recette */
+    public $id_recette;
+
+    /** @var int $id_nom_categorie */
+    public $id_nom_categorie;
+
+    /** @var array Error array*/
+     public $errors = [];
+    
+     
+
+    public function __constructor($id, $id_recette, $id_nom_categorie){
+        
+      $this->id = $id;
+      $this->id_recette = $id_recette;
+      $this->id_nom_categorie = $id_nom_categorie;
+    }
     /**------------------------------------------------------
-     * Get categories in an array 
+     * Get all categories in an array 
      * @param object $conn to db 
      * 
      */
-    public function __construct($conn) {
+    public static function getAllCategories($conn) {
 
         $sql = "SELECT *
                 FROM tb_categorie
@@ -24,7 +44,7 @@ class Categories {
 
         $result = $conn->query($sql);
 
-        $this->allCategoriesArray = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
         
         
     }

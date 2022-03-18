@@ -581,6 +581,15 @@ p.p-btn-big {
 .cta-plane{
   padding: 7px;
 }
+/*-----------------ADMIN----------------------*/
+.plus{
+  padding-left: 5px;
+  color: var(--main-dark);
+}
+.minus{
+  padding-left: 5px;
+  color: var(--red);
+}
 /*-----------------Footer---------------------*/
 footer{
   margin: 0;
