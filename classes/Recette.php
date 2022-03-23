@@ -191,7 +191,7 @@
     public function addRecipe($conn){
 
         //temp
-        return false; exit; 
+        return false; 
 
         if($this->validateRecipe()){
             

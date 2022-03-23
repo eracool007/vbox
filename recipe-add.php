@@ -11,14 +11,19 @@ $conn = require 'includes/db.php';
 /*variable for type of header*/
 $type="admin";
 
+//create new recipe array
 $singleRecipe = new Recette();
-$recipeCat = [];
-$recipeIng = array(
 
-);
+//create list of categories array
+$recipeCatArray = [];
+
+
+
+//create list of ingredients array
+$recipeIngArray = [];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
+
     $singleRecipe->titre= $_POST['titre'];
     $singleRecipe->description = $_POST['description'];
     $singleRecipe->instructions= $_POST['instructions'];
@@ -26,40 +31,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $singleRecipe->pdate = $_POST['date'];
     $singleRecipe->imagef = $_POST['image'];
     $singleRecipe->altImage = $_POST['altImage'];
-    $singleRecipe->preparation= $_POST['preparation'];
-    $singleRecipe->cuisson= $_POST['cuisson'];
-    $singleRecipe->portion= $_POST['portion'];
+    $singleRecipe->preparation = $_POST['preparation'];
+    $singleRecipe->cuisson = $_POST['cuisson'];
+    $singleRecipe->portion = $_POST['portion'];
 
     //put selected category ids in array
     if(isset($_POST['cat'])){
         
         foreach($_POST['cat'] as $cat){
 
-            $recipeCat[] = $cat;
+            $recipeCatArray[] = $cat;
       
         }
         
     }
-   
+  
     //put ingredients in array
    if(isset($_POST['ing'])){
+          
+       $i=0;
+       
+       foreach ($_POST['ing'] as $ingredient){
+        if($ingredient!= ""){
+            $recipeIngArray[] = $ingredient; 
+            
+        $i++;
+        }
+       } 
     
-    $i=0;
-    foreach ($_POST['ing'] as $ingredient){
-       $recipeIng[] = $ingredient; 
-       $i++;
-    } 
+  } 
 
-   } 
-
+    
     if($singleRecipe->addRecipe($conn)){
        $numId = intval($singleRecipe->id); 
       
         Url::redirect("/single-recette.php?id=$numId");
     }
 
-
 }
+//end $_post
 
 //$categoryList= new Categories();
 $allCategories = Categories::getAllCategories($conn);
@@ -73,7 +83,7 @@ $allCategories = Categories::getAllCategories($conn);
 ?>
 
 </header>
-<!--Add article-->
+
 <section>
 
     <div class="row1">
@@ -88,6 +98,6 @@ $allCategories = Categories::getAllCategories($conn);
     </div>
     </div>
     </section>  
-    
-<script src="js/admin.js"></script>
+
+
 <?php require 'includes/footer.php'; ?>

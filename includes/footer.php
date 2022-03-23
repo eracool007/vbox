@@ -30,6 +30,12 @@
         </div>
       </div>
     </footer>
+    <?php if (isset($type) && ($type="admin")) : ?>
+
+        <script src="js/admin.js"></script>
+    
+    <?php endif; ?>
+
   </body>
   
   

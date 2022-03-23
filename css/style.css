@@ -582,14 +582,24 @@ p.p-btn-big {
   padding: 7px;
 }
 /*-----------------ADMIN----------------------*/
+.circle-btn{
+  display:inline-block;
+}
 .plus{
   padding-left: 5px;
   color: var(--main-dark);
+ 
+  
 }
 .minus{
   padding-left: 5px;
   color: var(--red);
+ 
 }
+.hidden{
+  display: none;
+}
+
 /*-----------------Footer---------------------*/
 footer{
   margin: 0;
@@ -626,3 +636,5 @@ footer{
   padding-bottom: 0.5rem;
   
 }
+
+/* ---------------test area ---------------*/

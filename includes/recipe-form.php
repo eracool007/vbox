@@ -25,22 +25,59 @@ if(! empty($singleRecipe->errors)): ?>
         <?php
         $i=0;
         foreach($allCategories as $cat){ ?>
+           
+            <input type="checkbox" id="cat[<?= $i ?>]" name="cat[<?= $i ?>]" value="<?=$cat['id_categorie'] ?>"
+            <?php 
             
-            <input type="checkbox" id="cat[<?= $i ?>]" name="cat[<?= $i ?>]" value="<?=$cat['id_categorie'] ?>"> <label for="cat[<?= $i ?>] "><?=$cat['nom_categorie'] ?></label> <br>
+            if(in_array($cat['id_categorie'], $recipeCatArray)){ 
+              echo "checked";
+            }
+            ?>> 
+            <label for="cat[<?= $i ?>] "><?=$cat['nom_categorie'] ?></label> <br>
             
         <?php $i++; } ?>
         
     </div>
     <!-- INGREDIENTS -->
     Ingrédients
-    <div>
-        <label for="ing[0]">Ingredient:</label> <input type="text" id="ing[0]" name="ing[0]" value=""><i class="fas fa-plus-circle plus"></i><i class="fas fa-minus-circle minus"></i><br>
 
-        <label for="ing[1]">Ingredient:</label> <input type="text" id="ing[1]" name="ing[1]" value=""><i class="fas fa-plus-circle plus"></i><i class="fas fa-minus-circle minus"></i><br>
+   
+    <?php
+    $i=0;
 
-        <label for="ing[3]">Ingredient:</label> <input type="text" id="ing[2]" name="ing[2]" value=""><i class="fas fa-plus-circle plus"></i><i class="fas fa-minus-circle minus"></i><br>
-
-
+    foreach($recipeIngArray as $ing){ 
+        ?>
+        <div class="ingredient">
+            <label for="ing[<?= $i; ?>]">Ingredient:</label> <input type="text" size="75" id="ing[<?= $i; ?>]" name="ing[<?= $i; ?>]" value="<?= htmlspecialchars($ing); ?>">
+           
+           
+                <div class="circle-btn">
+                    <div class="circle-minus"><i class="fas fa-minus-circle minus"></i>
+                    </div>
+                </div>
+            
+        </div>
+       
+    <?php $i++; } ?>
+    
+   
+    <div id="ingredient-section">
+    <div class="ingredient">    
+        <label for="ing[]">Ingredient:</label> <input type="text" size="75" id="ing[]" name="ing[]" value="">
+       
+            <div class="circle-btn">
+                <div class="circle-minus"><i class="fas fa-minus-circle minus"></i>
+                </div>
+            </div>
+        
+    </div>
+    </div>
+    
+    <!--Add new ingredient button-->
+    <div class="circle-btn"><div class="circle-plus"><i class="fas fa-plus-circle plus"></i></div>
+    </div>
+    
+    Ajouter un ingredient</div>
     <div>
         <label for="instructions">Instructions</label>
     </div>
@@ -67,11 +104,11 @@ if(! empty($singleRecipe->errors)): ?>
         <label for="altImage">Texte alternatif pour image</label>
     </div>
     <div>
-        <textarea name="altImage" id="altImage" placeholder="Texte alternatif et crédit photo ici" rows="10" cols="100"><?= htmlspecialchars($singleRecipe->altImage); ?></textarea>
+        <textarea name="altImage" id="altImage" placeholder="Texte alternatif et crédit photo ici" rows="10" cols="100"><?= htmlspecialchars($singleRecipe->altImage); ?> </textarea>
     </div>
     <div>
         <label for="preparation">Temps de preparation en minutes</label>
-        <input type="number" name="preparation" id="preparation" value="<?= htmlspecialchars($singleRecette->preparation); ?>">
+        <input type="number" name="preparation" id="preparation" value="<?= htmlspecialchars($singleRecipe->preparation); ?>">
     </div>
     <div>
         <label for="cuisson">Temps de cuisson en minutes</label>
