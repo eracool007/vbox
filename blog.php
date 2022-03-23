@@ -29,7 +29,7 @@ $imgDirectory = 'blog';
         <h2 class="section-title">Bienvenue sur notre blog!</h2>
         <?php 
                     if ($log == "Quitter") :?>
-                        <p><a href="article-add.php" class="footer-links">Ajouter un article</a> </p>
+                        <p><a href="article-add.php" class="admin-links">Ajouter un article</a> </p>
                     <?php endif; ?>
           <h3>Résultats 1-<?=$numberOfArticles ?> de <?= $numberOfArticles ?></h3><br>
          

@@ -97,8 +97,12 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
               </aside>
             </div>
             <!--Description recette-->
+
             <section>
               <div class="row1">
+                <?php if($log == "Quitter") : ?> 
+                  <a class="admin-links" href="recipe-edit.php?id=<?= $singleRecette->id; ?>">Modifier</a>&nbsp;|&nbsp;<a class="admin-links" href="recipe-delete.php?id=<?= $singleRecette->id; ?>">Supprimer</a>&nbsp;|&nbsp;<a class="admin-links" href="recipe-image.php?id=<?= $singleRecette->id; ?>">Modifier l'image</a> 
+                <?php endif; ?> 
                 <h3 class="h3-sm">DESCRIPTION</h3>
                 <p class="p-single">
                 <?= $singleRecette->description; ?>

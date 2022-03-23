@@ -41,36 +41,37 @@ if(! empty($singleRecipe->errors)): ?>
     <!-- INGREDIENTS -->
     Ingrédients
 
-   
+    <div id="ingredient-section">
     <?php
     $i=0;
-
-    foreach($recipeIngArray as $ing){ 
+    if(!empty($recipeIngArray)){
+         foreach($recipeIngArray as $ing){ 
         ?>
         <div class="ingredient">
             <label for="ing[<?= $i; ?>]">Ingredient:</label> <input type="text" size="75" id="ing[<?= $i; ?>]" name="ing[<?= $i; ?>]" value="<?= htmlspecialchars($ing); ?>">
-           
-           
-                <div class="circle-btn">
+            
+            <div class="circle-btn">
                     <div class="circle-minus"><i class="fas fa-minus-circle minus"></i>
                     </div>
                 </div>
             
         </div>
        
-    <?php $i++; } ?>
-    
-   
-    <div id="ingredient-section">
-    <div class="ingredient">    
-        <label for="ing[]">Ingredient:</label> <input type="text" size="75" id="ing[]" name="ing[]" value="">
-       
+    <?php $i++; }
+    } else { ?>
+        <div class="ingredient">    
+            <label for="ing[]">Ingredient:</label> <input type="text" size="75" id="ing[]" name="ing[]" value="">
+        
             <div class="circle-btn">
                 <div class="circle-minus"><i class="fas fa-minus-circle minus"></i>
                 </div>
             </div>
+        </div>
+     <?php }?>
+    
+
+    
         
-    </div>
     </div>
     
     <!--Add new ingredient button-->

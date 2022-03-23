@@ -599,7 +599,14 @@ p.p-btn-big {
 .hidden{
   display: none;
 }
-
+.admin-links, .admin-links:visited{
+  font-size: 0.8rem;
+  color: var(--main-dark);
+}
+.admin-links:hover{
+  font-weight: bold;
+  text-decoration: none;
+}
 /*-----------------Footer---------------------*/
 footer{
   margin: 0;

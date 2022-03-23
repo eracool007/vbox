@@ -51,7 +51,7 @@ if(isset($_GET['id'])){
                     <h2 class="section-title pb-0"><?= htmlspecialchars($singleArticle->titre); ?></h2>
                     <?php 
                     if ($log == "Quitter") :?>
-                        <a href="article-edit.php?id=<?= $singleArticle->id; ?>" class="footer-links">Modifier</a> | <a href="article-delete.php?id=<?= $singleArticle->id; ?>" class="footer-links"> Supprimer</a>
+                        <a href="article-edit.php?id=<?= $singleArticle->id; ?>" class="admin-links">Modifier</a> | <a href="article-delete.php?id=<?= $singleArticle->id; ?>" class="admin-links"> Supprimer</a>
                     <?php endif; ?>
                     <!--Article complet-->
                     <p class="date"><?= $singleArticle->pdate; ?></p>
