@@ -27,7 +27,7 @@
     /** @var pdate Published date */
     public $pdate;
 
-    /** @var varchar 50 Image file name*/
+    /** @var varchar 200 Image file name*/
     public $imagef;
 
     /** @var varchar 255 Image alt text and photo credits*/

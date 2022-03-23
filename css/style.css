@@ -607,6 +607,9 @@ p.p-btn-big {
   font-weight: bold;
   text-decoration: none;
 }
+.edit-img{
+  width: 400px;
+}
 /*-----------------Footer---------------------*/
 footer{
   margin: 0;

@@ -24,12 +24,12 @@
                         <input type="date" name="date" id="date" value="<?= htmlspecialchars($singleArticle->pdate); ?>">
                     </div>
 
-                    <div>
+                    <!--<div>
                         <label for="image">Image</Iabel>
                         <input type="file" name="image" id="image" placeholder="Insérer une image" accept=".jpg, .png, .bmp" value="<?= htmlspecialchars($singleArticle->imagef); ?>"/>
                         </div>
 
-                    <div>
+                    <div> -->
                         <label for="altImage">Texte alternatif pour image</label>
                     </div>
                     <div>

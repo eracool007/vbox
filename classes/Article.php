@@ -19,7 +19,7 @@
     /** @var pdate Published date*/
     public $pdate;
 
-    /** @var varchar 100 Image file name*/
+    /** @var varchar 200 Image file name*/
     public $imagef;
 
     /** @var varchar 255 */
@@ -149,14 +149,14 @@
         
         if($this->validateArticle()){
             
-             $sql = "INSERT INTO tb_article (titre, texte, pdate, imagef, altImage)
-                VALUES (:titre, :texte, :pdate, :imagef, :altImage);";
+             $sql = "INSERT INTO tb_article (titre, texte, pdate, altImage)
+                VALUES (:titre, :texte, :pdate, :altImage);";
 
             $stmt = $conn->prepare($sql);
 
             $stmt->bindValue(':titre', $this->titre, PDO::PARAM_STR);
             $stmt->bindValue(':texte', $this->texte, PDO::PARAM_STR);
-            $stmt->bindValue(':imagef', $this->imagef, PDO::PARAM_STR);
+            //$stmt->bindValue(':imagef', $this->imagef, PDO::PARAM_STR);
             $stmt->bindValue(':altImage', $this->altImage, PDO::PARAM_STR);
 
             if($this->pdate ==''){
@@ -190,7 +190,7 @@
                 SET titre = :titre, 
                     texte = :texte,
                     pdate = :pdate,
-                    imagef = :imagef,
+                    
                     altImage = :altImage
                 WHERE id = :id;";
 
@@ -199,7 +199,7 @@
         $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
         $stmt->bindValue(':titre', $this->titre, PDO::PARAM_STR);
         $stmt->bindValue(':texte', $this->texte, PDO::PARAM_STR);
-        $stmt->bindValue(':imagef', $this->imagef, PDO::PARAM_STR);
+        
         $stmt->bindValue(':altImage', $this->altImage, PDO::PARAM_STR);
 
         if($this->pdate ==''){
@@ -233,6 +233,25 @@
         
         return $stmt->execute();
 
+    }
+
+    /**------------------------------------------------------
+    * setImageFile
+    * 
+    * @param object $conn Connection to the db
+    * @param string $filename Filename of image
+    * 
+    * @return boolean True if delete successfull
+    */
+    public function setImageFile($conn, $filename){
+        $sql = "UPDATE tb_article
+                SET imagef = :imagef
+                WHERE id = :id";
+        $stmt= $conn->prepare($sql);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':imagef', $filename, PDO::PARAM_STR);
+
+        return $stmt->execute();
     }
     
  }
