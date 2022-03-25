@@ -8,9 +8,9 @@
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo,
             nesciunt ducimus cumque ullam ut sint. 
           </p>
-          <form action="subscribe.php">
+          <form action="index.php" method="POST" id="contact" enctype="multipart/form-data">
             <div class="cta-box">
-              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><i class="fas fa-paper-plane"></i>
+              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button class="btn_mailing"><i class="fas fa-paper-plane"></i></button>
             </div>
             
           </form>

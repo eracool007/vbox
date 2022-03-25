@@ -155,7 +155,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
             </section>
 
             <?php 
-            if($singleRecette->notes && $singleRecette->notes != ""){ ?>
+            if($singleRecette->notes && $singleRecette->notes != "" && $singleRecette->notes != " "){ ?>
               <section class="mt-0">
                 <div class="bg-light-yellow">
                     <div class="row1 p-sm">

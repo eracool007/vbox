@@ -576,10 +576,21 @@ p.p-btn-big {
     outline: none;
     border: none; 
     font-style: italic;
+    background-color: white;
 }
 
-.cta-plane{
-  padding: 7px;
+.btn_mailing{
+  background-color: white;
+  color: var(--main-dark);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1rem;
+}
+.btn_mailing:hover {
+  
+  color: var(--orange);
 }
 /*-----------------ADMIN----------------------*/
 .circle-btn{
