@@ -42,10 +42,16 @@
      /** @var int Number of portions*/
      public $portion;
 
+     /** @var Array $category containing array of categories */
+     public $category = [];
+
+     /** @var Array $items array containing recipe ingredients*/
+     public $items = [];
+
     /** @var array Error array*/
     public $errors = [];
     
-    public function __constructor($id, $titre, $description, $instructions, $notes, $pdate, $imagef, $altImage, $preparation, $cuisson, $portion) {
+    public function __constructor($id, $titre, $description, $instructions, $notes, $pdate, $imagef, $altImage, $preparation, $cuisson, $portion, $category) {
         $this->id = $id;
         $this->titre = $titre;
         $this->description = $description;
@@ -57,6 +63,8 @@
         $this->preparation = $preparation;
         $this->cuisson = $cuisson;
         $this->portion = $portion;
+        $this->category = $category;
+        
     }
     
     /**---------------------------------------------  
@@ -139,7 +147,10 @@
         if($this->titre =='') {
             $this->errors[] = "Titre requis";
         }
-        
+        if(empty($this->category)){
+            $this->errors[] = "Au moins une catégorie est requise.";
+            
+        }
         /*if($this->pdate != ''){
 
             $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
@@ -177,8 +188,9 @@
             $this->errors[] = "Le temps de cuisson doit être indiqué par un chiffre";
             }
         }
-
-        return empty($this->errors);
+       
+       return empty($this->errors);
+       
     }
 
     /**------------------------------------------------------
@@ -190,58 +202,292 @@
     */
     public function addRecipe($conn){
 
-        //temp
-        return false; 
+        //return false; 
 
         if($this->validateRecipe()){
+      
+            try{
+
+                $conn->beginTransaction();
+
+                //recipe section here
+                
+                $sql = "INSERT INTO tb_recette(titre, description, instructions, notes, pdate, altImage, preparation, cuisson, portion)
+                VALUES (:titre, :description, :instructions, :notes, :pdate, :altImage, :preparation, :cuisson, :portion);";
+
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bindValue(':titre', $this->titre, PDO::PARAM_STR);
+                $stmt->bindValue(':instructions', $this->instructions, PDO::PARAM_STR);
+                $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+                $stmt->bindValue(':notes', $this->notes, PDO::PARAM_STR);
+                //$stmt->bindValue(':imagef', $this->imagef, PDO::PARAM_STR);
+                $stmt->bindValue(':altImage', $this->altImage, PDO::PARAM_STR);
             
-            $sql = "INSERT INTO tb_recette(titre, description, instructions, notes, pdate, imagef, altImage, preparation, cuisson, portion)
-            VALUES (:titre, :description, :instructions, :notes, :pdate, :imagef, :altImage, :preparation, :cuisson, :portion);";
+                if($this->pdate ==''){
+                    $stmt->bindValue(':pdate', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':pdate', $this->pdate, PDO::PARAM_STR);
+                }
 
-            $stmt = $conn->prepare($sql);
+                if($this->preparation ==''){
+                    $stmt->bindValue(':preparation', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':preparation', $this->preparation, PDO::PARAM_INT);
+                }
 
-            $stmt->bindValue(':titre', $this->titre, PDO::PARAM_STR);
-            $stmt->bindValue(':instructions', $this->instructions, PDO::PARAM_STR);
-            $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
-            $stmt->bindValue(':notes', $this->notes, PDO::PARAM_STR);
-            $stmt->bindValue(':imagef', $this->imagef, PDO::PARAM_STR);
-            $stmt->bindValue(':altImage', $this->altImage, PDO::PARAM_STR);
+                if($this->cuisson ==''){
+                    $stmt->bindValue(':cuisson', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':cuisson', $this->cuisson, PDO::PARAM_INT);
+                }
+
+                if($this->portion ==''){
+                    $stmt->bindValue(':portion', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':portion', $this->portion, PDO::PARAM_INT);
+                }
+
+                if($stmt->execute()){
+                    $this->id = $conn->lastInsertId();
+                }
+
+                //category section 
+               foreach($this->category as $cat){
+
+                $sql = "INSERT INTO tb_liste_categories(id_recette, id_nom_categorie)
+                        VALUES(:id_recette, :id_nomcategorie);";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->bindValue(':id_recette', intval($this->id), PDO::PARAM_INT);
+                $stmt->bindValue(':id_nomcategorie', $cat, PDO::PARAM_INT);
+
+                $stmt->execute();
+
+                }
+                
+                //item section here
+                
+                foreach($this->items as $item) {
+                  
+                    $sql ="INSERT INTO tb_liste_ingredients(id_recette, item)
+                            VALUES(:id_recette, :item);";
+                    
+                    $stmt = $conn->prepare($sql);
+                    
+                    $stmt->bindValue(':id_recette', intval($this->id), PDO::PARAM_INT);
+                    $stmt->bindValue(':item', $item, PDO::PARAM_STR);
+                    $stmt->execute();
+                    
+                } 
+                
+                return $conn->commit();
+                
+
+            } catch (\PDOException $e) {
+                $conn->rollBack();
+                die("Il semble y avoir eu une erreur."); 
+            }
            
-            if($this->pdate ==''){
-                $stmt->bindValue(':pdate', null, PDO::PARAM_NULL);
-            } else {
-                $stmt->bindValue(':pdate', $this->pdate, PDO::PARAM_STR);
-            }
 
-            if($this->preparation ==''){
-                $stmt->bindValue(':preparation', null, PDO::PARAM_NULL);
-            } else {
-                $stmt->bindValue(':preparation', $this->preparation, PDO::PARAM_INT);
-            }
-
-            if($this->cuisson ==''){
-                $stmt->bindValue(':cuisson', null, PDO::PARAM_NULL);
-            } else {
-                $stmt->bindValue(':cuisson', $this->cuisson, PDO::PARAM_INT);
-            }
-
-            if($this->portion ==''){
-                $stmt->bindValue(':portion', null, PDO::PARAM_NULL);
-            } else {
-                $stmt->bindValue(':portion', $this->portion, PDO::PARAM_INT);
-            }
-
-            if($stmt->execute()){
-                $this->id = $conn->lastInsertId();
-                return true;
-            } else {
-                return false;
-            }
-
+        } else {
+             
+            return false;
+            
         }
         
     }
-    
+    /**------------------------------------------------------
+    * Update recette into db
+    * 
+    * @param object $conn Connection to the db
+    * 
+    * @return boolean True if update successfull
+    */
+    public function updateRecipe($conn){
+
+        if($this->validateRecipe()){
+            $this->deleteCat($conn);
+            $this->deleteItem($conn);
+            
+            try{
+
+                $conn->beginTransaction();
+
+                //recipe section here
+                
+                $sql = "UPDATE tb_recette
+                        SET titre = :titre,
+                            description = :description,
+                            instructions = :instructions,
+                            notes = :notes,
+                            pdate = :pdate,
+                            altImage = :altImage,
+                            preparation = :preparation,
+                            cuisson = :cuisson,
+                            portion = :portion
+                        WHERE id = :id;";
+
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+                $stmt->bindValue(':titre', $this->titre, PDO::PARAM_STR);
+                $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+                $stmt->bindValue(':instructions', $this->instructions, PDO::PARAM_STR);
+                $stmt->bindValue(':notes', $this->notes, PDO::PARAM_STR);
+
+                $stmt->bindValue(':altImage', $this->altImage, PDO::PARAM_STR);
+            
+                if($this->pdate ==''){
+                    $stmt->bindValue(':pdate', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':pdate', $this->pdate, PDO::PARAM_STR);
+                }
+
+                if($this->preparation ==''){
+                    $stmt->bindValue(':preparation', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':preparation', $this->preparation, PDO::PARAM_INT);
+                }
+
+                if($this->cuisson ==''){
+                    $stmt->bindValue(':cuisson', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':cuisson', $this->cuisson, PDO::PARAM_INT);
+                }
+
+                if($this->portion ==''){
+                    $stmt->bindValue(':portion', null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(':portion', $this->portion, PDO::PARAM_INT);
+                }
+
+                $stmt->execute();
+                
+               //category section 
+               //delete all categories first?
+
+              
+               foreach($this->category as $cat){
+
+                $sql = "INSERT INTO tb_liste_categories(id_recette, id_nom_categorie)
+                        VALUES(:id_recette, :id_nomcategorie);";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->bindValue(':id_recette', intval($this->id), PDO::PARAM_INT);
+                $stmt->bindValue(':id_nomcategorie', $cat, PDO::PARAM_INT);
+
+                $stmt->execute();
+
+                }
+                
+                //item section here
+                //delete all ingredients first?
+                
+                foreach($this->items as $item) {
+                  
+                    $sql ="INSERT INTO tb_liste_ingredients(id_recette, item)
+                            VALUES(:id_recette, :item);";
+                    
+                    $stmt = $conn->prepare($sql);
+                    
+                    $stmt->bindValue(':id_recette', intval($this->id), PDO::PARAM_INT);
+                    $stmt->bindValue(':item', $item, PDO::PARAM_STR);
+                    $stmt->execute();
+                    
+                } 
+                
+                return $conn->commit();
+                
+            } catch (\PDOException $e) {
+                $conn->rollBack();
+                die("Il semble y avoir eu une erreur."); 
+            }
+           
+
+        } else {
+             
+            return false;
+            
+        }
+
+    }
+
+    /**------------------------------------------------------
+    * Delete category from tb_liste_categories
+    * 
+    */
+    private function deleteCat($conn){
+
+        $sql = "DELETE FROM tb_liste_categories
+                WHERE id_recette = :id;";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        
+        return $stmt->execute();
+
+    }
+
+     /**------------------------------------------------------
+    * Delete ingredient item from tb_liste_ingredients
+    * 
+    */
+    private function deleteItem($conn){
+
+        $sql = "DELETE FROM tb_liste_ingredients
+                WHERE id_recette = :id;";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        
+        return $stmt->execute();
+
+    }
+
+    /**------------------------------------------------------
+    * Delete article
+    * 
+    * @param object $conn Connection to the db
+    * 
+    * @return boolean True if delete successfull
+    */
+    public function deleteRecipe($conn){
+
+        $this->deleteCat($conn);
+        $this->deleteItem($conn);
+        $sql = "DELETE FROM tb_recette
+                WHERE id = :id;";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        
+        return $stmt->execute();
+
+    }
+
+
+    /**------------------------------------------------------
+    * setImageFile
+    * 
+    * @param object $conn Connection to the db
+    * @param string $filename Filename of image
+    * 
+    * @return boolean True if delete successfull
+    */
+    public function setImageFile($conn, $filename){
+        $sql = "UPDATE tb_recette
+                SET imagef = :imagef
+                WHERE id = :id";
+        $stmt= $conn->prepare($sql);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':imagef', $filename, PDO::PARAM_STR);
+
+        return $stmt->execute();
+    }
  }
     
  

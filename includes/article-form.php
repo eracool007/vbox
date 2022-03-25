@@ -9,14 +9,15 @@
 
                 <form method="post">
                     <div>
-                        <label for="titre">Titre</label>
-                        <input name="titre" id="titre" placeholder="Titre de l'article" value="<?= htmlspecialchars($singleArticle->titre); ?>"> 
+                        <label for="titre">Titre</label><div>
+                    <div>
+                        <input name="titre" id="titre" placeholder="Titre de l'article" size="100" value="<?= htmlspecialchars($singleArticle->titre); ?>"> 
                     </div>
                     <div>
                         <label for="texte">Contenu</label>
                     </div>
                     <div>
-                        <textarea name="texte" id="texte" placeholder="Contenu de l'article" rows="10" cols="100" ><?= htmlspecialchars($singleArticle->texte); ?></textarea>
+                        <textarea name="texte" id="texte" placeholder="Contenu de l'article" rows="10" cols="100" ><?= html_entity_decode($singleArticle->texte); ?></textarea>
                     </div>
                     <div>
                         <label for="date">Date</label>

@@ -101,11 +101,11 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
             <section>
               <div class="row1">
                 <?php if($log == "Quitter") : ?> 
-                  <a class="admin-links" href="recipe-edit.php?id=<?= $singleRecette->id; ?>">Modifier</a>&nbsp;|&nbsp;<a class="admin-links" href="recipe-delete.php?id=<?= $singleRecette->id; ?>">Supprimer</a>&nbsp;|&nbsp;<a class="admin-links" href="recipe-image.php?id=<?= $singleRecette->id; ?>">Modifier l'image</a> 
+                  <a class="admin-links" href="recette-edit.php?id=<?= $singleRecette->id; ?>">Modifier</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-delete.php?id=<?= $singleRecette->id; ?>">Supprimer</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-image-edit.php?id=<?= $singleRecette->id; ?>">Modifier l'image</a> 
                 <?php endif; ?> 
                 <h3 class="h3-sm">DESCRIPTION</h3>
                 <p class="p-single">
-                <?= $singleRecette->description; ?>
+                <?= html_entity_decode($singleRecette->description); ?>
                 </p>
             </div>
               
@@ -148,7 +148,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
               <div class="row1">
                 <h3 class="h3-sm">PREPARATION</h3>
                 <p class="p-single">
-                <?= $singleRecette->instructions; ?>
+                <?= html_entity_decode($singleRecette->instructions); ?>
               </p>
             
             </div>
@@ -161,7 +161,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
                     <div class="row1 p-sm">
                     <h3 class="h3-sm">NOTES</h3>
                     <p class="p-single p-sm">
-                    <?= $singleRecette->notes; ?>
+                    <?= html_entity_decode($singleRecette->notes); ?>
                     </p>
                     </div>
                 </div>

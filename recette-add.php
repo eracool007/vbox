@@ -14,22 +14,14 @@ $type="admin";
 //create new recipe array
 $singleRecipe = new Recette();
 
-//create list of categories array
-$recipeCatArray = [];
-
-
-
-//create list of ingredients array
-$recipeIngArray = [];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $singleRecipe->titre= $_POST['titre'];
-    $singleRecipe->description = $_POST['description'];
-    $singleRecipe->instructions= $_POST['instructions'];
-    $singleRecipe->notes= $_POST['notes'];
+    $singleRecipe->description = htmlentities($_POST['description']);
+    $singleRecipe->instructions= htmlentities($_POST['instructions']);
+    $singleRecipe->notes= htmlentities($_POST['notes']);
     $singleRecipe->pdate = $_POST['date'];
-    $singleRecipe->imagef = $_POST['image'];
     $singleRecipe->altImage = $_POST['altImage'];
     $singleRecipe->preparation = $_POST['preparation'];
     $singleRecipe->cuisson = $_POST['cuisson'];
@@ -39,39 +31,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST['cat'])){
         
         foreach($_POST['cat'] as $cat){
-
-            $recipeCatArray[] = $cat;
+    
+            $singleRecipe->category[] = $cat;
       
         }
-        
     }
-  
-    //put ingredients in array
+   
+   //put ingredients in array
    if(isset($_POST['ing'])){
           
        $i=0;
-       
        foreach ($_POST['ing'] as $ingredient){
         if($ingredient!= ""){
-            $recipeIngArray[] = $ingredient; 
+            
+            $singleRecipe->items[] = $ingredient;
             
         $i++;
         }
-       } 
-    
-  } 
-
-    
+       }
+    } 
+   
     if($singleRecipe->addRecipe($conn)){
-       $numId = intval($singleRecipe->id); 
-      
+        
+        $numId = intval($singleRecipe->id); 
         Url::redirect("/single-recette.php?id=$numId");
-    }
-
+    } 
 }
 //end $_post
 
-//$categoryList= new Categories();
 $allCategories = Categories::getAllCategories($conn);
 
 ?>
@@ -79,7 +66,7 @@ $allCategories = Categories::getAllCategories($conn);
   <?php
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';   
-  $errorMsg = "La recette n'existe pas ou la page a été supprimée";           
+       
 ?>
 
 </header>
@@ -91,7 +78,7 @@ $allCategories = Categories::getAllCategories($conn);
             <div class="row1">
                 <h2>Ajouter Une recette</h2>
                 
-                <?php require 'includes/recipe-form.php'; ?>
+                <?php require 'includes/recette-form.php'; ?>
 
             <!--fin row1-->    
             </div>

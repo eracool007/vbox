@@ -31,7 +31,7 @@ if(isset($_GET['id'])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $singleArticle->titre= $_POST['titre'];
-    $singleArticle->texte = $_POST['texte'];
+    $singleArticle->texte = htmlentities($_POST['texte']);
     $singleArticle->pdate = $_POST['date'];
     //$singleArticle->imagef = $_POST['image'];
     $singleArticle->altImage = $_POST['altImage'];

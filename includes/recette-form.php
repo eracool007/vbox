@@ -7,31 +7,41 @@ if(! empty($singleRecipe->errors)): ?>
     <?php endforeach; ?>
     <?php endif; ?>
 
+
 <form method="post">
     <div>
-        <label for="titre">Titre</label>
-        <input name="titre" id="titre" placeholder="Titre de la recette" value="<?= htmlspecialchars($singleRecipe->titre); ?>"> 
+        <label for="titre">Titre</label><div>
+    <div>
+        <input name="titre" id="titre" placeholder="Titre de la recette" value="<?= htmlspecialchars($singleRecipe->titre); ?>" size="100"> 
+        
     </div>
     <div>
         <label for="description">Description</label>
     </div>
     <div>
-        <textarea rows="10" cols="100" name="description" id="description" placeholder="Description de la recette" value="<?= htmlspecialchars($singleRecipe->description); ?>"> </textarea>
+        <textarea rows="10" cols="100" name="description" id="description" placeholder="Description de la recette"><?= html_entity_decode($singleRecipe->description); ?></textarea>
+        
     </div>
     <!-- CATEGORIES -->
     Catégories
 
     <div>
         <?php
+        
         $i=0;
         foreach($allCategories as $cat){ ?>
            
             <input type="checkbox" id="cat[<?= $i ?>]" name="cat[<?= $i ?>]" value="<?=$cat['id_categorie'] ?>"
             <?php 
             
-            if(in_array($cat['id_categorie'], $recipeCatArray)){ 
-              echo "checked";
+            if(!empty($singleRecipe->category)){
+                if(in_array($cat['id_categorie'], $singleRecipe->category)){
+
+                echo "checked";
             }
+            
+            }
+       
             ?>> 
             <label for="cat[<?= $i ?>] "><?=$cat['nom_categorie'] ?></label> <br>
             
@@ -44,8 +54,10 @@ if(! empty($singleRecipe->errors)): ?>
     <div id="ingredient-section">
     <?php
     $i=0;
-    if(!empty($recipeIngArray)){
-         foreach($recipeIngArray as $ing){ 
+    
+    if(!empty($singleRecipe->items)){
+         //foreach($recipeIngArray as $ing){ 
+        foreach($singleRecipe->items as $ing){
         ?>
         <div class="ingredient">
             <label for="ing[<?= $i; ?>]">Ingredient:</label> <input type="text" size="75" id="ing[<?= $i; ?>]" name="ing[<?= $i; ?>]" value="<?= htmlspecialchars($ing); ?>">
@@ -83,29 +95,30 @@ if(! empty($singleRecipe->errors)): ?>
         <label for="instructions">Instructions</label>
     </div>
     <div>
-        <textarea rows="10" cols="100" name="instructions" id="instructions" placeholder="Instructions de la recette" value="<?= htmlspecialchars($singleRecipe->instructions); ?>"> </textarea>
+        <textarea rows="10" cols="100" name="instructions" id="instructions" placeholder="Instructions de la recette"><?= html_entity_decode($singleRecipe->instructions); ?></textarea>
     </div>
     <div>
         <label for="notes">Notes</label>
     </div>
     <div>
-        <textarea rows="10" cols="100" name="notes" id="notes" value="<?= htmlspecialchars($singleRecipe->notes); ?>"> </textarea>
+        <textarea rows="10" cols="100" name="notes" id="notes"><?= html_entity_decode($singleRecipe->notes); ?></textarea>
     </div>
     <div>
         <label for="date">Date</label>
         <input type="date" name="date" id="date" value="<?= htmlspecialchars($singleRecipe->pdate); ?>">
     </div>
-
+    
+    <!--
     <div>
         <label for="image">Image</Iabel>
         <input type="file" name="image" id="image" placeholder="Insérer une image" accept=".jpg, .png, .bmp" value="<?= htmlspecialchars($singleRecipe->imagef); ?>"/>
         </div>
-
-    <div>
+-->
+    <div> 
         <label for="altImage">Texte alternatif pour image</label>
     </div>
     <div>
-        <textarea name="altImage" id="altImage" placeholder="Texte alternatif et crédit photo ici" rows="10" cols="100"><?= htmlspecialchars($singleRecipe->altImage); ?> </textarea>
+        <textarea name="altImage" id="altImage" placeholder="Texte alternatif et crédit photo ici" rows="10" cols="100"><?= htmlspecialchars($singleRecipe->altImage); ?></textarea>
     </div>
     <div>
         <label for="preparation">Temps de preparation en minutes</label>

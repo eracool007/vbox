@@ -56,7 +56,7 @@ if(isset($_GET['id'])){
                     <!--Article complet-->
                     <p class="date"><?= $singleArticle->pdate; ?></p>
                     <p class="p-single">
-                        <?= htmlspecialchars($singleArticle->texte);?>
+                        <?= html_entity_decode($singleArticle->texte);?>
                     </p>
                 </div>
                 <!--fin col-left-->

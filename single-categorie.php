@@ -28,6 +28,9 @@ $numberOfCards = 0;
     <section>
     <div class="row1">
         <div class="main-content align-text-l">
+        <?php if($log == "Quitter") : ?> 
+                  <a class="admin-links" href="recette-add.php">Ajouter une recette</a>
+        <?php endif; ?> 
         <h2 class="section-title">Resultats 1-12 de 25</h2>
         </div>
     </div>
