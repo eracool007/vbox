@@ -81,6 +81,44 @@
         return $result->fetchAll(PDO::FETCH_ASSOC);
      }
 
+
+    /** Get page of articles
+    *
+    * @param object $conn Connection to db
+    * @param integer $limit Number of article to return
+    * @param integer $offset Number of article to skip
+    * @return array Associative array of articles for actual page
+    */
+    public static function getPage($conn, $limit, $offset){
+        $sql = "SELECT *
+        FROM tb_article
+        ORDER BY pdate DESC
+        LIMIT :limit
+        OFFSET :offset;";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Count number of articles
+     * 
+     * @var object $conn Connection to db
+     * 
+     * @return integer Number of article records
+     * 
+     */
+    public static function countArticles($conn){
+        return $conn->query('SELECT COUNT(*) FROM tb_article')->fetchColumn();
+
+    }
+
     /**------------------------------------------------------
     * Get the latest article
     * 

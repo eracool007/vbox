@@ -12,14 +12,17 @@ $type="blog";
   
     </header>   
 <?php
-$articleArray = Article::getAllArticles($conn);
-$numberOfArticles = count($articleArray);
+//if 'page' exist will use $_get['page'], if not, will use 1,4
+$pagination = new Pagination($_GET['page'] ?? 1, 8, Article::countArticles($conn));
+
+$articleArray = Article::getPage($conn, $pagination->limit, $pagination->offset);
+$numberOfArticlesOnPage = $pagination->firstRecordOfPage + count($articleArray) - 1;
+$numberOfArticles = Article::countArticles($conn);
+
+
 $numberOfCards=0;
 $feature = 'recette';
 /*indicates wich type to feature in right navigation*/
-
-
-$imgDirectory = 'blog';
 
 ?>
 <!--section articles-->
@@ -31,9 +34,10 @@ $imgDirectory = 'blog';
                     if ($log == "Quitter") :?>
                         <p><a href="article-add.php" class="admin-links">Ajouter un article</a> </p>
                     <?php endif; ?>
-          <h3>Résultats 1-<?=$numberOfArticles ?> de <?= $numberOfArticles ?></h3><br>
+          <h3>Résultats <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfArticlesOnPage ?> de <?= $numberOfArticles ?></h3><br>
          
         </div>
+        
     </div>
     <div class="row1">
         <div class="main-content">
@@ -56,7 +60,7 @@ $imgDirectory = 'blog';
                             <div class="bg-image" id="<?= $idName ?>" title="<?= $article['altImage']; ?>"></div></a>
                             <div class="card-inner">
                                 <p><h4><?= $article['titre']; ?></h4> </p>
-                                <p class="p-blog-intro"><?= substr($article['texte'], 0, 50) . "... "; ?> <a class="footer-links" href="single-blog.php?<?= $article['id']; ?>">Lire</a></p>
+                                <p class="p-blog-intro"><?= substr($article['texte'], 0, 50) . "... "; ?> <a class="footer-links" href="single-blog.php?id=<?= $article['id']; ?>">Lire</a></p>
                             </div>
                           </article>
                         </div>
@@ -68,9 +72,9 @@ $imgDirectory = 'blog';
                     
                 } ?>
                 
-                 
+
               </div>
-            
+
 
           <!--fin col-left-->
           <!--section menu des categories-->
@@ -85,17 +89,28 @@ $imgDirectory = 'blog';
     </div>
   </div>
 </section>  
-
 <section>
-  <div class="main-content">
-    <!-- <div class="row1">
+  
+    
+    <nav class="main-content">
+        <ul class="page-nav list-none pagination">
+            <?php if($pagination->previous) : ?>
+            <li><a href="?page=<?= $pagination->previous; ?>" class="page-nav-link"><i class="fas fa-chevron-left chevrons"></i> Page précédente</a></li>
+            <?php else: ?>
+            <li class="not-visible"><i class="fas fa-chevron-left chevrons"></i> Page précédente</li>
+            <?php endif; ?>
 
-      <div class="page-nav">
-        <a href="#" class="page-nav-link"><i class="fas fa-chevron-left chevrons"></i> Page précédente</a>
-        <a href="#" class="page-nav-link"> Page suivante <i class="fas fa-chevron-right chevrons"></i></a>
-      </div>
-    </div> -->
-  </div>
+            <?php if($pagination->next) : ?>
+            <li><a href="?page=<?= $pagination->next; ?>" class="page-nav-link"> Page suivante <i class="fas fa-chevron-right chevrons"></i></a></li>
+            <?php else: ?>
+            <li class="not-visible">Page suivante <i class="fas fa-chevron-right chevrons"></i></li>
+            <?php endif; ?>
+
+        </ul>
+        
+      </nav>
+    
+  
 </section>
 
 

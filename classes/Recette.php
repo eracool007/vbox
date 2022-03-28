@@ -83,6 +83,46 @@
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Get page of recipes
+     * @param object $conn Connection to db
+     * 
+     * @param integer $limit Number of recipes to return
+     * @param integer $offset Number of recipes to skip
+     * @return array Associative array of recipes for actual page
+     */
+
+    public static function getPage($conn, $limit, $offset, $catId){
+        $sql="SELECT r.id, r.titre, r.imagef, r.altImage, r.pdate
+            FROM tb_recette as r
+            LEFT JOIN tb_liste_categories AS l on r.id = l.id_recette
+            WHERE l.id_nom_categorie= :catId
+            ORDER BY r.pdate DESC
+            limit :limit
+            offset :offset";
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':catId', $catId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue('offset', $offset, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Counts number of recipes
+     * 
+     * @var object $conn Connection to db
+     * 
+     * @return integer Number of article records
+     * 
+     */
+    public static function countRecipes($conn){
+        return $conn->query('SELECT COUNT(*) FROM tb_recette')->fetchColumn();
+    }
+
     /**---------------------------------------------  
      * Get all recipies by category
      * 

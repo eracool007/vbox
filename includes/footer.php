@@ -1,5 +1,5 @@
     <!--section CTA-->
-    <section class="p-0">
+    <section class="p-0" id="infolettre">
       <div class="row1 bg-light-green">
         <div class="main-content align-text-c">
           <div class="cta">

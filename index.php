@@ -56,7 +56,7 @@ $conn = require 'includes/db.php';
       
       try {
         mail($to, $subject, $comment, $headers);
-        echo "<script> alert('Courriel envoye') </script>";
+        echo "<script> alert('Merci, votre courriel a été envoyé et vous serez ajouté à notre liste de distribution!') </script>";
       } catch (Exception $e){
         echo "<script> alert('Le message n'a pas pu être envoyé. Veuillez réessayer plus tard.')";
       } 

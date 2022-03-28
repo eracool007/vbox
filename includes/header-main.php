@@ -6,7 +6,7 @@
     <div>
         <div class="btn btn-big btn-green">
         <div class="align-v">
-            <a href="#" class="deco_none"><p class="p-btn-big">M'inscrire à l'infolettre</p></a>
+            <a href="#infolettre" class="deco_none"><p class="p-btn-big">M'inscrire à l'infolettre</p></a>
         </div>
         </div>
     </div>

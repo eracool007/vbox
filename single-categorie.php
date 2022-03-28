@@ -22,6 +22,10 @@ $numberOfCards = 0;
 </header>
 <?php
 
+$pagination = new Pagination($_GET['page'] ?? 1, 8, count($categoryItems));
+$recipeArray = Recette::getPage($conn, $pagination->limit, $pagination->offset, $catId);
+$numberOfRecipesOnPage = $pagination->firstRecordOfPage + count($recipeArray) - 1;
+$numberOfRecipes = count($categoryItems);
 
 ?>
     <!--section Recettes de la-dite categorie-->
@@ -31,7 +35,7 @@ $numberOfCards = 0;
         <?php if($log == "Quitter") : ?> 
                   <a class="admin-links" href="recette-add.php">Ajouter une recette</a>
         <?php endif; ?> 
-        <h2 class="section-title">Resultats 1-12 de 25</h2>
+        <h3 class="section-title"> <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfRecipesOnPage ?> de <?= $numberOfRecipes ?></h3>
         </div>
     </div>
     <div class="row1">
@@ -45,14 +49,14 @@ $numberOfCards = 0;
                     <!--<div class="main-content m-0">-->
                         <!--Debut carte recette-->
                         <?php
-                         if (empty($categoryItems)){
+                         if (empty($recipeArray)){
                            $type="single-categorie-none";
                            ManageError::showErrorPage($type);
                            exit;
                              
                          } else{
                         $count = 1;
-                        foreach($categoryItems as $categoryItem){
+                        foreach($recipeArray as $categoryItem){
                             $numberOfCards++;
                           ?>
                             <div class="column25 mb-sm">
@@ -80,18 +84,27 @@ $numberOfCards = 0;
         </div>
     </div>
 </section>  
-    
-    <section>
-      <div class="main-content">
-        <div class="row1">
-          <div class="page-nav">
-            <a href="#" class="page-nav-link"><i class="fas fa-chevron-left chevrons"></i> Page précédente</a>
-            <a href="#" class="page-nav-link"> Page suivante <i class="fas fa-chevron-right chevrons"></i></a>
-          </div>
-        </div>
-      </div>
+<section>
+  
+  <nav class="main-content">
+    <ul class="page-nav list-none pagination">
+        
+          <?php if($pagination->previous) : ?>
+          <li><a href="?id=<?= $catId; ?>&page=<?= $pagination->previous; ?>" class="page-nav-link"><i class="fas fa-chevron-left chevrons"></i> Page précédente</a></li>
+          <?php else: ?>
+          <li class="not-visible"><i class="fas fa-chevron-left chevrons"></i> Page précédente</li>
+          <?php endif; ?>
+
+          <?php if($pagination->next) : ?>
+          <li><a href="?id=<?= $catId; ?>&page=<?= $pagination->next; ?>" class="page-nav-link"> Page suivante <i class="fas fa-chevron-right chevrons"></i></a></li>
+          <?php else: ?>
+          <li class="not-visible">Page suivante <i class="fas fa-chevron-right chevrons hidden"></i></li>
+          <?php endif; ?>
       
-    </section>
+    </ul>
+  </nav>
+    
+</section>
           
     
         <?php 
