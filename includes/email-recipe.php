@@ -25,6 +25,15 @@ if($emailErr == ""){
   
   //Email html builing
   $comment = "<div><h1>" . $singleRecette->titre . "</h1><br>";
+
+  //check for valid url
+  $url="";
+  $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http' ) . '://' .  $_SERVER['HTTP_HOST'];
+  $url = $base_url . $_SERVER["REQUEST_URI"];
+  if($url != ""){
+    $comment .= "<br><a href='".$url."'>Voir la recette sur le web</a>"; 
+  }
+
   $comment .= "<img src='https://www.caroline-fontaine.com/vbox/images/assets/".$singleRecette->imagef. "' width='300px' height='auto'>" ;
   $comment .= "<p>Préparation:  ". $singleRecette->preparation ." min.<br>Cuisson: ".$singleRecette->cuisson ." min.<br>Portions: ". $singleRecette->portion ."</p><br></div>";
   $comment .="<div><h3>DESCRIPTION</h3><p>" . html_entity_decode($singleRecette->description) . "</p><br></div><div>";
@@ -52,7 +61,9 @@ if($emailErr == ""){
         $comment .="<div><h3>NOTES</h3><p>";
         $comment .= html_entity_decode($singleRecette->notes); 
         $comment .= "</p></div>";
+
       }
+
         
  try {
     mail($to, $subject, $comment, $headers);
