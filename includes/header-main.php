@@ -18,8 +18,9 @@
             <div class="social-box facebook align-v">
             <i class="fab fa-facebook-f"></i>
             </div>
-            <div class="social-box messenger align-v">
-            <i class="fab fa-facebook-messenger"></i>
+            <div class="social-box linkedin align-v">
+            
+            <i class="fab fa-linkedin"></i>
             </div>
             <div class="social-box twitter align-v">
             <i class="fab fa-twitter"></i>

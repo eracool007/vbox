@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     pinterest=document.getElementById('pinterest');    
     facebook=document.getElementById('facebook');
-    messenger=document.getElementById('messenger');
+    linkedin=document.getElementById('linkedin');
     twitter=document.getElementById('twitter');
     mail=document.getElementById('mail');
     submit_btn=document.getElementById('send');
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     facebook.addEventListener('click', function(){
         var_dump("clicked on facebook");
     })
-    messenger.addEventListener('click', function(){
-        var_dump("clicked on messenger");
+    linkedin.addEventListener('click', function(){
+        var_dump("clicked on LinkedIn");
     })
     twitter.addEventListener('click', function(){
         var_dump("clicked on twitter");

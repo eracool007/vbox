@@ -471,6 +471,17 @@ p.p-btn-big {
   color: var(--orange);  
 }
 /*-----------------Social Media---------------------*/
+.partager{
+  color: white;
+  font-size: 0.6rem;
+  display: block;
+  margin: -75px 0 0 2px;
+  background-color: rgb(43, 41, 41, 0.8);
+  width: 215px;
+  text-align: center;
+  border-radius: 5px;
+  
+}
 .social {
   width: 500px;
   height: 45px;
@@ -491,9 +502,11 @@ p.p-btn-big {
 }
 .pinterest {
   background-color: #cb2027;
+  
 }
-.messenger {
-  background-color: #0084ff;
+.linkedin {
+  background-color: #0077B5;
+  font-size: 28px;
 }
 .twitter {
   background-color: #1da1f2;
@@ -501,11 +514,18 @@ p.p-btn-big {
 .envelope {
   background-color: #72a603;
 }
-.facebook, .pinterest, .messenger, .twitter, .envelope{
+.facebook, .pinterest, .linkedin, .twitter, .envelope{
   cursor: pointer;
 }
-.facebook:hover, .pinterest:hover, .messenger:hover, .twitter:hover, .envelope:hover{
+.facebook:hover, .pinterest:hover, .linkedin:hover, .twitter:hover, .envelope:hover{
   opacity: 0.8;
+}
+.share{
+  text-decoration: none;
+  color: white;
+}
+.share:hover, .share:active, .share:visited, .share:focus{
+  color: white;
 }
 /*-----------------other---------------------*/
 

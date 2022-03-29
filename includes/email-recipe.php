@@ -26,10 +26,6 @@ if($emailErr == ""){
   //Email html builing
   $comment = "<div><h1>" . $singleRecette->titre . "</h1><br>";
 
-  //check for valid url
-  $url="";
-  $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http' ) . '://' .  $_SERVER['HTTP_HOST'];
-  $url = $base_url . $_SERVER["REQUEST_URI"];
   if($url != ""){
     $comment .= "<p><a href='".$url."'>Voir la recette sur le web</a></p><br>"; 
   }

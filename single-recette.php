@@ -36,9 +36,16 @@ $back = "recettes.php";
     exit;
   }
 
+  //check for valid url
+  $url="";
+  $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http' ) . '://' .  $_SERVER['HTTP_HOST'];
+  $url = $base_url . $_SERVER["REQUEST_URI"];
 
   $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
   ?>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v13.0" nonce="4FGfHdDn"></script>
+
       <main>
         <section>
           <div class="row1">
@@ -57,24 +64,34 @@ $back = "recettes.php";
                     </p>
                   
                   <div class="social">
+                    
                     <div id="pinterest" class="align-text-l social-icons">
                       <div class="social-box pinterest align-v">
-                        <i class="fab fa-pinterest-p"></i>
+                      <a class="share" href="https://pinterest.com/pin/create/button/?url=<?= $url ?>">
+                      <i class="fab fa-pinterest-p"></i> </a>
+                        
                       </div>
-                      <div id="facebook" class="social-box facebook align-v">
-                        <i class="fab fa-facebook-f"></i>
+                      <div data-href="https://caroline-fontaine.com/vbox/single-recette.php?id=48" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
+                        <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcaroline-fontaine.com%2Fvbox%2Fsingle-recette.php%3Fid%3D48&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
+                        <i class="fab fa-facebook-f"></i></a>
                       </div>
-                      <div id="messenger" class="social-box messenger align-v">
-                        <i class="fab fa-facebook-messenger"></i>
+
+                    
+                      <div id="linkedin" class="social-box linkedin align-v">
+                      <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= $url ?>">
+                        <i class="fab fa-linkedin"></i></a>
                       </div>
                       <div id="twitter" class="social-box twitter align-v">
-                        <i class="fab fa-twitter"></i>
+                      <a class="share" href="https://twitter.com/intent/tweet?url=<?= $url;?>"><i class="fab fa-twitter"></i></a>
                       </div>
                       <div id="mail" class="social-box envelope align-v">
                         <i class="fas fa-envelope"></i>
                       </div>
+                      
                     </div>
+                    <div class="partager">Partager cette recette!</div>
                   </div>
+                  
                 </div>
       
                 <!--fin column-left-->
@@ -109,8 +126,10 @@ $back = "recettes.php";
                     <button type="button" id="send" name="send">Envoyer</button>
                     </form>
                 </div>
-              </div>        
-
+              </div>   
+                  
+              
+             
               <!--Description recette-->
               <section id="description">
                 <div class="row1">
