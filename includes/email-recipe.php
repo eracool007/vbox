@@ -31,7 +31,7 @@ if($emailErr == ""){
   $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http' ) . '://' .  $_SERVER['HTTP_HOST'];
   $url = $base_url . $_SERVER["REQUEST_URI"];
   if($url != ""){
-    $comment .= "<br><a href='".$url."'>Voir la recette sur le web</a><br><br>"; 
+    $comment .= "<p><a href='".$url."'>Voir la recette sur le web</a></p><br>"; 
   }
 
   $comment .= "<img src='https://www.caroline-fontaine.com/vbox/images/assets/".$singleRecette->imagef. "' width='300px' height='auto'>" ;
