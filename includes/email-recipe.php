@@ -44,11 +44,8 @@ if($emailErr == ""){
           
           foreach($listeIngredients as $ing){ 
             
-            $comment .= "<li class='ing'><input type='checkbox' id='ing".$ing['id']."' name='ingredient".$ing['id']."' value='ingredient".$ing['id']."'>";
+            $comment .= "<li>".$ing['item']. "</li>";
             
-            $comment .= "<label for='ingredient".$ing['id']. "'>".$ing['item'];
-            $comment .= "</label></li>";
-
           }
         } else { 
             echo "Aucun ingrédient mentionné."; 
