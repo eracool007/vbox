@@ -36,6 +36,11 @@
     
     <?php endif; ?>
 
+    <?php if($toprint) : ?>
+      <script src="js/modal.js"></script>
+      <script src="js/reseaux.js"></script>
+    <?php endif; ?>
+
   </body>
   
   

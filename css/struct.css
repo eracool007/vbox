@@ -290,7 +290,7 @@
 }
 .a-cat-single:hover{
   color: var(--orange);
-  font-weight: bold;
+  text-decoration: underline;
 }
 .h3-sm
 {
