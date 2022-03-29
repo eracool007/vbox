@@ -72,7 +72,7 @@ $back = "recettes.php";
                         
                       </div>
                       <div data-href="https://caroline-fontaine.com/vbox/single-recette.php?id=48" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
-                        <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcaroline-fontaine.com%2Fvbox%2Fsingle-recette.php%3Fid%3D48&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
+                        <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
                         <i class="fab fa-facebook-f"></i></a>
                       </div>
 
