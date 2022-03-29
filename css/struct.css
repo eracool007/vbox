@@ -296,13 +296,25 @@
 {
   font-size: 1rem;
 }
-.print{
-  font-size: 1rem;
-  color: var(--yellow);
-  padding: 1rem 0;
-}
-/*--ingredients--*/
 
+/*--Print button --*/
+.print{
+  color: var(--yellow);
+  padding: 0.5rem 0;
+}
+.btn-print{
+  background-color: white;
+  color: var(--yellow);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+.btn-print:hover {
+  color: var(--orange);
+}
+
+/*--ingredients--*/
 .ingredients{
   margin-top: 0.8rem;
   margin-left: 1rem;
@@ -351,3 +363,7 @@
 .not-visible{
   visibility: hidden;
 }
+.hidden{
+  display: none;
+}
+

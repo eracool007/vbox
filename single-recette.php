@@ -51,6 +51,7 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
               <div id="recipe-main" title="<?= $singleRecette->altImage; ?>" class="col-left-cat">
              
                   <h1 class="main-title-recipe"><?= $singleRecette->titre; ?></h1>
+                  <img src="images/assets/<?= $singleRecette->imagef; ?>" id="main-image">
                   <p class="recipe-info">
                     Préparation:   <?= $singleRecette->preparation; ?> min.<br>
                     Cuisson:   <?= $singleRecette->cuisson; ?> min.<br>
@@ -92,17 +93,20 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
                   <?php } ?>
                  </div>
                 <div class="print">
-                    <i class="fas fa-print"></i>
+                  <button type="button" class="btn-print" onClick="window.print();">
+                    <i class="fas fa-print fa-lg"></i>
+                  </button>
                 </div>
               </aside>
             </div>
             <!--Description recette-->
 
-            <section>
+            <section id="description">
               <div class="row1">
                 <?php if($log == "Quitter") : ?> 
                   <a class="admin-links" href="recette-edit.php?id=<?= $singleRecette->id; ?>">Modifier</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-delete.php?id=<?= $singleRecette->id; ?>">Supprimer</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-image-edit.php?id=<?= $singleRecette->id; ?>">Modifier l'image</a> 
                 <?php endif; ?> 
+                
                 <h3 class="h3-sm">DESCRIPTION</h3>
                 <p class="p-single">
                 <?= html_entity_decode($singleRecette->description); ?>
@@ -135,16 +139,16 @@ $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
                     } ?>
                   </ul>
 
-                <div class="ingredients mt-0">
+                <div class="ingredients mt-0" id="add-to-list">
                     &#8595;
                     <div class="add-to-list">
                         Ajouter à ma liste d'épicerie
                     </div>
                 </div>     
               </div>
-              </section>
+            </section>
 
-            <section class="mt-0">
+            <section class="mt-0" id="preparation">
               <div class="row1">
                 <h3 class="h3-sm">PREPARATION</h3>
                 <p class="p-single">

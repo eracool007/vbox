@@ -35,7 +35,7 @@ $numberOfRecipes = count($categoryItems);
         <?php if($log == "Quitter") : ?> 
                   <a class="admin-links" href="recette-add.php">Ajouter une recette</a>
         <?php endif; ?> 
-        <h3 class="section-title"> <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfRecipesOnPage ?> de <?= $numberOfRecipes ?></h3>
+        <h3 class="section-title">Résultats  <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfRecipesOnPage ?> de <?= $numberOfRecipes ?></h3>
         </div>
     </div>
     <div class="row1">

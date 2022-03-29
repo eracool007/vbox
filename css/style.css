@@ -523,6 +523,10 @@ p.p-btn-big {
   
 }
 
+#main-image{
+  display: none;
+}
+
 .header-main {
   background-color: var(--grey-dark);
   background: linear-gradient(
@@ -579,7 +583,7 @@ p.p-btn-big {
     background-color: white;
 }
 
-.btn_mailing{
+.btn-mailing{
   background-color: white;
   color: var(--main-dark);
   border: none;
@@ -588,7 +592,7 @@ p.p-btn-big {
   margin: 0;
   font-size: 1.1rem;
 }
-.btn_mailing:hover {
+.btn-mailing:hover {
   
   color: var(--orange);
 }

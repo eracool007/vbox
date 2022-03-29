@@ -7,14 +7,14 @@
           <div class="column50 align-text-l logo-big">
             <a href="index.php" class="logo-link">V-Box<i class="fas fa-leaf logo-leaf-big"></i></a>
           </div>
-          <div class="column50 align-text-r account">
+          <div class="column50 align-text-r account" id="account">
             <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>" class="login"><?= $log ?></a>
             <!-- <?php if($log == "Quitter") : ?>  | <a class="login" href="/vbox/admin/">Gérer</a><?php endif; ?> -->
           </div>
         </div>
       </div>
 
-      <div class="row1 bg-medium">
+      <div class="row1 bg-medium" id="barre-grise">
         <div class="main-content">
           <div class="column75 align-text-l main-menu">
             <nav class="nav-bar-links">

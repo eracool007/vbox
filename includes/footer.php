@@ -10,7 +10,7 @@
           </p>
           <form action="index.php" method="POST" id="contact" enctype="multipart/form-data">
             <div class="cta-box">
-              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button class="btn_mailing"><i class="fas fa-paper-plane"></i></button>
+              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button class="btn-mailing"><i class="fas fa-paper-plane"></i></button>
             </div>
             
           </form>
@@ -18,7 +18,7 @@
       </div>
     </section>
     <!--Footer-->
-    <footer>
+    <footer id="footer">
       <div class="row1 bg-medium">
         <div class="main-content align-text-c">
           <p class="p-footer">Tous droits réservés 2022 &#169; V-BOX</p>

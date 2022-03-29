@@ -20,7 +20,12 @@ if(!isset($_SESSION)) {
    }
 }
 
-
+//check to load print.css if necessary
+if (strpos($_SERVER['REQUEST_URI'], "single-recette") !== false){
+  $toprint=true;
+  } else {
+  $toprint=false; 
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +37,9 @@ if(!isset($_SESSION)) {
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/struct.css" />
+    <?php if($toprint) : ?>
+      <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <?php endif; ?>
     <script src="https://kit.fontawesome.com/146f5f72b9.js" crossorigin="anonymous"></script>
     <!--<script
       src="https://kit.fontawesome.com/4592bcc5fd.js"
