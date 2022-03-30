@@ -71,10 +71,11 @@ $back = "recettes.php";
                       <i class="fab fa-pinterest-p"></i> </a>
                         
                       </div>
-                      <div data-href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
+                      <div data-href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
                         <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
                         <i class="fab fa-facebook-f"></i></a>
                       </div>
+                      <!-- class="fb-xfbml-parse-ignore" -->
 
                     
                       <div id="linkedin" class="social-box linkedin align-v">
