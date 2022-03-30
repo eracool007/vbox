@@ -67,22 +67,22 @@ $back = "recettes.php";
                     
                     <div id="pinterest" class="align-text-l social-icons">
                       <div class="social-box pinterest align-v">
-                      <a class="share" href="https://pinterest.com/pin/create/button/?url=<?= $url ?>">
+                      <a class="share" href="https://pinterest.com/pin/create/button/?url=<?= urlencode($url);?>">
                       <i class="fab fa-pinterest-p"></i> </a>
                         
                       </div>
-                      <div data-href="https://caroline-fontaine.com/vbox/single-recette.php?id=48" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
+                      <div data-href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
                         <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
                         <i class="fab fa-facebook-f"></i></a>
                       </div>
 
                     
                       <div id="linkedin" class="social-box linkedin align-v">
-                      <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= $url ?>">
+                      <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($url);?>">
                         <i class="fab fa-linkedin"></i></a>
                       </div>
                       <div id="twitter" class="social-box twitter align-v">
-                      <a class="share" href="https://twitter.com/intent/tweet?url=<?= $url;?>"><i class="fab fa-twitter"></i></a>
+                      <a class="share" href="https://twitter.com/intent/tweet?url=<?= urlencode($url);?>"><i class="fab fa-twitter"></i></a>
                       </div>
                       <div id="mail" class="social-box envelope align-v">
                         <i class="fas fa-envelope"></i>
