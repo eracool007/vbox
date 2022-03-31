@@ -46,10 +46,9 @@
               </ul>
             </nav>
           </div>
-          <div class="column25 align-text-r">
-            <div class="row1">
-              <div class="columnFull">
-                <div class="search-container align-text-r">
+          <div class="columnSearch">
+            <div class="search-row">
+                <div class="search-container">
                   <input
                     type="text"
                     class="search"
@@ -57,7 +56,6 @@
                     aria-label="rechercher"
                   />
                 </div>
-              </div>
               <div class="search-icon-container">
                 <i class="fas fa-search"></i>
               </div>

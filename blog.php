@@ -53,7 +53,7 @@ $feature = 'recette';
 
                     <!--Debut carte-->
                     
-                    <div class="column25 mb-sm">
+                    <div class="column33 mb-sm">
                         <div class="card-p0 shadow">
                           <article>
                             <a class="deco-none" href="single-blog.php?id=<?= $article['id']; ?>">
