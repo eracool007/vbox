@@ -1,3 +1,4 @@
+<!--navigation-verticale-->
 <aside class="col-right">
     <?php
     
@@ -10,6 +11,7 @@
   
     
     ?>
+                    
                     <div class="cat-blog-box">
 
                         <div class="cat-blog  align-text-c">
@@ -50,4 +52,5 @@
                     
                     
                 </aside>
+                <!--fin navigation-verticale-->
                 

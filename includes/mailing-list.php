@@ -9,7 +9,6 @@ if (!filter_var($POST['mailing'], FILTER_VALIDATE_EMAIL)) {
   }
 if($emailErr == ""){
   
-  //$name = $POST['name'];
   $to = "caroline@caroline-fontaine.com";
 
   $email = strip_tags($POST['mailing']);

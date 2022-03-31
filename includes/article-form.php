@@ -6,7 +6,7 @@
                         <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $error; ?></p>
                     <?php endforeach; ?>
                 <?php endif; ?>
-
+                <!--article-form-->
                 <form method="post">
                     <div>
                         <label for="titre">Titre</label><div>
@@ -41,3 +41,4 @@
 
                    
                 </form>
+                <!--fin article-form-->

@@ -8,9 +8,8 @@ if(isset($_GET['back'])){
 }
 
 ?>
-<section>
-      <!--section erreur-->
-     
+  <!--section erreur-->
+  <section>
   <div class="row1">
     <div class="main-content align-text-c">
       <h2 class="section-title"><i class="fas fa-exclamation-triangle oups"></i> Oups!</h2>
@@ -24,4 +23,5 @@ if(isset($_GET['back'])){
     </div>
   </div>
 
-</section>
+</section> 
+<!--fin section erreur-->

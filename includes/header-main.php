@@ -13,20 +13,20 @@
         <div class="social">
         <div class="align-text-l social-icons">
             <div class="social-box pinterest align-v">
-            <i class="fab fa-pinterest-p"></i>
+                <a class="share" href="#"><i class="fab fa-pinterest-p"></i></a>
             </div>
             <div class="social-box facebook align-v">
-            <i class="fab fa-facebook-f"></i>
+                <a class="share" href="#"><i class="fab fa-facebook-f"></i></a>
             </div>
             <div class="social-box linkedin align-v">
             
-            <i class="fab fa-linkedin"></i>
+                <a class="share" href="#"><i class="fab fa-linkedin"></i></a>
             </div>
             <div class="social-box twitter align-v">
-            <i class="fab fa-twitter"></i>
+                <a class="share" href="#"><i class="fab fa-twitter"></i></a>
             </div>
             <div class="social-box envelope align-v">
-            <i class="fas fa-envelope"></i>
+            <a class="share" href="#"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
         </div>

@@ -6,6 +6,7 @@ $featuredArticle = Article::getLatestArticle($conn);
 $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
 
 ?>
+<!--main page-->
 <section>
       <!--section nouvelles de notre blog-->
       <?php if(!empty($featuredArticle)) { ?>
@@ -78,6 +79,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
           </div>
         </div>
       </section>
+      <!--main page-->
       <?php } ?>
     
     <?php if(!empty($featuredArticle)) { ?>

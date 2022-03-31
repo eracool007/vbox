@@ -35,6 +35,16 @@ $back = "recettes.php";
     ManageError::showErrorPage($type);
     exit;
   }
+  //add ingredients to shopping list
+  if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
+    
+    foreach($_POST as $item){
+      
+      array_push($_SESSION['cart'], htmlspecialchars($item));
+       
+    } 
+    
+  } 
 
   //check for valid url
   $url="";
@@ -94,7 +104,7 @@ $back = "recettes.php";
                   </div>
                   
                 </div>
-      
+        
                 <!--fin column-left-->
                 <!--section menu des categories-->
                 <aside class="col-right-cat">
@@ -143,12 +153,14 @@ $back = "recettes.php";
                   <?= html_entity_decode($singleRecette->description); ?>
                   </p>
               </div>
-                
+             
               </section>
 
+              <!--Ingredients-->
               <section class="mt-0">
                   <div class="row1">
                     <h3 class="h3-sm">INGREDIENTS</h3>
+                    <form action="single-recette.php?id=<?= $singleRecette->id ?>&action=add" method="post">
                     <ul class="ingredients">
                       <?php
                       $listeIngredients = Ingredients::getIngredients($conn, $singleRecette->id);
@@ -157,7 +169,7 @@ $back = "recettes.php";
                         foreach($listeIngredients as $ing){ 
                           ?>
                           <li class="ing">
-                          <input type="checkbox" id="ing<?= $ing['id']; ?>" name="ingredient<?= $ing['id']; ?>" value="ingredient<?= $ing['id']; ?>">
+                          <input type="checkbox" id="ing<?= $ing['id']; ?>" name="ingredient<?= $ing['id']; ?>" value="<?= $ing['item']; ?>">
                           <label for="ingredient<?= $ing['id']; ?>"> <?= $ing['item']; ?>
                           
                         </label>
@@ -169,16 +181,30 @@ $back = "recettes.php";
                           echo "Aucun ingrédient mentionné."; 
                       } ?>
                     </ul>
+                    
 
                   <div class="ingredients mt-0" id="add-to-list">
                       &#8595;
                       <div class="add-to-list">
-                          Ajouter à ma liste d'épicerie
+                          <button class="btn-add" id="add-btn" type="submit">Ajouter à ma liste d'épicerie</button>
                       </div>
-                  </div>     
+                  </div> 
+                </form>    
                 </div>
               </section>
-
+              
+              <!--Add to cart modal-->
+              <div id="myModal2" class="modal">
+                <div class="modal-content">
+                  <span class="close2">&times;</span>
+                  <h2 class="align-text-c">Les ingrédients sélectionnés ont été ajoutés à votre liste d'épicerie!</h2>
+                  <p class="align-text-c"><img src="images/help/cart.png" width="175"alt="Panier pour liste d'épicerie"></p><p class="align-text-c"><br>Pour accéder à votre liste et l'imprimer, cliquer sur le panier dans le menu du haut de la page.</p>
+                  
+                  
+                </div>
+              </div>  
+              
+              <!--Preparation-->
               <section class="mt-0" id="preparation">
                 <div class="row1">
                   <h3 class="h3-sm">PREPARATION</h3>
@@ -188,7 +214,8 @@ $back = "recettes.php";
               
               </div>
               </section>
-
+             
+              <!--Notes-->
               <?php 
               if($singleRecette->notes && $singleRecette->notes != "" && $singleRecette->notes != " "){ ?>
                 <section class="mt-0">
@@ -205,12 +232,14 @@ $back = "recettes.php";
               
             </div>
           </div>
-        </section>
+        </section> 
   <?php
     if(isset($_POST['mailrecipe'])){
       require 'includes/email-recipe.php';
     }
   ?>
       <script>loadImage("<?= $singleRecette->imagef; ?>", "recipe-main"); </script>
+    
     <?php require 'includes/footer.php'; ?>
+    
 <?php ob_end_flush(); ?>

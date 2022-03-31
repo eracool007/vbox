@@ -30,8 +30,8 @@
         </div>
       </div>
     </footer>
-    <?php if (isset($type) && ($type="admin")) : ?>
-
+    <?php if(isset($type) && ($type=="admin")) : ?>
+      
         <script src="js/admin.js"></script>
     
     <?php endif; ?>
@@ -40,7 +40,9 @@
       <script src="js/modal.js"></script>
       <script src="js/reseaux.js"></script>
     <?php endif; ?>
-
+    <?php if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add") : ?>
+      <script>showModal2();</script>
+    <?php endif; ?>
   </body>
   
   

@@ -10,7 +10,6 @@ if (!filter_var($POST['mailrecipe'], FILTER_VALIDATE_EMAIL)) {
 
 if($emailErr == ""){
   
-  //$name = $POST['name'];
   $to = strip_tags($POST['mailrecipe']);
  
   $email = "caroline@caroline-fontaine.com";

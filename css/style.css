@@ -444,6 +444,12 @@ p.p-btn-big {
   border-color: #72a603;
  
 }
+.btn-add{
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .deco_none{
   text-decoration: none;
 }
@@ -715,7 +721,7 @@ footer{
 }
 
 /* The Close Button */
-.close {
+.close, .close2 {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
@@ -723,7 +729,9 @@ footer{
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.close2:hover,
+.close2:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

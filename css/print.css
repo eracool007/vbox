@@ -1,5 +1,5 @@
 @media print {
-    aside, #account, #barre-grise, .social, #add-to-list, #infolettre, #footer {
+    aside, #account, #barre-grise, .social, #add-to-list, #infolettre, #footer, .print {
         display: none;
     }
    
@@ -32,5 +32,8 @@
   }
   .main-title-recipe {
       padding-top: 5px;
+  }
+  .h3-light{
+      margin-top: 20px !important;
   }
 }

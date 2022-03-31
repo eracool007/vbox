@@ -2,6 +2,7 @@
 
 if(!isset($_SESSION)) {
   session_start();
+  
   $log="Se connecter";
   
  
@@ -20,11 +21,24 @@ if(!isset($_SESSION)) {
    }
 }
 
-//check to load print.css if necessary
-if (strpos($_SERVER['REQUEST_URI'], "single-recette") !== false){
+//set cart
+$cart = false; 
+if(!isset($_SESSION['cart'])){
+  $_SESSION['cart'] = [];
+}
+
+$cart= Cart::itemInCart();
+
+//check if print.css needs to be loaded
+if (strpos($_SERVER['REQUEST_URI'], "single-recette") !== false) {
   $toprint=true;
   } else {
   $toprint=false; 
+}
+if(strpos($_SERVER['REQUEST_URI'], "shopping=1") !== false) {
+  $printList=true;
+} else {
+  $printList=false; 
 }
 ?>
 
@@ -37,14 +51,11 @@ if (strpos($_SERVER['REQUEST_URI'], "single-recette") !== false){
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/struct.css" />
-    <?php if($toprint) : ?>
+    <?php if($toprint || $printList) : ?>
       <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
     <?php endif; ?>
     <script src="https://kit.fontawesome.com/146f5f72b9.js" crossorigin="anonymous"></script>
-    <!--<script
-      src="https://kit.fontawesome.com/4592bcc5fd.js"
-      crossorigin="anonymous"
-    ></script>-->
+
     <script src="js/script.js"></script>
     <title>V-Box : La boîte à recette végane</title>
   </head>

@@ -7,7 +7,7 @@ if(! empty($singleRecipe->errors)): ?>
     <?php endforeach; ?>
     <?php endif; ?>
 
-
+<!--recette-form-->
 <form method="post">
     <div>
         <label for="titre">Titre</label><div>
@@ -135,3 +135,4 @@ if(! empty($singleRecipe->errors)): ?>
 
     <button>Sauvegarder</button>
 </form>
+<!--fin recette-form-->

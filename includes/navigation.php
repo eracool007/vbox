@@ -1,6 +1,7 @@
 <?php
      $categoryA=Categories::getAllCategories($conn);
 ?>
+<!--navigation-->
 <div class="fixed-top">
       <div class="row1 bg-dark">
         <div class="main-content">
@@ -8,8 +9,12 @@
             <a href="index.php" class="logo-link">V-Box<i class="fas fa-leaf logo-leaf-big"></i></a>
           </div>
           <div class="column50 align-text-r account" id="account">
-            <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>" class="login"><?= $log ?></a>
-            <!-- <?php if($log == "Quitter") : ?>  | <a class="login" href="/vbox/admin/">Gérer</a><?php endif; ?> -->
+            
+            <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>"  class="login"><?= $log ?></a>
+            
+            <?php if($cart): ?> | <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
+            <?php endif; ?> 
+            
           </div>
         </div>
       </div>
@@ -60,4 +65,5 @@
         </div>
       </div>
       </div>
+      <!--fin navigation-->
       
