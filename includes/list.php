@@ -4,6 +4,13 @@ $shoppingList=($_SESSION['cart']);
 $cartEmpty ? $title="Votre liste d'épicerie est vide." : $title="Votre liste d'épicerie: ";
 
 $count=1;
+
+/**
+ * Clear cart function
+ */
+function clearCart(){
+    $_SESSION['cart']= [];
+}
 ?>
 
 <section>
@@ -24,7 +31,7 @@ $count=1;
             </ul>           
         </div>
         <div class="print sticky">
-        <button type="button" class="btn-print" onClick="window.print();">
+        <button type="button" class="btn-print" onClick="printList();">
             <i class="fas fa-print fa-lg"></i>
         </button>
         </div>

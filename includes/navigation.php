@@ -1,5 +1,6 @@
 <?php
      $categoryA=Categories::getAllCategories($conn);
+     
 ?>
 <!--navigation-->
 <div class="fixed-top">
@@ -12,7 +13,7 @@
             
             <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>"  class="login"><?= $log ?></a>
             
-            <?php if($cart): ?> | <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
+            <?php if($cart && !empty($cart)): ?> | <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
             <?php endif; ?> 
             
           </div>

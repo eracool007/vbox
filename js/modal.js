@@ -16,7 +16,6 @@ window.onclick = function(event) {
 
 //ingredients modal
 var modal2 = document.getElementById("myModal2");
-console.log(modal2);
 
 var span2 = document.getElementsByClassName("close2")[0];
 
@@ -27,6 +26,7 @@ span2.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal2) {
     modal2.style.display = "none";
+    window.location.href = "index.php";
   }
 }
 

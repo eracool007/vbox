@@ -22,13 +22,7 @@ class Cart {
 
     }
 
-    /**
-     * Delete item from cart
-     */
-
-    /**
-     * Add item to cart
-     */
+    
 
 
 }

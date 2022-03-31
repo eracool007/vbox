@@ -23,11 +23,14 @@ if(!isset($_SESSION)) {
 
 //set cart
 $cart = false; 
+
 if(!isset($_SESSION['cart'])){
   $_SESSION['cart'] = [];
+  
 }
 
 $cart= Cart::itemInCart();
+
 
 //check if print.css needs to be loaded
 if (strpos($_SERVER['REQUEST_URI'], "single-recette") !== false) {
@@ -40,6 +43,18 @@ if(strpos($_SERVER['REQUEST_URI'], "shopping=1") !== false) {
 } else {
   $printList=false; 
 }
+
+//add ingredients to shopping list
+if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
+    
+  foreach($_POST as $item){
+    
+    array_push($_SESSION['cart'], htmlspecialchars($item));
+     
+  } 
+  $cart=true;
+  
+} 
 ?>
 
 <!DOCTYPE html>
@@ -60,3 +75,4 @@ if(strpos($_SERVER['REQUEST_URI'], "shopping=1") !== false) {
     <title>V-Box : La boîte à recette végane</title>
   </head>
   <body>
+  

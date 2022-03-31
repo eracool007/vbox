@@ -35,16 +35,7 @@ $back = "recettes.php";
     ManageError::showErrorPage($type);
     exit;
   }
-  //add ingredients to shopping list
-  if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
-    
-    foreach($_POST as $item){
-      
-      array_push($_SESSION['cart'], htmlspecialchars($item));
-       
-    } 
-    
-  } 
+  
 
   //check for valid url
   $url="";

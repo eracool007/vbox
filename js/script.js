@@ -13,6 +13,10 @@ function loadImage(link, elementID) {
     ).style.backgroundImage = `url('images/assets/${link}')`;
   }
 }
+function printList(){
+  window.print();
+  window.location.href = "index.php?clear=1";
+}
 
 
 
