@@ -21,7 +21,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
               <div id="featured_article_image"
                 class="column50 bg-medium double-left double-news-image shadow" title="<?= $featuredArticle->altImage; ?>"></div>
 
-              <div class="column50 align-text-c double-right shadow align-v">
+              <div id="featured_article_preview" class="column50 align-text-c double-right shadow align-v">
                 <div>
                 <h3><?= $featuredArticle->titre; ?></h3>
                 <div class="row2">
@@ -39,7 +39,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
     <!--section dernieres recettes-->
     <?php if(!empty($lastRecipies)) { ?>
       <section>
-        <div class="row1 mt-100">
+        <div id="last-recipes" class="row1 mt-100">
           <div class="main-content align-text-l ">
             <h2 class="section-title">Dernières recettes</h2>
           </div>

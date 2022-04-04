@@ -50,6 +50,7 @@
   float: left;
   width: 75%;
 }
+
 .column33 {
   float: left;
   width: 33%;
@@ -66,10 +67,19 @@
   float: right;
   width: 20%;
 }
+#col-recette {
+  width: 25%;
+
+}
+@media screen and (max-width: 1725px) {
+  #col-recette {
+    width: 33%;
+  }
+}
 
 /* Responsive columns */
 @media screen and (max-width: 992px) {
-  .column25, .column33 {
+  .column25, .column33, #col-recette {
     width: 50%;
     display: block;
     margin-bottom: 20px;
@@ -82,12 +92,18 @@
 }
 
 @media screen and (max-width: 768px) {
-  .column25, .column33 {
+  .column25, .column33, #col-recette {
     width: 100%;
     display: block;
     margin-bottom: 20px;
   }
 }
+
+@media screen and (max-width: 600px){
+  .column75{
+     width: 100%;
+  }
+}  
 
 /*-----------------double-box : news---------------------*/
 .double-box {
@@ -108,6 +124,28 @@
   padding: 5px 15px;
   height: 100%;
   transform: rotate(7deg) translate(-10px, 40px);
+}
+@media screen and (max-width:992px) {
+
+  .double-left {
+    width: 40%;
+  }
+  .double-right {
+    width: 60%;
+  }
+}
+@media screen and (max-width:768px) {
+
+  .double-left {
+    width: 40%;
+    height: 100%;
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  .double-right {
+    width: 60%;
+    background-color: white;
+    transform: rotate(0deg) translate(0px, 0px);
+  }
 }
 
 .double-right p {
@@ -137,6 +175,20 @@
   color: var(--grey-medium);
   text-shadow: 2px 2px 4px #82aa2a;
 }
+@media screen and (max-width:768px) {
+  .vedette-left{
+    width: 40%;
+
+  }
+  .vedette-right{
+    width: 60%;
+  }
+}
+@media screen and (max-width:768px) {
+  #card-category{
+    height: 260px;
+  }
+}
 
 /*-----------------cards ---------------------*/
 .cards {
@@ -159,6 +211,17 @@
  max-height: 350px;
   
 }
+@media screen and (max-width:992px) {
+  .card-p0{
+    height: 340px;
+  }
+}
+@media screen and (max-width:768px) {
+  .card-p0{
+    height: 320px;
+  }
+}
+
 .card-p0b {
   padding: 0;
   text-align: left;
@@ -166,7 +229,11 @@
   margin: 0 15px 5px 0px;
  height: 300px;
  max-height: 300px;
-  
+}
+@media screen and (max-width:768px) {
+  .card-p0b{
+    height: 280px;
+  }
 }
 
 .card25 {
@@ -293,6 +360,15 @@
   align-content: stretch;
   padding: 0 0 15px 15px;
 
+}
+@media screen and (max-width:992px) {
+  .col-left-cat{
+    width: 100%;
+  }
+  .col-right-cat{
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 .fix-margin{
   margin-left: 0;

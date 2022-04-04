@@ -59,8 +59,13 @@ body {
   .main-title {
     font-size: 1.2rem;
   }
-  
 }
+@media screen and (max-width:400px) {
+  .main-title {
+    font-size: 1.1rem;
+  }
+}
+
 .main-title-recipe {
   color: white;
   font-weight: 600;
@@ -116,9 +121,33 @@ body {
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+@media screen and (max-width:768px) {
+  #featured_article_image, #featured_article_preview {
+  box-shadow: none;
+  }
+  .double-box{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #last-recipes{
+    margin-top: 50px;
+  }
+  
+}
+
+
 section {
   margin-top: 50px;
   padding: 0;
+}
+@media screen and (max-width: 992px) {
+  section {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  section {
+    margin-top: 35px;
+  }
 }
 .mt-100{
   margin-top: 100px;
@@ -173,31 +202,34 @@ section {
 }
 
 .p-blog-intro{
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 400;
   margin: 0 0.5rem 0rem;
   color: var(--grey-medium);
-  line-height: 115%;
+  line-height: 110%;
   padding: 10px 0;
 
 }
 
-@media screen and (max-width: 600px) {
-  .p-main, .p-single{
-    font-size: 0.7rem;
-  }
-  .p-blog-intro{
-    font-size: 0.6rem;
-  }
-};
 @media screen and (max-width: 768px) {
   .p-main, .p-single{
     font-size: 0.8rem;
   }
   .p-blog-intro{
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    line-height: 105%;
   }
-};
+}
+
+@media screen and (max-width: 600px) {
+  .p-main, .p-single{
+    font-size: 0.9rem;
+    line-height: 105%;
+  }
+  .p-blog-intro{
+    font-size: 0.9rem;
+  }
+}
 
 .date{
   font-size: 0.8rem;
@@ -231,7 +263,7 @@ h3 {
 }
 
 h4{
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--grey-medium);
   margin: 0.5rem 0.5rem 0 0.5rem;
   line-height: 1.2rem;
@@ -239,27 +271,19 @@ h4{
 }
 h5{
   color: var(--yellow);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   margin: 0 0.5rem 0rem;
   line-height: 1.2rem;
 }
 @media screen and(max-width:996px){
-  h3 {
-    font-weight: 500;
-    font-size: 0.8rem;
-    color: var(--grey-dark);
-    text-transform: uppercase;
-  }
+  
   h2{
    
    font-size: 1.2rem;
   }
   .title-sm{
     font-size: 1rem;
-  }
-  h4, h5 {
-    font-size: 0.6rem;
   }
 
 }
@@ -409,6 +433,12 @@ h5{
   margin-left: 20px;
   
 }
+@media screen and (max-width: 450px) {
+  .nav-bar-links ul > li:not(:first-child) > a {
+    margin-left: 10px;
+    
+  }
+}
 .nav-bar-links ul > li:first-child > a{
   padding-left: 10px;
   padding-right: 10px;
@@ -497,6 +527,14 @@ h5{
   height: 2.2rem;
   margin-top: 3rem;
   margin-bottom: 8rem;
+}
+@media screen and (max-width:450px){
+  .btn-big {
+    width: 250px;
+    height: 2.2rem;
+    margin-top: 3rem;
+    margin-bottom: 8rem;
+  }
 }
 .btn-green {
   background-color: var(--main-dark);
@@ -706,9 +744,11 @@ p.p-btn-big {
 @media screen and (max-width:992px) {
   .header-main {
     margin-top: 85px;
+    height: 11rem;
   }
   .header-subpage{
     margin-top: 60px;
+    min-height: 9rem;
   }
 }
 @media screen and (max-width:768px) {
@@ -718,6 +758,12 @@ p.p-btn-big {
   .header-subpage{
     margin-top: 40px;
   }
+}
+@media screen and (max-width:400px ) {
+  .header-main{
+    height: 27rem;
+  }
+  
 }
 /*-----------------cta ---------------------*/
 .cta{

@@ -62,7 +62,7 @@ $type = "recette";
              for ($i = 0; $i < count($categories); $i++){ ?>
 
              <div class="column25 mb-sm">
-              <div class="card-p0b shadow">
+              <div id="card-category" class="card-p0b shadow">
                 <a href="single-categorie.php?id=<?= $categories[$i]['id_categorie']; ?>"><div class="bg-image" id="img-cat<?= $i; ?>" title="<?= $categories[$i]['altImage']; ?>"></div></a>
                 <div class="card-inner">
                   <p><h4><?= $categories[$i]['nom_categorie']; ?></h4></p>
