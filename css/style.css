@@ -352,7 +352,7 @@ h5{
   .logo-leaf-big{
     font-size: 1rem;
   }
-  .account {
+  #account {
     display: none;
   }
   .account-icon {

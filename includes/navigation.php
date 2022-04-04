@@ -9,11 +9,13 @@
           <div class="column50 align-text-l logo-big">
             <a href="index.php" class="logo-link">V-Box<i class="fas fa-leaf logo-leaf-big"></i></a>
           </div>
-          <div class="column50 align-text-r account" id="account">
-            
+          <div class="column50 align-text-r account">
+            <span id="account">
             <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>"  class="login"><?= $log ?></a>
-            
-            <?php if($cart && !empty($cart)): ?> | <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
+            <?php if(!$cart || empty($cart)): ?>
+            </span>
+            <?php endif; ?>
+            <?php if($cart && !empty($cart)): ?> |</span> <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
             <?php endif; ?> 
             
           </div>
