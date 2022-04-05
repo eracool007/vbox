@@ -82,13 +82,13 @@ $page= "includes/main-page.php";
     <meta property="og:url" content="https://www.caroline-fontaine/vbox/">
     <meta property="og:title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
     <meta property="og:description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
-    <meta property="og:image" content="https://www.caroline-fontaine.com/vbox/assets/image11.jpg"> 
+    <meta property="og:image" content="https://www.caroline-fontaine.com/vbox/images/image11.jpg"> 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image"> 
     <meta property="twitter:url" content="https://www.caroline-fontaine/vbox/">
     <meta property="twitter:title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
     <meta property="twitter:description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
-    <meta property="twitter:image" content="https://www.caroline-fontaine.com/vbox/assets/image11.jpg"> 
+    <meta property="twitter:image" content="https://www.caroline-fontaine.com/vbox/images/image11.jpg"> 
 
     <!-- Mobile devices -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
