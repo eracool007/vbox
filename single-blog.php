@@ -23,13 +23,13 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
            
 ?>
 <!--section articles-->
+<main>
 <section>
 
     <div class="row1">
         <div class="main-content">
             <div class="row1">
-                <div
-                class="col-left">
+                <div class="col-left">
                     <div id="blog-img" class="bg-image-blog" title="<?= htmlspecialchars($singleArticle->altImage); ?>"></div>
                     <h2 class="section-title pb-0"><?= htmlspecialchars($singleArticle->titre); ?></h2>
                     <?php 
@@ -44,16 +44,14 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
                 </div>
                 <!--fin col-left-->
                 <!--section menu des categories-->
-
-                <?php 
-                
-                require 'includes/navigation-vertical.php'; ?>
+                <?php require 'includes/navigation-vertical.php'; ?>
             <!--fin column-right-->    
             <!--fin row1-->    
             </div>
+        </div>
     </div>
-    </div>
-    </section>  
+</section> 
+</main> 
     <script>loadImage("<?= $singleArticle->imagef; ?>", "blog-img"); </script>
 
 <?php require 'includes/footer.php'; ?>

@@ -17,6 +17,7 @@
         </div></div>
       </div>
     </section>
+    
     <!--Footer-->
     <footer id="footer">
       <div class="row1 bg-medium">

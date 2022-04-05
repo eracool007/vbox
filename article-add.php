@@ -25,22 +25,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        $numId = intval($singleArticle->id); 
        Url::redirect("/single-blog.php?id=$numId");
     }
-     
 }
-
-
 ?>
+
 <header>
   <?php
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';   
   $errorMsg = "L'article n'existe pas ou la page a été supprimée";           
 ?>
-
 </header>
-<!--Add article-->
-<section>
 
+<!--Add article-->
+<main>
+<section>
     <div class="row1">
         <div class="main-content">
             <div class="row1">
@@ -50,9 +48,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <!--fin row1-->    
             </div>
+        </div>
     </div>
-    </div>
-    </section>  
+</section>  
+</main>
     
-
 <?php require 'includes/footer.php'; ?>

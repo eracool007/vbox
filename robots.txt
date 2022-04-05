@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /classes/
+Disallow: /includes/
+Disallow: /js/
+Disallow: /login.php

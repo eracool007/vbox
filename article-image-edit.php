@@ -105,10 +105,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo $e->getMessage();
     }
 }
-
-
-
-
 ?>
 <header>
   <?php
@@ -116,11 +112,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   require 'includes/header-subpage.php';   
   $errorMsg = "Il semble y avoir une erreur";           
 ?>
-
 </header>
-
+<main>
 <section>
-
     <div class="row1">
         <div class="main-content">
             <div class="row1">
@@ -139,9 +133,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <!--fin row1-->    
             </div>
+        </div>
     </div>
-    </div>
-    </section>  
-
+</section>  
+</main>
 
 <?php require 'includes/footer.php'; ?>

@@ -67,19 +67,20 @@
   float: right;
   width: 20%;
 }
-#col-recette {
+.col-recette {
   width: 25%;
 
 }
+
+/* Responsive columns */
 @media screen and (max-width: 1725px) {
-  #col-recette {
+  .col-recette {
     width: 33%;
   }
 }
 
-/* Responsive columns */
 @media screen and (max-width: 992px) {
-  .column25, .column33, #col-recette {
+  .column25, .column33, .col-recette {
     width: 50%;
     display: block;
     margin-bottom: 20px;
@@ -92,7 +93,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .column25, .column33, #col-recette {
+  .column25, .column33, .col-recette {
     width: 100%;
     display: block;
     margin-bottom: 20px;
@@ -185,7 +186,7 @@
   }
 }
 @media screen and (max-width:768px) {
-  #card-category{
+  .card-category{
     height: 260px;
   }
 }

@@ -45,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
 ?>
 
 </header>
+<main>
 <section>
 
     <div class="row1">
@@ -62,4 +63,5 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
         </div>
     </div>
 </section>  
+</main>
 <?php require 'includes/footer.php'; ?>

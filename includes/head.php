@@ -90,9 +90,6 @@ $page= "includes/main-page.php";
     <meta property="twitter:description" content="<?= $descriptionPage; ?>">
     <meta property="twitter:image" content="<?= $imagePage; ?>"> 
 
-    <!-- Mobile devices -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-
     <!-- Styles ands JS -->
     <link rel="icon" type="text/png" href="favicon-32x32.png">
     <link rel="stylesheet" href="css/style.css" />

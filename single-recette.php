@@ -27,8 +27,7 @@ $back = "recettes.php";
   <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v13.0" nonce="4FGfHdDn"></script>
 
-      <main>
-        <section>
+      <main class="top">
           <div class="row1">
             <div class="main-content">
               <!--Details de la recette-->
@@ -47,31 +46,32 @@ $back = "recettes.php";
                   <div class="social">
                     
                     <div id="pinterest" class="align-text-l social-icons">
-                      <div class="social-box pinterest align-v">
-                      <a class="share" href="https://pinterest.com/pin/create/button/?url=<?= urlencode($url);?>">
-                      <i class="fab fa-pinterest-p"></i> </a>
-                        
-                      </div>
-                      <div data-href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
-                        <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
-                        <i class="fab fa-facebook-f"></i></a>
-                      </div>
-                      <!-- class="fb-xfbml-parse-ignore" -->
-
-                    
-                      <div id="linkedin" class="social-box linkedin align-v">
-                      <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($url);?>">
-                        <i class="fab fa-linkedin"></i></a>
-                      </div>
-                      <div id="twitter" class="social-box twitter align-v">
-                      <a class="share" href="https://twitter.com/intent/tweet?url=<?= urlencode($url);?>"><i class="fab fa-twitter"></i></a>
-                      </div>
-                      <div id="mail" class="social-box envelope align-v">
-                        <i class="fas fa-envelope"></i>
-                      </div>
+                        <div class="social-box pinterest align-v">
+                          <a class="share" href="https://pinterest.com/pin/create/button/?url=<?= urlencode($url);?>">
+                          <i class="fab fa-pinterest-p"></i> </a>
+                          
+                        </div>
+                        <div data-href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
+                          <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
+                          <i class="fab fa-facebook-f"></i></a>
+                        </div>
+                      
+                        <!-- class="fb-xfbml-parse-ignore" -->
+                        <div id="linkedin" class="social-box linkedin align-v">
+                          <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($url);?>">
+                            <i class="fab fa-linkedin"></i></a>
+                        </div>
+                        <div id="twitter" class="social-box twitter align-v">
+                        >"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div id="mail" class="social-box envelope align-v">
+                          <i class="fas fa-envelope"></i>
+                        </div>
                       
                     </div>
-                    <div class="partager">Partager cette recette!</div>
+                    <div class="partager">Partager cette recette!
+
+                    </div>
                   </div>
                   
                 </div>
@@ -203,7 +203,7 @@ $back = "recettes.php";
               
             </div>
           </div>
-        </section> 
+        
   <?php
     if(isset($_POST['mailrecipe'])){
       require 'includes/email-recipe.php';

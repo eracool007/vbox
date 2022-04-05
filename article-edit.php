@@ -43,29 +43,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
     }
 }
-
-
 ?>
+
 <header>
   <?php
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';   
   $errorMsg = "L'article n'existe pas ou la page a été supprimée";           
 ?>
-
 </header>
-<!--section articles-->
-<section>
 
+<main>
+<section>
     <div class="row1">
         <div class="main-content">
             <div class="row1">
                 <h2>Modifier un article</h2>
-                
                 <?php require 'includes/article-form.php'; ?>
-
             <!--fin row1-->    
             </div>
+        </div>
     </div>
-    </div>
-    </section>  
+</section>  
+</main>

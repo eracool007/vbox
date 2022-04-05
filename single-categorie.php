@@ -29,7 +29,8 @@ $numberOfRecipesOnPage = $pagination->firstRecordOfPage + count($recipeArray) - 
 $numberOfRecipes = count($categoryItems);
 
 ?>
-    <!--section Recettes de la-dite categorie-->
+    <!--Recettes de la-dite categorie-->
+    <main>
     <section>
     <div class="row1">
         <div class="main-content align-text-l">
@@ -104,8 +105,8 @@ $numberOfRecipes = count($categoryItems);
       
     </ul>
   </nav>
-    
-</section>
+</section>    
+</main>
           
     
         <?php 

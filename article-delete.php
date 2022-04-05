@@ -46,8 +46,9 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
 ?>
 
 </header>
-<section>
 
+<main>
+<section>
     <div class="row1">
         <div class="main-content">
             <div class="row1">
@@ -57,10 +58,10 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                     <button>Supprimer</button> 
                     <a href="single-blog.php?id=<?= $singleArticle->id; ?>" class="footer-links"> Annuler</a>
                 </form>
-
-            <!--fin row1-->    
+                <!--fin row1-->    
             </div>
         </div>
     </div>
 </section>  
+</main>
 <?php require 'includes/footer.php'; ?>

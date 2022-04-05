@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /*--------------------Declaration des variables-------------------- */
 
 :root {
@@ -43,6 +44,7 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
+  background-color: white;
 }
 
 /*------------------typo & style--------------*/
@@ -89,6 +91,15 @@ body {
     font-size: 30px;
   }
 }
+
+a, a:visited {
+  color: var(--main-dark);
+}
+a:hover, a:active {
+  color: var(--main-dark);
+  font-weight: bold;
+}
+
 .align-v {
   display: flex;
   justify-content: center;
@@ -131,17 +142,18 @@ body {
   }
 }
 
-section {
+section, .top {
   margin-top: 50px;
   padding: 0;
 }
+
 @media screen and (max-width: 992px) {
-  section {
+  section, .top {
     margin-top: 40px;
   }
 }
 @media screen and (max-width: 768px) {
-  section {
+  section, .top {
     margin-top: 35px;
   }
 }
@@ -280,7 +292,7 @@ h5 {
   margin: 0 0.5rem 0rem;
   line-height: 1.2rem;
 }
-@media screen and(max-width:996px) {
+@media screen and (max-width:996px) {
   h2 {
     font-size: 1.2rem;
   }
@@ -329,7 +341,7 @@ h5 {
   font-size: 0.7rem;
 }
 
-@media screen and(max-width:992px) {
+@media screen and (max-width:992px) {
   .logo-big {
     font-size: 1.5rem;
   }
@@ -704,7 +716,8 @@ p.p-btn-big {
   
   padding: 0 0 20px 0;
 }
-@media screen and (max-width:992) {
+
+@media screen and (max-width:992px) {
   .bullseye {
     font-size: 1rem;
    }

@@ -27,6 +27,7 @@ $feature = 'recette';
 
 ?>
 <!--section articles-->
+<main>
 <section>
     <div class="row1">
         <div class="main-content align-text-l">
@@ -38,49 +39,39 @@ $feature = 'recette';
           <h3>Résultats <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfArticlesOnPage ?> de <?= $numberOfArticles ?></h3><br>
          
         </div>
-        
     </div>
+    
     <div class="row1">
-        <div class="main-content">
-
-        <!--articles-->
+      <div class="main-content">
+          
           <div class="row1">
               <div class="col-left">
                 <?php if(!empty($articleArray)) { 
                     foreach($articleArray as $article) {
                         $idName = "article" . $numberOfCards;
-                           
-                    ?>
-
-                    <!--Debut carte-->
-                    
-                    <div class="column33 mb-sm">
-                        <div class="card-p0 shadow">
-                          <article>
-                            <a class="deco-none" href="single-blog.php?id=<?= $article['id']; ?>">
-                            <div class="bg-image" id="<?= $idName ?>" title="<?= $article['altImage']; ?>"></div></a>
-                            <div class="card-inner">
-                                <p><h4><?= $article['titre']; ?></h4> </p>
-                                <p class="p-blog-intro"><?= substr($article['texte'], 0, 50) . "... "; ?> <a class="footer-links" href="single-blog.php?id=<?= $article['id']; ?>">Lire</a></p>
-                            </div>
-                          </article>
+                  ?>
+                <!--Debut carte-->
+                  <div class="column33 mb-sm">
+                    <div class="card-p0 shadow">
+                      <article>
+                        <a class="deco-none" href="single-blog.php?id=<?= $article['id']; ?>">
+                        <div class="bg-image" id="<?= $idName ?>" title="<?= $article['altImage']; ?>"></div></a>
+                        <div class="card-inner">
+                            <p><h4><?= $article['titre']; ?></h4> </p>
+                            <p class="p-blog-intro"><?= substr($article['texte'], 0, 50) . "... "; ?> <a class="footer-links" href="single-blog.php?id=<?= $article['id']; ?>">Lire</a></p>
                         </div>
+                      </article>
                     </div>
-
+                  </div>
                 <?php
                     $numberOfCards++; 
                     } 
-                    
                 } ?>
                 
-
               </div>
-
-
           <!--fin col-left-->
           <!--section menu des categories-->
           <?php
-          
           require 'includes/navigation-vertical.php';
           ?>
           <!--fin column-right-->    
@@ -91,8 +82,6 @@ $feature = 'recette';
   </div>
 </section>  
 <section>
-  
-    
     <nav class="main-content">
         <ul class="page-nav list-none pagination">
             <?php if($pagination->previous) : ?>
@@ -106,14 +95,10 @@ $feature = 'recette';
             <?php else: ?>
             <li class="not-visible">Page suivante <i class="fas fa-chevron-right chevrons"></i></li>
             <?php endif; ?>
-
         </ul>
-        
       </nav>
-    
-  
 </section>
-
+</main>
 
 <?php 
       if(!empty($articleArray)) { 
@@ -126,8 +111,6 @@ $feature = 'recette';
         <?php
         }
       } ?>
-
-
 
 <?php
 require 'includes/footer.php';

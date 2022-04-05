@@ -71,9 +71,8 @@ $allCategories = Categories::getAllCategories($conn);
 ?>
 
 </header>
-
+<main>
 <section>
-
     <div class="row1">
         <div class="main-content">
             <div class="row1">
@@ -83,9 +82,9 @@ $allCategories = Categories::getAllCategories($conn);
 
             <!--fin row1-->    
             </div>
+        </div>
     </div>
-    </div>
-    </section>  
-
+</section>  
+</main>
 
 <?php require 'includes/footer.php'; ?>
