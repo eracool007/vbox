@@ -1,7 +1,8 @@
 <?php
 require 'includes/init.php';
-require 'includes/head.php';
 $conn = require 'includes/db.php';
+require 'includes/set-info.php';
+require 'includes/head.php';
 $type = "recette";
 ?>
 <header>

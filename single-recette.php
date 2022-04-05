@@ -1,12 +1,12 @@
 <?php
 ob_start();
 require 'includes/init.php';
-require 'includes/head.php';
 $conn = require 'includes/db.php';
+require 'includes/set-info.php';
+require 'includes/head.php';
 
 /*variable for type of header*/
 $type = "recette";
-
 /*return page if error*/
 $back = "recettes.php";
 
@@ -17,26 +17,6 @@ $back = "recettes.php";
   ?>
 </header>
 <?php
-  if(isset($_GET['id'])){
-    
-    $numId =  $_GET['id'];
-    settype($numId, 'integer');
-    
-    $singleRecette = Recette::getRecipeById($conn, $numId);
-    
-  } else {
-    
-    ManageError::showErrorPage($type);
-    exit;
-  }
-
-  if (empty($singleRecette)){
-    
-    ManageError::showErrorPage($type);
-    exit;
-  }
-  
-
   //check for valid url
   $url="";
   $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http' ) . '://' .  $_SERVER['HTTP_HOST'];

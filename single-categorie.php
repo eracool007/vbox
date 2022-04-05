@@ -1,8 +1,9 @@
 <?php
 ob_start();
 require 'includes/init.php';
-require 'includes/head.php';
 $conn = require 'includes/db.php';
+require 'includes/set-info.php';
+require 'includes/head.php';
 
 /*variable for type of header*/
 $type = "single-categorie";

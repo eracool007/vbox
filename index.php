@@ -1,8 +1,8 @@
 <?php
 require 'includes/init.php';
-require 'includes/head.php';
-
 $conn = require 'includes/db.php';
+
+require 'includes/head.php';
 
 //clears session cart after print.
 if(isset($_GET['clear'])){
@@ -33,6 +33,7 @@ if(isset($_GET['page'])){
     case "about":
       $page = "includes/about.php";
       $mainHeader = false;
+      
       break;
     case "contact":
       $page = "includes/about.php";

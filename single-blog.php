@@ -1,7 +1,9 @@
 <?php
 require 'includes/init.php';
-require 'includes/head.php';
 $conn = require 'includes/db.php';
+require 'includes/set-info.php';
+require 'includes/head.php';
+
 
 /*variable for type of header*/
 $type="blog";
@@ -13,26 +15,7 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
 
 
 </header>
-<?php
-if(isset($_GET['id'])){
-    
-    $numId = $_GET['id'];  
-    settype($numId, 'integer');
-    $singleArticle = Article::getArticleById($conn, $numId);
-    
 
-    } else {
-
-        ManageError::showErrorPage($type);
-        exit; 
-    }
-
-    if (empty($singleArticle)){
-        ManageError::showErrorPage($type);
-        exit; 
-    }
-
-?>
 <header>
   <?php
   require 'includes/navigation.php';

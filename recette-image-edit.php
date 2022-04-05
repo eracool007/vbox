@@ -1,12 +1,10 @@
 <?php
-
-
 require 'includes/init.php';
-require 'includes/head.php';
-
 Auth::requireLogin();
 
 $conn = require 'includes/db.php';
+require 'includes/set-info.php';
+require 'includes/head.php';
 
 $type="admin";
 $errorMsg = "L'article ou la recette n'existe pas ou la page a été supprimée";  

@@ -1,7 +1,9 @@
 <?php
 require 'includes/init.php';
-require 'includes/head.php';
 $conn = require 'includes/db.php';
+require 'includes/set-info.php';
+require 'includes/head.php';
+
 $type="blog";
 ?>
     <header>
@@ -14,7 +16,6 @@ $type="blog";
 <?php
 //if 'page' exist will use $_get['page'], if not, will use 1,4
 $pagination = new Pagination($_GET['page'] ?? 1, 8, Article::countArticles($conn));
-
 $articleArray = Article::getPage($conn, $pagination->limit, $pagination->offset);
 $numberOfArticlesOnPage = $pagination->firstRecordOfPage + count($articleArray) - 1;
 $numberOfArticles = Article::countArticles($conn);

@@ -72,23 +72,23 @@ $page= "includes/main-page.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé</title>
+    <title><?= $titrePage; ?></title>
     
-    <meta name="title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
-    <meta name="description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
+    <meta name="title" content="<?= $titrePage; ?>">
+    <meta name="description" content="<?= $descriptionPage; ?>">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.caroline-fontaine/vbox/">
-    <meta property="og:title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
-    <meta property="og:description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
-    <meta property="og:image" content="https://www.caroline-fontaine.com/vbox/images/image11.jpg"> 
+    <meta property="og:title" content="<?= $titrePage; ?>">
+    <meta property="og:description" content="<?= $descriptionPage; ?>">
+    <meta property="og:image" content="<?= $imagePage; ?>"> 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image"> 
     <meta property="twitter:url" content="https://www.caroline-fontaine/vbox/">
-    <meta property="twitter:title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
-    <meta property="twitter:description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
-    <meta property="twitter:image" content="https://www.caroline-fontaine.com/vbox/images/image11.jpg"> 
+    <meta property="twitter:title" content="<?= $titrePage; ?>">
+    <meta property="twitter:description" content="<?= $descriptionPage; ?>">
+    <meta property="twitter:image" content="<?= $imagePage; ?>"> 
 
     <!-- Mobile devices -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
