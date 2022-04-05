@@ -18,7 +18,7 @@
                             </div>
                         <?php } ?>
                             <div class="align-text-l">
-                                <h4 id="menu-cat-title">Naviguer les recettes par catégorie</h4>
+                                <h4 aria-label="naviguer les recettes par catégorie" id="menu-cat-title">Naviguer les recettes par catégorie</h4>
                                 <nav>
                                     <ul class="ul-cat">
                                         <?php

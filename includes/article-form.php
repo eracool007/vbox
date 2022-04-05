@@ -24,13 +24,6 @@
                        
                         <input type="date" name="date" id="date" value="<?= htmlspecialchars($singleArticle->pdate); ?>">
                     </div>
-
-                    <!--<div>
-                        <label for="image">Image</Iabel>
-                        <input type="file" name="image" id="image" placeholder="Insérer une image" accept=".jpg, .png, .bmp" value="<?= htmlspecialchars($singleArticle->imagef); ?>"/>
-                        </div>
-
-                    <div> -->
                         <label for="altImage">Texte alternatif pour image</label>
                     </div>
                     <div>
@@ -38,7 +31,6 @@
                     </div>
 
                     <button aria-label="sauvegarder l'article">Sauvegarder</button>
-
                    
                 </form>
                 <!--fin article-form-->

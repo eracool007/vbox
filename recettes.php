@@ -66,7 +66,7 @@ $type = "recette";
               <div class="card-p0b shadow card-category">
                 <a href="single-categorie.php?id=<?= $categories[$i]['id_categorie']; ?>"><div class="bg-image" id="img-cat<?= $i; ?>" title="<?= $categories[$i]['altImage']; ?>"></div></a>
                 <div class="card-inner">
-                  <p><h4><?= $categories[$i]['nom_categorie']; ?></h4></p>
+                  <p><h4 aria-label="<?= $categories[$i]['nom_categorie']; ?>"><?= $categories[$i]['nom_categorie']; ?></h4></p>
                 </div>
               </div>
             </div>              

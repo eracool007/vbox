@@ -65,7 +65,7 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
                   <a href="single-recette.php?id=<?= $recipe['id']; ?>">
                   <div class="bg-image" id="<?= $idName; ?>" title="<?= $recipe['altImage']; ?>"></div></a>
                   <div class="card-inner">
-                    <p><h4><?= $recipe['titre']; ?></h4> </p>
+                    <p><h4 aria-label="<?= $recipe['titre']; ?>"><?= $recipe['titre']; ?></h4> </p>
                     <p><h5>
                           <a class="link_category" href="single-categorie.php?id=<?= $category[0]['id_categorie']?>">
                                 <?= $category[0]['nom_categorie']; ?></a>

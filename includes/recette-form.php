@@ -31,7 +31,7 @@ if(! empty($singleRecipe->errors)): ?>
         $i=0;
         foreach($allCategories as $cat){ ?>
            
-            <input type="checkbox" id="cat[<?= $i ?>]" name="cat[<?= $i ?>]" value="<?=$cat['id_categorie'] ?>"
+            <input aria-label="boite a cocher" type="checkbox" id="cat[<?= $i ?>]" name="cat[<?= $i ?>]" value="<?=$cat['id_categorie'] ?>"
             <?php 
             
             if(!empty($singleRecipe->category)){
