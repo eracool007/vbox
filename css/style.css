@@ -92,14 +92,6 @@ body {
   }
 }
 
-a, a:visited {
-  color: var(--main-dark);
-}
-a:hover, a:active {
-  color: var(--main-dark);
-  font-weight: bold;
-}
-
 .align-v {
   display: flex;
   justify-content: center;
@@ -329,7 +321,7 @@ h5 {
   text-decoration: none;
   color: white;
 }
-.logo-link:hover .logo-link:visited .logo-link:active {
+.logo-link:hover, .logo-link:visited, .logo-link:active {
   color: white;
 }
 

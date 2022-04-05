@@ -1,7 +1,7 @@
 <?php
 require 'includes/init.php';
 $conn = require 'includes/db.php';
-
+require 'includes/set-info.php';
 require 'includes/head.php';
 
 //clears session cart after print.
@@ -28,12 +28,11 @@ if(isset($_GET['shopping'])){
 }
 
 //set page to show
-if(isset($_GET['page'])){
+/*if(isset($_GET['page'])){
   switch($_GET['page']){
     case "about":
       $page = "includes/about.php";
       $mainHeader = false;
-      
       break;
     case "contact":
       $page = "includes/about.php";
@@ -42,7 +41,7 @@ if(isset($_GET['page'])){
     default:
       $page= "includes/main-page.php";
   }
-}
+}*/
 ?>
 <header>
   <?php

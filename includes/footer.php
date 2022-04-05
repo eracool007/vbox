@@ -10,7 +10,8 @@
           </p>
           <form action="index.php" method="POST" id="contact" enctype="multipart/form-data">
             <div class="cta-box">
-              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button class="btn-mailing"><i class="fas fa-paper-plane"></i></button>
+              <label for="mailing">
+              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button name="send my email" class="btn-mailing"><i class="fas fa-paper-plane"></i></button></label>
             </div>
             
           </form>

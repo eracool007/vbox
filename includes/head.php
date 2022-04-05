@@ -58,11 +58,7 @@ if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
 //check if shopping list is required
 $printCart=False;
 
-//check if main header needed;
-$mainHeader = true;
 
-//sets default page
-$page= "includes/main-page.php";
 ?>
 
 <!DOCTYPE html>

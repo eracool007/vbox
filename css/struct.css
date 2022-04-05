@@ -315,9 +315,9 @@
 #menu-cat-title {
   font-size: 0.7rem;
   color: var(--grey-medium);
-  margin: 1rem 0.5rem 0 0.5rem 2rem;
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
   line-height: 1.1rem;
-  
+  border-bottom: 1px solid var(--grey-light);
 }
 
 .ul-cat {
