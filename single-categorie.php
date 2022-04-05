@@ -65,8 +65,8 @@ $numberOfRecipes = count($categoryItems);
                                 <div class="card-p0b shadow">
                                     <a href="single-recette.php?id=<?= $categoryItem['id']; ?>"><div class="bg-image" id="img-recette<?= $count; ?>" title="<?= $categoryItem['altImage']; ?>"></div></a>
                                     <div class="card-inner">
-                                        <p><h4 aria-label="<?= $categoryItem['titre']; ?>"><?= $categoryItem['titre']; ?></h4> </p>
-                                        <p><h5 aria-label="date ajoutée"><?= $categoryItem['pdate']; ?></h5></p>
+                                        <p><h4 aria-description="<?= $categoryItem['titre']; ?>"><?= $categoryItem['titre']; ?></h4> </p>
+                                        <p><h5 aria-description="date ajoutée"><?= $categoryItem['pdate']; ?></h5></p>
                                     </div>
                                 </div>
                             </div>
