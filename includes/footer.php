@@ -43,6 +43,10 @@
     <?php if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add") : ?>
       <script>showModal2();</script>
     <?php endif; ?>
+    
+    <?php if($page == "includes/about.php") : ?>
+      <script>loadCollapse();</script>
+    <?php endif; ?>
   </body>
   
   

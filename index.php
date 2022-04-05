@@ -4,9 +4,6 @@ require 'includes/head.php';
 
 $conn = require 'includes/db.php';
 
-//check if shopping list is required
-$printCart=False;
-
 //clears session cart after print.
 if(isset($_GET['clear'])){
   
@@ -29,11 +26,27 @@ if(isset($_GET['shopping'])){
     }
   }
 }
+
+//set page to show
+if(isset($_GET['page'])){
+  switch($_GET['page']){
+    case "about":
+      $page = "includes/about.php";
+      $mainHeader = false;
+      break;
+    case "contact":
+      $page = "includes/about.php";
+      $mainHeader = false;
+      break;
+    default:
+      $page= "includes/main-page.php";
+  }
+}
 ?>
 <header>
   <?php
   require 'includes/navigation.php';
-  if(!$printCart){
+  if(!$printCart && $mainHeader){
     require 'includes/header-main.php';
   }
   ?>
@@ -48,9 +61,7 @@ if(isset($_GET['error'])){
   require 'includes/list.php';
   
 } else {
-
-  //default main page
-  require 'includes/main-page.php';
+  require $page;
 }
 
 //to subscribe to newsletter

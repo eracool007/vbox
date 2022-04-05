@@ -43,8 +43,8 @@
                   </ul>
                 </li>
                 <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">À propos</a></li>
-                <li><a href="about.php#contact">Contact</a></li>
+                <li><a href="index.php?page=about">À propos</a></li>
+                <!-- <li><a href="about.php#contact">Contact</a></li> -->
               </ul>
             </nav>
           </div>

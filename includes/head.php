@@ -55,6 +55,14 @@ if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
   $cart=true;
   
 } 
+//check if shopping list is required
+$printCart=False;
+
+//check if main header needed;
+$mainHeader = true;
+
+//sets default page
+$page= "includes/main-page.php";
 ?>
 
 <!DOCTYPE html>
@@ -73,6 +81,26 @@ if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
 
     <script src="js/script.js"></script>
     <title>V-Box : La boîte à recette végane</title>
+
+    <!-- Primary Meta Tags -->
+    <title>VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé</title>
+    <meta name="title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
+    <meta name="description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.caroline-fontaine/vbox/">
+    <meta property="og:title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
+    <meta property="og:description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
+    <!-- <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"> 
+    <meta property="twitter:url" content="https://www.caroline-fontaine/vbox/">
+    <meta property="twitter:title" content="VBox - La boîte à recette végane - Un blog et des recettes saines pour optimiser votre santé">
+    <meta property="twitter:description" content="Recettes véganes simples et articles de blog santé pour manger et vivre sainement en augmentant sa consommation de produits végétaux">
+    <!--<meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
+
   </head>
   <body>
   
