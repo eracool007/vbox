@@ -31,7 +31,7 @@ function clearCart(){
             </ul>           
         </div>
         <div class="print sticky">
-        <button type="button" class="btn-print" onClick="printList();">
+        <button aria-label="imprimer la liste" type="button" class="btn-print" onClick="printList();">
             <i class="fas fa-print fa-lg"></i>
         </button>
         </div>

@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <label for="file">Fichier image</label>
                         <input type="file" name="file" id="file">
                     </div>
-                    <button>Ajouter</button>
+                    <button aria-label="Ajouter l'image">Ajouter</button>
                 </form>
 
             <!--fin row1-->    

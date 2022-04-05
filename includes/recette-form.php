@@ -133,6 +133,6 @@ if(! empty($singleRecipe->errors)): ?>
         <input type="number" name="portion" id="portion" value="<?= htmlspecialchars($singleRecipe->portion); ?>">
     </div>
 
-    <button>Sauvegarder</button>
+    <button aria-label="sauvegarder la recette">Sauvegarder</button>
 </form>
 <!--fin recette-form-->

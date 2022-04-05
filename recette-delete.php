@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                 <h2>Supprimer une recette</h2>
                 <form method="post">
                     <p>Voulez-vous vraiment supprimer la recette?</p>
-                    <button>Supprimer</button> 
+                    <button aria-label="supprimer la recette">Supprimer</button> 
                     <a href="single-recette.php?id=<?= $singleRecette->id; ?>" class="footer-links"> Annuler</a>
                 </form>
 

@@ -44,7 +44,7 @@ $conn = require 'includes/db.php';
                     <label form="password">Password</label>
                     <input type="password" title="email" name="password" id="password" autocomplete="current-password">
                 </div>
-                <button>Connecter!</button>
+                <button aria-label="connecter">Connecter!</button>
             </form>
         <div>
     </div>

@@ -37,7 +37,7 @@
                         <textarea name="altImage" id="altImage" placeholder="Texte alternatif et crédit photo ici" rows="10" cols="100"><?= htmlspecialchars($singleArticle->altImage); ?></textarea>
                     </div>
 
-                    <button>Sauvegarder</button>
+                    <button aria-label="sauvegarder l'article">Sauvegarder</button>
 
                    
                 </form>

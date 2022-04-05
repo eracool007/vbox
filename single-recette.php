@@ -91,7 +91,7 @@ $back = "recettes.php";
                     <?php } ?>
                   </div>
                   <div class="print">
-                    <button type="button" class="btn-print" onClick="window.print();">
+                    <button type="button" aria-label="imprimer la recette" class="btn-print" onClick="window.print();">
                       <i class="fas fa-print fa-lg"></i>
                     </button>
                   </div>
@@ -157,7 +157,7 @@ $back = "recettes.php";
                   <div class="ingredients mt-0" id="add-to-list">
                       &#8595;
                       <div class="add-to-list">
-                          <button class="btn-add" id="add-btn" type="submit">Ajouter à ma liste d'épicerie</button>
+                          <button aria-label="ajouter à ma liste d'épicerie" class="btn-add" id="add-btn" type="submit">Ajouter à ma liste d'épicerie</button>
                       </div>
                   </div> 
                 </form>    

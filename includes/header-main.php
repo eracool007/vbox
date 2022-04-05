@@ -13,17 +13,17 @@
         <div class="social">
         <div class="align-text-l social-icons">
             <div class="social-box pinterest align-v">
-                <a class="share" href="mypinterest.com" name="pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a class="share" aria-label="notre page pinterest" href="mypinterest.com" name="pinterest"><i class="fab fa-pinterest-p"></i></a>
             </div>
             <div class="social-box facebook align-v">
-                <a class="share" href="myfacebook.com" name="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="share" aria-label="notre page facebook" href="myfacebook.com" name="facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
             <div class="social-box linkedin align-v">
             
-                <a class="share" href="mylinkedin.com" name="linkedin"><i class="fab fa-linkedin"></i></a>
+                <a class="share" aria-label="notre page linkedin" href="mylinkedin.com" name="linkedin"><i class="fab fa-linkedin"></i></a>
             </div>
             <div class="social-box twitter align-v">
-                <a class="share" href="mytwitter.com" name="twitter"><i class="fab fa-twitter"></i></a>
+                <a class="share" aria-label="notre page twitter" href="mytwitter.com" name="twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
         </div>
