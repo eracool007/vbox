@@ -380,11 +380,11 @@
   justify-content: flex-start;
 }
 .cat-item{
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   
   padding: 0.1rem 0.8rem;
   margin: 0.3rem 0.3rem 0 0;
-  background-color: rgba(242,164,19,0.2);
+  background-color: rgba(242,164,19,0.1);
   border-radius: 4px;
 }
 

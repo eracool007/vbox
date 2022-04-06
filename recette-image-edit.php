@@ -124,7 +124,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <h2>Ajouter ou modifier l'image de la recette</h2>
                 
                 <?php if($singleRecette->imagef): ?>
-                    <img class="edit-img" src="images/assets/<?= $singleRecette->imagef; ?>">
+                    <img class="edit-img" src="images/assets/<?= $singleRecette->imagef; ?>" alt="<?= $singleRecette->altImage; ?>">
                 <?php endif; ?>
                 <form method="post" enctype="multipart/form-data">
                     <div>

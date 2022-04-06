@@ -311,6 +311,7 @@ h5 {
 
 .logo-small {
   font-size: 1rem;
+  padding-bottom: 20px;
 }
 
 .logo-leaf-small {
@@ -735,7 +736,7 @@ p.p-btn-big {
 }
 
 .active, .collapse:hover {
-  background-color: rgba(242,164,19,0.2);
+  background-color: rgba(242,164,19,0.1);
 }
 
 .panel {
@@ -816,7 +817,7 @@ p.p-btn-big {
 @media screen and (max-width: 992px) {
   .header-main {
     margin-top: 85px;
-    height: 11rem;
+    
   }
   .header-subpage {
     margin-top: 60px;

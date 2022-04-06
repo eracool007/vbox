@@ -36,7 +36,7 @@ $back = "recettes.php";
                 <div id="recipe-main" title="<?= $singleRecette->altImage; ?>" class="col-left-cat">
               
                     <h1 class="main-title-recipe"><?= $singleRecette->titre; ?></h1>
-                    <img src="images/assets/<?= $singleRecette->imagef; ?>" id="main-image">
+                    <img src="images/assets/<?= $singleRecette->imagef; ?>" id="main-image" alt="<?= $singleImage->altImage; ?>">
                     <p class="recipe-info">
                       Préparation:   <?= $singleRecette->preparation; ?> min.<br>
                       Cuisson:   <?= $singleRecette->cuisson; ?> min.<br>
@@ -61,8 +61,7 @@ $back = "recettes.php";
                           <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($url);?>">
                             <i class="fab fa-linkedin"></i></a>
                         </div>
-                        <div id="twitter" class="social-box twitter align-v">
-                        >"><i class="fab fa-twitter"></i></a>
+                        <div id="twitter" class="social-box twitter align-v"><i class="fab fa-twitter"></i></a>
                         </div>
                         <div id="mail" class="social-box envelope align-v">
                           <i class="fas fa-envelope"></i>

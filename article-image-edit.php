@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <h2>Ajouter ou modifier l'image de l'article</h2>
                 
                 <?php if($singleArticle->imagef): ?>
-                    <img class="edit-img" src="images/assets/<?= $singleArticle->imagef; ?>">
+                    <img class="edit-img" src="images/assets/<?= $singleArticle->imagef; ?>" alt="<?= $singleArticle->altImage; ?>">
                 <?php endif; ?>
                 <form method="post" enctype="multipart/form-data">
                     <div>

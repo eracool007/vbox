@@ -61,7 +61,7 @@ $numberOfRecipes = count($categoryItems);
                         foreach($recipeArray as $categoryItem){
                             $numberOfCards++;
                           ?>
-                            <div id="col-recette" class="column25 mb-sm">
+                            <div class="column25 col-recette mb-sm">
                                 <div class="card-p0b shadow">
                                     <a href="single-recette.php?id=<?= $categoryItem['id']; ?>"><div class="bg-image" id="img-recette<?= $count; ?>" title="<?= $categoryItem['altImage']; ?>"></div></a>
                                     <div class="card-inner">

@@ -70,8 +70,18 @@ if(strpos($url, 'single-recette')) {
     
     $page = "includes/about.php";
     $mainHeader = false;
-    $titrePage="À propos du projet V-box";
+    $titrePage="À propos du projet V-Box";
     $descriptionPage = "Description du projet de site web V-Box et ses pricipales fonctionnalités, ainsi que la liste des outils et des technologies utilisés.";
     $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
-}
+} elseif(strpos($url, 'single-categorie')) {
+    $mainHeader = false;
+    $descriptionPage = "Une foule de recettes véganes et santé triées par catégories";
+    $titrePage="V-Box: Rechercher des recettes par catégorie";
+    $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
+} elseif(strpos($url, 'recettes.php')) {
+    $mainHeader = false;
+    $descriptionPage = "Toutes nos catégories de recettes véganes et santé";
+    $titrePage="Catégories de recettes véganes et santé";
+    $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
 
+}

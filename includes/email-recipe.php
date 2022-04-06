@@ -29,7 +29,7 @@ if($emailErr == ""){
     $comment .= "<p><a href='".$url."'>Voir la recette sur le web</a></p><br>"; 
   }
 
-  $comment .= "<img src='https://www.caroline-fontaine.com/vbox/images/assets/".$singleRecette->imagef. "' width='300px' height='auto'>" ;
+  $comment .= "<img src='https://www.caroline-fontaine.com/vbox/images/assets/".$singleRecette->imagef. "' width='300px' height='auto'>";
   $comment .= "<p>Préparation:  ". $singleRecette->preparation ." min.<br>Cuisson: ".$singleRecette->cuisson ." min.<br>Portions: ". $singleRecette->portion ."</p><br></div>";
   $comment .="<div><h3>DESCRIPTION</h3><p>" . html_entity_decode($singleRecette->description) . "</p><br></div><div>";
   $comment .="<h3>INGREDIENTS</h3><ul>";

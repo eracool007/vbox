@@ -2,6 +2,11 @@
 require 'includes/init.php';
 $conn = require 'includes/db.php';
 
+//variables for metatags
+$titrePage="VBox - Page de connection";
+$descriptionPage = "Page de connection au site V-Box";
+$imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(User::auth($conn, $_POST['email'], $_POST['password'])){
