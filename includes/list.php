@@ -13,7 +13,7 @@ function clearCart(){
 }
 ?>
 
-<section>
+<section class="height-set">
     <div class="row1">
     <div class="main-content">
         <!--Shopping list items-->

@@ -3,12 +3,12 @@
  * Login session methods
  */
     class Auth {
-        /**
-         * Check if user is logged in
-         * 
-         * @return boolean True if logged in, False otherwise
-         */
-        public static function isLoggedIn(){
+    /**
+     * Check if user is logged in
+     * 
+     * @return boolean True if logged in, False otherwise
+     */
+    public static function isLoggedIn(){
 
         return isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'];
     }
@@ -25,6 +25,27 @@
     }
 
     /**
+     * Check if user is admin user
+     * 
+     * @return boolean True if admin, False otherwise
+     */
+    public static function isAdmin(){
+
+        return isset($_SESSION['is_admin']) && $_SESSION['is_admin'];
+    }
+
+    /**
+     * RequireAdmin
+     * 
+     * @return void
+     */
+    public static function requireAdmin(){
+        if(! static::isAdmin()){
+            die("Accès refusé");
+        }
+    }
+
+    /**
      * set session
      * 
      * @return void
@@ -34,6 +55,18 @@
         session_regenerate_id(true);
         $_SESSION['is_logged_in'] = true;
     }
+    
+    /**
+     * set session admin
+     * 
+     * @return void
+     */
+    public static function admin(){
+
+        session_regenerate_id(true);
+        $_SESSION['is_admin'] = true;
+    }
+
 
     /**
      * Log out of session

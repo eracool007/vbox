@@ -65,5 +65,3 @@
       </div>
       <!--fin navigation-->
       
-      <label for="mailing">
-              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button role="button" aria-label="envoyer mon adresse courriel" class="btn-mailing"><i class="fas fa-paper-plane"></i></button></label>

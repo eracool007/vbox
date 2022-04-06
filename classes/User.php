@@ -11,6 +11,7 @@ class User {
     public $id;
     public $username;
     public $password;
+    public $admin;
 
     /**
      * User authentification
@@ -44,4 +45,24 @@ class User {
              
         }
     }
+    public static function isAdmin($conn, $email, $password){
+
+        $sql= "SELECT *
+                FROM tb_user
+                WHERE email = :email";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        if($user =$stmt->fetch()){
+
+             return($user['admin']); 
+             
+        }
+    }
+    
 }

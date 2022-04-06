@@ -1,6 +1,6 @@
 <?php
 require 'includes/init.php';
-Auth::requireLogin();
+Auth::requireAdmin();
 
 $conn = require 'includes/db.php';
 require 'includes/set-info.php';

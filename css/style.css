@@ -47,6 +47,9 @@ body {
   background-color: white;
 }
 
+.height-set{
+  min-height: 50vh;
+}
 /*------------------typo & style--------------*/
 
 .main-title {
@@ -1053,6 +1056,16 @@ tr{
   font-weight: 600;
   margin: 0 0.1rem 0rem;
   line-height: 1.2rem;
+}
+.search-links{
+  color: var(--main-dark);
+  text-decoration: none;
+}
+.search-links:hover {
+  text-decoration: underline;
+}
+.search-links:visited {
+  color: var(--grey-medium);
 }
 
 

@@ -1,7 +1,7 @@
 <?php
 require 'includes/init.php';
 $conn = require 'includes/db.php';
-
+$page="";
 //variables for metatags
 $titrePage="VBox - Page de connection";
 $descriptionPage = "Page de connection au site V-Box";
@@ -12,6 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(User::auth($conn, $_POST['email'], $_POST['password'])){
         
         Auth::login();
+        if(User::isAdmin($conn, $_POST['email'], $_POST['password'])){
+            Auth::admin();
+        }
         Url::redirect('/');
 
     }else {
@@ -31,7 +34,7 @@ $conn = require 'includes/db.php';
 <main>
 <section class="marginTop">
     <div class="row1 mt-100">
-        <div class="main-content align-text-l">
+        <div class="main-content align-text-l height-set">
             <h2 class="section-title">Se connecter</h2>
 
             <?php if(! empty($error)) : ?>
