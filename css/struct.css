@@ -300,6 +300,12 @@
   width: 12rem;
   height: auto;
 }
+.sm-image{
+  padding-top: 7px;
+  object-fit: cover;
+  object-position: center;
+  
+}
 .cat-blog-title {
   width: 12rem;
   background-color: var(--orange);

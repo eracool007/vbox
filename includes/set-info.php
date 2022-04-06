@@ -84,4 +84,10 @@ if(strpos($url, 'single-recette')) {
     $titrePage="Catégories de recettes véganes et santé";
     $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
 
+} elseif(strpos($url, 'search')) {
+    $mainHeader = false;
+    $descriptionPage = "Recherche de recettes ou articles de blog";
+    $titrePage="Recherche de recettes véganes et d'articles de blog santé";
+    $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
+
 }

@@ -50,17 +50,14 @@
           </div>
           <div class="columnSearch">
             <div class="search-row">
+              <form method="post" action="search.php">
                 <div class="search-container">
-                  <input
-                    type="text"
-                    class="search"
-                    placeholder="Rechercher"
-                    aria-label="rechercher"
-                  />
+                  <input type="text" class="search" name="search" placeholder="Rechercher" aria-label="rechercher"/>
                 </div>
-              <div class="search-icon-container">
-                <i class="fas fa-search"></i>
-              </div>
+                <div class="search-icon-container">
+                  <button role="button" aria-label="chercher" class="btn-search"><i class="fas fa-search"></i>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -68,3 +65,5 @@
       </div>
       <!--fin navigation-->
       
+      <label for="mailing">
+              <input class="cta-input" type="email" name="mailing" id="mailing" placeholder="Courriel"><button role="button" aria-label="envoyer mon adresse courriel" class="btn-mailing"><i class="fas fa-paper-plane"></i></button></label>

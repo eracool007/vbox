@@ -13,17 +13,6 @@ class Cart {
         return !empty($_SESSION['cart']);
     }
 
-    /**
-     * Empty cart
-     * 
-     * @return void
-     */
-    public static function EmptyCart(){
-
-    }
-
     
-
-
 }
 

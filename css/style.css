@@ -386,6 +386,19 @@ h5 {
   width: 100%;
   float: left;
 }
+.btn-search {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  
+}
+.btn-search:hover {
+  color: var(--main-dark);
+}
 @media screen and (max-width: 992px) {
   .search-icon-container {
     padding-left: 5px;
@@ -878,6 +891,7 @@ p.p-btn-big {
   color: var(--orange);
 }
 
+
 @media screen and (max-width: 992px) {
   .cta {
     margin: 10px auto;
@@ -999,4 +1013,50 @@ footer {
   cursor: pointer;
 }
 
-/* ---------------test area ---------------*/
+/* ---------------Search table---------------*/
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+th, td {
+ padding-left: 8px; 
+}
+
+thead tr {
+  height: 40px;
+  background: var(--grey-light);
+  font-size: 14px;
+}
+
+tbody tr {
+  height: 48px;
+  border-bottom: 1px solid var(--grey-light);
+}
+tr{
+  padding-top: 5px;
+}
+.img-cell{
+  padding-left: 0;
+  width: 105px;
+}
+.type {
+  color: var(--grey-medium);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0 0.1rem 0rem;
+  line-height: 1.2rem;
+}
+
+
+
+
+
+/* ---------------   ---------------*/
