@@ -127,11 +127,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <img class="edit-img" src="images/assets/<?= $singleRecette->imagef; ?>" alt="<?= $singleRecette->altImage; ?>">
                 <?php endif; ?>
                 <form method="post" enctype="multipart/form-data">
-                    <div>
-                        <label for="file">Fichier image</label>
-                        <input type="file" name="file" id="file">
+                    <div class="mb-sm">
+                        <labelfor="file">Fichier image</label>
+                        <input class="width100" type="file" name="file" id="file">
                     </div>
-                    <button aria-label="Ajouter l'image">Ajouter</button>
+                    <button class="btn btn-voir btn-txt" role="button" aria-label="Ajouter l'image">Ajouter</button>
+                    <a href="single-recette.php?id=<?= $singleRecette->id; ?>" class="green-links form-links"> Annuler</a>
                 </form>
 
             <!--fin row1-->    

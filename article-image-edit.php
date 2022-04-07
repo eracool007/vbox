@@ -124,11 +124,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <img class="edit-img" src="images/assets/<?= $singleArticle->imagef; ?>" alt="<?= $singleArticle->altImage; ?>">
                 <?php endif; ?>
                 <form method="post" enctype="multipart/form-data">
-                    <div>
+                    <div class="mb-sm">
                         <label for="file">Fichier image</label>
                         <input type="file" name="file" id="file">
                     </div>
-                    <button aria-label="Ajouter l'image">Ajouter</button>
+                    <button class="btn btn-voir btn-txt" aria-label="Ajouter l'image">Ajouter</button>
+                    <a href="single-blog.php?id=<?= $singleArticle->id; ?>" class="green-links form-links"> Annuler</a>
                 </form>
 
             <!--fin row1-->    

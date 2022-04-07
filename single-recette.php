@@ -36,7 +36,7 @@ $back = "recettes.php";
                 <div id="recipe-main" title="<?= $singleRecette->altImage; ?>" class="col-left-cat">
               
                     <h1 class="main-title-recipe"><?= $singleRecette->titre; ?></h1>
-                    <img src="images/assets/<?= $singleRecette->imagef; ?>" id="main-image" alt="<?= $singleImage->altImage; ?>">
+                    <img src="images/assets/<?= $singleRecette->imagef; ?>" id="main-image" alt="<?= $singleRecette->altImage; ?>">
                     <p class="recipe-info">
                       Préparation:   <?= $singleRecette->preparation; ?> min.<br>
                       Cuisson:   <?= $singleRecette->cuisson; ?> min.<br>
@@ -109,14 +109,18 @@ $back = "recettes.php";
                 </div>
               </div>   
                   
-              
+              <div class="row1">
+                  <?php if($admin) : ?>
+                    <div class="admin-menu">
+                      <a class="admin-links" href="recette-edit.php?id=<?= $singleRecette->id; ?>">Modifier</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-delete.php?id=<?= $singleRecette->id; ?>">Supprimer</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-image-edit.php?id=<?= $singleRecette->id; ?>">Modifier l'image</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-add.php">Ajouter une recette</a> 
+                    </div>
+                </div>  
+                <?php endif; ?> 
+                
              
               <!--Description recette-->
               <section id="description">
                 <div class="row1">
-                  <?php if($log == "Quitter") : ?> 
-                    <a class="admin-links" href="recette-edit.php?id=<?= $singleRecette->id; ?>">Modifier</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-delete.php?id=<?= $singleRecette->id; ?>">Supprimer</a>&nbsp;|&nbsp;<a class="admin-links" href="recette-image-edit.php?id=<?= $singleRecette->id; ?>">Modifier l'image</a> 
-                  <?php endif; ?> 
                   
                   <h3 class="h3-sm">DESCRIPTION</h3>
                   <p class="p-single">

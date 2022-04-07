@@ -14,8 +14,8 @@ $type="blog";
   
     </header>   
 <?php
-//if 'page' exist will use $_get['page'], if not, will use 1,4
-$pagination = new Pagination($_GET['page'] ?? 1, 8, Article::countArticles($conn));
+//if 'page' exist will use $_get['page'], if not, will use 1,6
+$pagination = new Pagination($_GET['page'] ?? 1, 6, Article::countArticles($conn));
 $articleArray = Article::getPage($conn, $pagination->limit, $pagination->offset);
 $numberOfArticlesOnPage = $pagination->firstRecordOfPage + count($articleArray) - 1;
 $numberOfArticles = Article::countArticles($conn);
@@ -28,14 +28,15 @@ $feature = 'recette';
 ?>
 <!--section articles-->
 <main>
+<?php if($admin){ 
+  include 'includes/menu-admin.php';
+  }
+?>
 <section>
     <div class="row1">
         <div class="main-content align-text-l">
         <h2 class="section-title">Bienvenue sur notre blog!</h2>
-        <?php 
-                    if ($log == "Quitter") :?>
-                        <p><a href="article-add.php" class="admin-links">Ajouter un article</a> </p>
-                    <?php endif; ?>
+       
           <h3>Résultats <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfArticlesOnPage ?> de <?= $numberOfArticles ?></h3><br>
          
         </div>

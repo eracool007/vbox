@@ -16,14 +16,17 @@ $type = "recette";
   ?>
 
 </header>
+<main>
+
+<?php if($admin){ 
+  include 'includes/menu-admin.php';
+  }
+?>
 
     <!--section Recette vedette-->
     <section>
     <div class="row1">
         <div class="main-content align-text-l">
-        <?php if($log == "Quitter") : ?> 
-                  <a class="admin-links" href="recette-add.php">Ajouter une recette</a>
-        <?php endif; ?> 
         <h2 class="section-title">Recette vedette</h2>
         </div>
     </div>
@@ -76,7 +79,9 @@ $type = "recette";
             <!--Fin cartes recette-->
           </div>
         </div>
-      </section>
+    </section>
+</main>
+
       
       <script>loadImage("<?= $vedette[0]['imagef']; ?>", "recette_vedette"); </script>
       <?php 

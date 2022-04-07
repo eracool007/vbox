@@ -21,8 +21,15 @@ if(isset($_POST['search']) && ($_POST['search'] != "")){
 </header>
 
 <main>
+
+<?php if($admin) : ?>
+  <div class="mt-100">
+      <?php include 'includes/menu-admin.php'; ?>
+  </div>   
+<?php endif; ?>  
+  
 <!--Search page-->
-<section class="mt-100 height-set">
+<section class="height-set">
     <div class="row1">
         <div class="main-content align-text-l">
             <h2 class="section-title">Résultats de recherche pour: <em><?= $searchString;?> </em></h2>
@@ -50,21 +57,21 @@ if(isset($_POST['search']) && ($_POST['search'] != "")){
                         <td class="img-cell">
                             <?php if($recette) : ?>
 
-                                <a class="search-links" href="single-recette.php?id=<?= $resultat['id']; ?>"><img class="sm-image" src="images/assets/<?= $resultat['imagef']; ?>" alt="<?= $resultat['altImage']; ?>" width="100" height="80" loading="lazy" decoding="async"></a>
+                                <a class="green-links" href="single-recette.php?id=<?= $resultat['id']; ?>"><img class="sm-image" src="images/assets/<?= $resultat['imagef']; ?>" alt="<?= $resultat['altImage']; ?>" width="100" height="80" loading="lazy" decoding="async"></a>
 
                             <?php else : ?>
-                                <a class="search-links" href="single-blog.php?id=<?= $resultat['id']; ?>"><img class="sm-image" src="images/assets/<?= $resultat['imagef']; ?>" alt="<?= $resultat['altImage']; ?>" width="100" height="80" loading="lazy" decoding="async"></a>
+                                <a class="green-links" href="single-blog.php?id=<?= $resultat['id']; ?>"><img class="sm-image" src="images/assets/<?= $resultat['imagef']; ?>" alt="<?= $resultat['altImage']; ?>" width="100" height="80" loading="lazy" decoding="async"></a>
                                     
                             <?php endif; ?>
                         </td>
                         <td>
                             <?php if($recette) : ?>
 
-                                <a class="search-links" href="single-recette.php?id=<?= $resultat['id']; ?>"><?= $resultat['titre']; ?></a>
+                                <a class="green-links" href="single-recette.php?id=<?= $resultat['id']; ?>"><?= $resultat['titre']; ?></a>
                                 <p class="type">Recette</p>
 
                             <?php else : ?>
-                                <a class="search-links" href="single-blog.php?id=<?= $resultat['id']; ?>"><?= $resultat['titre']; ?></a>
+                                <a class="green-links" href="single-blog.php?id=<?= $resultat['id']; ?>"><?= $resultat['titre']; ?></a>
                                 <p class="type">Article de blog </p>
                             <?php endif; ?>
                         </td>

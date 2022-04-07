@@ -1,4 +1,5 @@
 <?php 
+$admin=false; 
 
 if(!isset($_SESSION)) {
   session_start();
@@ -13,6 +14,11 @@ if(!isset($_SESSION)) {
   
   $log="Quitter";
   $logLink = "/vbox/logout.php";
+
+  if(Auth::isAdmin()){
+    
+    $admin=true;  
+  }
   
   } else {
   

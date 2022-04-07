@@ -80,7 +80,8 @@ $allCategories = Categories::getAllCategories($conn);
                 
                 <?php require 'includes/recette-form.php'; ?>
 
-            <!--fin row1-->    
+            <!--fin row1-->
+               
             </div>
         </div>
     </div>

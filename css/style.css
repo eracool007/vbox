@@ -50,6 +50,12 @@ body {
 .height-set{
   min-height: 50vh;
 }
+.center-all{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 /*------------------typo & style--------------*/
 
 .main-title {
@@ -120,6 +126,12 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+.center80 {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  
+}
 
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -138,7 +150,7 @@ body {
 }
 
 section, .top {
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 0;
 }
 
@@ -158,6 +170,7 @@ section, .top {
 .mt-50 {
   margin-top: 50px;
 }
+
 .mt-0 {
   margin-top: 0 !important;
 }
@@ -184,8 +197,9 @@ section, .top {
 .m-0 {
   margin: 0 !important;
 }
-.p-sm {
-  padding: 2px;
+
+.p-md {
+  padding: 2px 5px;
 }
 .p-main {
   font-size: 1rem;
@@ -923,15 +937,18 @@ p.p-btn-big {
 }
 .admin-links,
 .admin-links:visited {
+  text-decoration: none;
   font-size: 0.8rem;
   color: var(--main-dark);
 }
 .admin-links:hover {
-  font-weight: bold;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .edit-img {
   width: 400px;
+}
+.admin-menu{
+  margin-top: 0;
 }
 /*-----------------Footer---------------------*/
 footer {
@@ -1057,19 +1074,84 @@ tr{
   margin: 0 0.1rem 0rem;
   line-height: 1.2rem;
 }
-.search-links{
+.green-links{
   color: var(--main-dark);
   text-decoration: none;
 }
-.search-links:hover {
+.green-links:hover {
   text-decoration: underline;
 }
-.search-links:visited {
-  color: var(--grey-medium);
+.green-links:visited {
+  color: var(--main-dark);
 }
 
+/* ---------------forms---------------*/
+#form-title {
+  padding: 20px 0 30px;
+}
+.user-form{
+  display: flex;
+  align-items: flex-start;
+  
+}
+.col-form-sm{
+  width: 120px;
+}
+.user-input{
+  width: 100%;
+  padding: 5px;
+  border: none;
+  outline: 0;
+  background-color: #ececec;
+  border-radius: 2px;
 
+}
+.form-input{
+  
+  padding: 5px;
+  border: none;
+  outline: 0;
+  background-color: #ececec;
+  border-radius: 2px;
+}
+.width100{
+  width: 100%
+}
+.width-md{
+  width: 50%;
+}
+.width-sm{
+  width: 50px;
+}
+.btn-txt{
+  padding: 3px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.user-form-box{
+  display: flex;
+  width: 90%;
+  max-width: 600px;
+  height:300px;
+  border-radius: 10px;
+}
+.full{
+  width: 100%;
+  padding: 2px;
+}
+.form-links{
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
 
-
+@media screen and (max-width: 600px) {
+  .user-form{
+    display: block;
+  }
+}
+.register{
+  font-size: 0.9rem;
+  padding-top: 10px;
+}
 
 /* ---------------   ---------------*/

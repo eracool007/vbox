@@ -32,6 +32,7 @@
   margin: 0 -5px;
 }
 
+
 /* Columns floating next to each other */
 .column25 {
   float: left;
@@ -71,6 +72,8 @@
   width: 25%;
 
 }
+
+
 
 /* Responsive columns */
 @media screen and (max-width: 1725px) {

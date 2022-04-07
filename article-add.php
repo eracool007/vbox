@@ -10,7 +10,6 @@ require 'includes/head.php';
 
 /*variable for type of header*/
 $type="admin";
-
 $singleArticle = new Article();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){

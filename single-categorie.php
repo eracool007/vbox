@@ -31,12 +31,15 @@ $numberOfRecipes = count($categoryItems);
 ?>
     <!--Recettes de la-dite categorie-->
     <main>
+      
+    <?php if($admin){ 
+      include 'includes/menu-admin.php';
+      }
+    ?>
     <section>
     <div class="row1">
         <div class="main-content align-text-l">
-        <?php if($log == "Quitter") : ?> 
-                  <a class="admin-links" href="recette-add.php">Ajouter une recette</a>
-        <?php endif; ?> 
+        
         <h3 class="section-title">Résultats  <?=$pagination->firstRecordOfPage; ?> - <?=$numberOfRecipesOnPage ?> de <?= $numberOfRecipes ?></h3>
         </div>
     </div>

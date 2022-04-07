@@ -7,6 +7,11 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
 
 ?>
 <!--main page-->
+
+<?php if($admin){ 
+  include 'includes/menu-admin.php';
+  }
+?>
 <section>
       <!--section nouvelles de notre blog-->
       <?php if(!empty($featuredArticle)) { ?>
@@ -79,9 +84,10 @@ $lastRecipies = array_slice(Recette::getAllRecipies($conn), 0, $numberOfCards);
           </div>
         </div>
       </section>
+
       <!--main page-->
       <?php } ?>
-    
+   
     <?php if(!empty($featuredArticle)) { ?>
     <script>loadImage("<?= $featuredArticle->imagef; ?>", "featured_article_image")</script>
     <?php } ?>
