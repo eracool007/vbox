@@ -7,7 +7,10 @@ $titrePage="VBox - Page de connection";
 $descriptionPage = "Page de connection au site V-Box";
 $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+$subscribe=false;
+$error=[];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && (!isset($_GET['subscribe']))){
 
     if(User::auth($conn, $_POST['email'], $_POST['password'])){
         
@@ -18,7 +21,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         Url::redirect('/');
 
     }else {
-        $error = "Information de connection erronée.";
+        $error[]= "Information de connection erronée.";
+    }
+} else {
+    if(isset($_GET['subscribe'])){
+        $subscribe=true;
+        if(isset($_POST) && (!empty($_POST))){
+            
+            $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
+            $email = $POST['email'];
+            $password = $POST['password'];
+            $password2 = $POST['password2'];
+            
+        
+            //validate email
+            if (!filter_var($POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $error[] = "Courriel invalide";
+            }    
+           //confirm password
+            if($password != $password2){
+                $error[] = "Les mots de passe de concordent pas.";
+            }
+            //field filled
+            if($email =="" || $password =="" || $password2 ==""){
+                $error[]="Tous les champs doivent être remplis.";
+            }
+            if(empty($error)){
+               if(User::userExist($conn, $email, $password)){
+                $error[] = "Cet utilisateur existe déja.";
+               } else { echo "n existe pas"; exit; }
+            }
+        }
     }
 }
 
@@ -40,7 +73,9 @@ $conn = require 'includes/db.php';
                 <h2 id="form-title" class="section-title">Se connecter</h2>
 
                 <?php if(! empty($error)) : ?>
-                    <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $error; ?></p>
+                    <?php foreach($error as $err) : ?>
+                        <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $err; ?></p>
+                    <?php endforeach; ?>
                 <?php endif; ?>
 
                 <form method="post">
@@ -49,21 +84,32 @@ $conn = require 'includes/db.php';
                             <label for="email">Courriel</label>
                         </div>
                         <div class="full">
-                            <input class="user-input" name="email" title="email" id="email" autocomplete="username">
+                            <input type="email" class="user-input" name="email" title="email" id="email" autocomplete="username" required>
                         </div>
                     </div> 
                     <div class="user-form mb-sm">
                         <div class="col-form-sm">
-                            <label form="password">Password</label>
+                            <label form="password">Mot de passe</label>
                         </div>
                         <div class="full">
-                            <input class="user-input" type="password" title="email" name="password" id="password" autocomplete="current-password">
+                            <input class="user-input" type="password" title="email" name="password" id="password" autocomplete="current-password" required>
                         </div>
                     </div>
-                    <button class="btn btn-voir btn-txt" role="button" aria-label="connecter">Connecter!</button>
+                    <?php if($subscribe) : ?>
+                    <div class="user-form mb-sm">
+                        <div class="col-form-sm">
+                            <label form="password">Mot de passe</label>
+                        </div>
+                        <div class="full">
+                            <input class="user-input" type="password" title="email2" name="password2" id="password2" placeholder="Confirmation du mot de passe" required>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
+                    <button class="btn btn-voir btn-txt" role="button" aria-label="connecter"><?php echo ($subscribe) ? "M'inscrire!" : "Connecter!"; ?></button>
                     
                 </form>
-                <p class="register"><em>Pas encore inscrit?</em> <a class="green-links" href="register.php" arial-label="s'inscrire">Inscrivez-vous maintenant!</a></p>
+                <p class="register"><em>Pas encore inscrit?</em> <a class="green-links" href="?subscribe=1" arial-label="s'inscrire">Inscrivez-vous maintenant!</a></p>
                 </div>
                 
             </div>

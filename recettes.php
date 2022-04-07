@@ -10,7 +10,7 @@ $type = "recette";
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';
   $vedette = Random::randomItem($conn, "recette");
-  //$categories = new Categories($conn);
+
   $categories = Categories::getAllCategories($conn);
   
   ?>
@@ -18,7 +18,9 @@ $type = "recette";
 </header>
 <main>
 
-<?php if($admin){ 
+<?php
+//$admin in head
+  if($admin){ 
   include 'includes/menu-admin.php';
   }
 ?>

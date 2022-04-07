@@ -35,13 +35,3 @@
         } 
     }
  }
- /*
- $sql = "SELECT id, titre, imagef, altImage
-        FROM tb_recette
-        WHERE titre LIKE '%:searchString%'
-        OR description LIKE '%:searchString%'
-        UNION
-        SELECT id, titre, imagef, altImage
-        FROM tb_article
-        WHERE titre LIKE '%:searchString%'";
-        */

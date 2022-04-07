@@ -1095,7 +1095,7 @@ tr{
   
 }
 .col-form-sm{
-  width: 120px;
+  width: 150px;
 }
 .user-input{
   width: 100%;
@@ -1132,7 +1132,7 @@ tr{
   display: flex;
   width: 90%;
   max-width: 600px;
-  height:300px;
+  min-height:300px;
   border-radius: 10px;
 }
 .full{
