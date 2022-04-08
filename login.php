@@ -108,7 +108,7 @@ require 'includes/head.php';
                 <?php if(!$subscribe) : ?>
                 <p class="register"><em>Pas encore inscrit?</em> <a class="green-links" href="?subscribe=1" arial-label="s'inscrire">Inscrivez-vous maintenant!</a></p>
                 <?php else: ?>
-                <p class="register"><em>Je suis déjà inscrit(e)!</em> <a class="green-links" href="?subscribe=0" arial-label="me connecter">Me connecter!</a></p>
+                <p class="register"><em>Je suis déjà inscrit(e)!</em> <a class="green-links" href="?" arial-label="me connecter">Me connecter!</a></p>
                 <?php endif; ?>
                 </div>
                 
