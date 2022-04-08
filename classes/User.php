@@ -8,17 +8,50 @@
 
 class User {
 
+    /** @var int */
     public $id;
-    public $username;
-    public $password;
-    public $admin;
 
+    /** @var varchar200 */
+    public $email;
+
+    /** @var varchar255 */
+    public $password;
+
+    /** @var varchar255 */
+    public $password2;
+
+    /** @var boolean */
+    public $admin;
+    
+    /** @var array Error array*/
+    public $errors = [];
+   
     /**
+     * Class constructor
+     * 
+     * @param int $id Article id
+     * 
+     * @param int $id User id
+     * @param varchar200 $email User email
+     * @param varchar255 $password User password
+     * @param boolean $admin False by default. Admin user to be set by db adminstrator.
+     * 
+     * @return void
+     */
+    public function __constructor($id, $email, $password, $password2, $admin){
+        $this->id = $id;
+        $this->email = $email;
+        $this->password = $password;
+        $this->password2 = $password2;
+        $this->admin = $admin;
+    }
+
+    /**------------------------------------------------------
      * Get user information
      * 
      * @param object $conn Db connection
-     * @param var $email User email
-     * @param var $password User password
+     * @param varchar $email User email
+     * @param varchar $password User password
      * 
      * @return array of record
      * 
@@ -27,7 +60,7 @@ class User {
 
         $sql= "SELECT *
                 FROM tb_user
-                WHERE email = :email";
+                WHERE email = :email;";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -39,7 +72,7 @@ class User {
         
         return $stmt->fetch();
     }
-    /**************************************** */
+    /**------------------------------------------------------
     /**
      * User authentification
      * 
@@ -64,7 +97,7 @@ class User {
         
     }
 
-    /**
+    /**------------------------------------------------------
      * User admin verification
      * Checks if user has admin rights
      * 
@@ -86,7 +119,7 @@ class User {
         }
     }
 
-    /**
+    /**------------------------------------------------------
      * New user check
      * Checks if user already exists
      * 
@@ -96,10 +129,77 @@ class User {
      * @return boolean True user already in db, false otherwise
      * 
      */
-    public static function userExist($conn, $email, $password) {
+    protected function userExist($conn) {
+
+        $sql= "SELECT *
+                FROM tb_user
+                WHERE email = '{$this->email}';";
+    
+        $result = $conn->query($sql);
         
-        return $user=static::getUser($conn, $email, $password);
+        //Return array as a User object
+        $result->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+        return $result->fetch();
         
     }
-    
+    /**------------------------------------------------------
+     * Valide user information
+     * 
+     * @return boolean true if no error, false otherwise
+     */
+
+    protected function validateUser($conn){
+        //validate email
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[] = "Courriel invalide";
+        }    
+       //confirm password
+        if($this->password != $this->password2){
+            $this->errors[] = "Les mots de passe de concordent pas.";
+        }
+        //field filled
+        if($this->email =="" || $this->password =="" || $this->password2 ==""){
+            $this->errors[]="Tous les champs doivent être remplis.";
+        }
+
+        //will check db only if first items validate.
+        if(!$this->errors){
+            
+            if($this->userExist($conn)){
+                $this->errors[] = "Cet utilisateur existe déja.";
+                
+            }else {
+                
+                return true;
+            }
+        }return false;
+    }
+    /**
+     * Insert new user into db
+     * 
+     * @param object $conn Db connection
+     * @param var $email User email
+     * @param var $password User password
+     * 
+     * @return boolean True user added, false otherwise
+     * 
+     */
+    public function insertUser($conn) {
+        
+        if($this->validateUser($conn)){
+            $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+            
+            $sql = "INSERT INTO tb_user (email, password)
+                    VALUES ('{$this->email}', '{$this->password}');";
+            
+            if($conn->query($sql)){
+            
+                $this->id = $conn->lastInsertId();
+                return true;
+            }
+        } else {
+           return false; 
+        }
+    }
 }

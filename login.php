@@ -8,7 +8,8 @@ $descriptionPage = "Page de connection au site V-Box";
 $imagePage = "https://www.caroline-fontaine.com/vbox/images/image11.jpg";
 
 $subscribe=false;
-$error=[];
+$error = [];
+$newUser = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && (!isset($_GET['subscribe']))){
 
@@ -28,35 +29,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (!isset($_GET['subscribe']))){
         $subscribe=true;
         if(isset($_POST) && (!empty($_POST))){
             
+            $newUser = new User();
+
             $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
-            $email = $POST['email'];
-            $password = $POST['password'];
-            $password2 = $POST['password2'];
-            
-        
-            //validate email
-            if (!filter_var($POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $error[] = "Courriel invalide";
-            }    
-           //confirm password
-            if($password != $password2){
-                $error[] = "Les mots de passe de concordent pas.";
-            }
-            //field filled
-            if($email =="" || $password =="" || $password2 ==""){
-                $error[]="Tous les champs doivent être remplis.";
-            }
-            if(empty($error)){
-               if(User::userExist($conn, $email, $password)){
-                $error[] = "Cet utilisateur existe déja.";
-               } else { echo "n existe pas"; exit; }
-            }
+            $newUser->email = $POST['email'];
+            $newUser->password = $POST['password'];
+            $newUser->password2 = $POST['password2'];
+                        
+            if($newUser->insertUser($conn)){
+               Url::redirect("/login.php"); 
+            } 
         }
     }
 }
 
 require 'includes/head.php';
-$conn = require 'includes/db.php';
+
 ?>
 
 <header>
@@ -70,12 +58,20 @@ $conn = require 'includes/db.php';
         <div class="main-content height-set center-all">
             <div class="user-form-box shadow">
                 <div class="center80">
-                <h2 id="form-title" class="section-title">Se connecter</h2>
+                <h2 id="form-title" class="section-title">
+                    <?php ($subscribe) ? $stitre="S'inscrire" : $stitre="Se connecter"; ?><?= $stitre; ?></h2>
 
                 <?php if(! empty($error)) : ?>
                     <?php foreach($error as $err) : ?>
                         <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $err; ?></p>
                     <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if($subscribe) : ?>
+                    <?php if (!empty($newUser->errors)) : ?>
+                        <?php foreach($newUser->errors as $err) : ?>
+                            <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $err; ?></p>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 <?php endif; ?>
 
                 <form method="post">
@@ -105,11 +101,15 @@ $conn = require 'includes/db.php';
                         </div>
                     </div>
                     <?php endif; ?>
-
+                   
                     <button class="btn btn-voir btn-txt" role="button" aria-label="connecter"><?php echo ($subscribe) ? "M'inscrire!" : "Connecter!"; ?></button>
                     
                 </form>
+                <?php if(!$subscribe) : ?>
                 <p class="register"><em>Pas encore inscrit?</em> <a class="green-links" href="?subscribe=1" arial-label="s'inscrire">Inscrivez-vous maintenant!</a></p>
+                <?php else: ?>
+                <p class="register"><em>Je suis déjà inscrit(e)!</em> <a class="green-links" href="?subscribe=0" arial-label="me connecter">Me connecter!</a></p>
+                <?php endif; ?>
                 </div>
                 
             </div>
@@ -117,6 +117,6 @@ $conn = require 'includes/db.php';
     </div>
 </section>
 </main>
-<?php require 'includes/footer.php'; 
+<?php require 'includes/footer.php'; ?> 
 
 

@@ -28,9 +28,19 @@
     /** @var array Error array*/
      public $errors = [];
     
-     
-
-    public function __constructor($id, $titre, $texte, $pdate, $imagef, $altImage){
+     /**
+     * Class constructor
+     * 
+     * @param int $id Article id
+     * @param varchar255 $titre Article title
+     * @param text $texte Article content
+     * @param date $pdate Article date
+     * @param varchar200 $imagef Article image file name
+     * @param varchar255 $altImage Alternate image text   
+     * 
+     * @return void
+     */
+     public function __constructor($id, $titre, $texte, $pdate, $imagef, $altImage){
         $this->id = $id;
         $this->titre = $titre;
         $this->texte = $texte;
@@ -157,18 +167,6 @@
             $this->errors[] = 'Contenu requis';
         }
     
-        /*if($this->pdate != ''){
-           $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
-           
-            if($date_time === false){
-                $this->errors[] = 'Mauvais format de date';
-            } else {
-                $date_errors = date_get_last_errors();
-                if($date_errors['warning_count'] > 0) {
-                    $this->errors[] = 'Mauvais format de date';
-                }
-            }
-        }*/
         return empty($this->errors);
         
         

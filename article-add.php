@@ -6,8 +6,6 @@ $conn = require 'includes/db.php';
 require 'includes/set-info.php';
 require 'includes/head.php';
 
-
-
 /*variable for type of header*/
 $type="admin";
 $singleArticle = new Article();
@@ -17,7 +15,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $singleArticle->titre= $_POST['titre'];
     $singleArticle->texte = htmlentities($_POST['texte']);
     $singleArticle->pdate = $_POST['date'];
-   // $singleArticle->imagef = $_POST['image'];
     $singleArticle->altImage = $_POST['altImage'];
 
     if($singleArticle->addArticle($conn)){
