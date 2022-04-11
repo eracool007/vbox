@@ -97,4 +97,5 @@ $tools = ['HTML', 'CSS', 'Javascript', 'Programmation orientée objet', 'PHP', '
     </div>
 
     </div></div>
+   
 </section>

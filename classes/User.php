@@ -90,7 +90,11 @@ class User {
 
         $user = static::getUser($conn, $email, $password);
         if($user){
+           
+            $_SESSION['user_id'] = $user->id;
+            
             return password_verify($password, $user->password);
+            
         } else {
             return false;
         }

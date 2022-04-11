@@ -21,10 +21,8 @@ class Categories {
     public $id_nom_categorie;
 
     /** @var array Error array*/
-     public $errors = [];
+    public $errors = [];
     
-     
-
     public function __constructor($id, $id_recette, $id_nom_categorie){
         
       $this->id = $id;

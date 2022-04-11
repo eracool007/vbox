@@ -17,6 +17,10 @@
             <?php endif; ?>
             <?php if($cart && !empty($cart)): ?> |</span> <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
             <?php endif; ?> 
+              
+            <?php if($cart && !empty($cart)): ?> |</span> <a href="favorites.php" class="login"><i class="fa-solid fa-heart account-icon"></i> </a>
+            <?php endif; ?> 
+
             
           </div>
         </div>

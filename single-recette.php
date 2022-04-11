@@ -89,10 +89,22 @@ $back = "recettes.php";
                         </div>
                     <?php } ?>
                   </div>
-                  <div class="print">
-                    <button type="button" aria-label="imprimer la recette" class="btn-print" onClick="window.print();">
-                      <i class="fas fa-print fa-lg"></i>
-                    </button>
+                  <div class="flex-div">
+                    <div class="print">
+                      <button type="button" aria-label="imprimer la recette" class="btn-print" onClick="window.print();">
+                        <i class="fas fa-print fa-lg"></i>
+                      </button>
+                    </div>
+                    <div class="favorite">
+                      <form method="get" action="<?= $url; ?>">
+                      <button role="button" aria-label="ajouter aux favoris" class="btn-print">
+                        <input type="hidden" name="id" value="<?= $singleRecette->id; ?>"></input>
+                        <input type="hidden" name="<?php echo $isFavorite ? "deletefav" : "addfav"; ?>" value="1">
+                        <i class="<?php echo $isFavorite ? "fa-solid " : "fa-regular "; ?>fa-heart fa-lg coeur"></i>
+                      </button>
+                      </form>
+                      
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -211,8 +223,12 @@ $back = "recettes.php";
     if(isset($_POST['mailrecipe'])){
       require 'includes/email-recipe.php';
     }
+    
+
+    
   ?>
       <script>loadImage("<?= $singleRecette->imagef; ?>", "recipe-main"); </script>
+      
     
     <?php require 'includes/footer.php'; ?>
     

@@ -15,10 +15,10 @@ $page= "includes/main-page.php";
 
 $url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-
 if(strpos($url, 'single-recette')) {
-    if(isset($_GET['id'])){
     
+    if(isset($_GET['id'])){
+        
         $numId =  $_GET['id'];
         settype($numId, 'integer');
         
@@ -31,7 +31,7 @@ if(strpos($url, 'single-recette')) {
       }
     
       if (empty($singleRecette)){
-        
+       echo 3; exit;  
         ManageError::showErrorPage($type);
         exit;
       }
@@ -42,8 +42,9 @@ if(strpos($url, 'single-recette')) {
           $descriptionPage = $singleRecette->titre." - Une délicieuse recette végane à essayer!";
       }
       $imagePage = "https://www.caroline-fontaine.com/vbox/images/assets/".$singleRecette->imagef;
-     
-
+      
+      include 'includes/init-favorite.php';
+      
 } elseif(strpos($url, 'single-blog')) {
     if(isset($_GET['id'])){
     

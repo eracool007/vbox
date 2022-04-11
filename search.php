@@ -10,7 +10,8 @@ if(isset($_POST['search']) && ($_POST['search'] != "")){
     $results=SearchDb::search($conn, $searchString);
  
 } else {
-    header("Location: index.php");
+    Url::redirect("/index.php");
+    exit; 
 }
 
 ?>
@@ -32,7 +33,7 @@ if(isset($_POST['search']) && ($_POST['search'] != "")){
 <section class="height-set">
     <div class="row1">
         <div class="main-content align-text-l">
-            <h2 class="section-title">Résultats de recherche pour: <em><?= $searchString;?> </em></h2>
+            <h2 class="section-title mt-100">Résultats de recherche pour: <em><?= $searchString;?> </em></h2>
         </div>
 
     </div>

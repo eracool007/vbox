@@ -440,6 +440,19 @@
   color: var(--orange);
 }
 
+/* --------------favorites---------------*/
+.coeur{
+  color: var(--red);
+}
+.favorite{
+  padding: 0.5rem; 
+}
+.flex-div{
+  display: flex; 
+
+}
+
+
 /*--ingredients--*/
 .ingredients{
   margin-top: 0.8rem;
