@@ -9,10 +9,10 @@ if(isset($_GET['back'])){
 
 ?>
   <!--section erreur-->
-  <section>
+  <section class="height-set">
   <div class="row1">
     <div class="main-content align-text-c">
-      <h2 class="section-title"><i class="fas fa-exclamation-triangle oups"></i> Oups!</h2>
+      <h2 class="section-title mt-100"><i class="fas fa-exclamation-triangle oups"></i> Oups!</h2>
       <div><p class="error"> <?= $msg ?></p>
         
         <div class="btn btn-lire" id="btn-erreur">

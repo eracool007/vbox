@@ -97,5 +97,6 @@ $tools = ['HTML', 'CSS', 'Javascript', 'Programmation orientée objet', 'PHP', '
     </div>
 
     </div></div>
+    <?php echo dirname(__DIR__); ?>
    
 </section>

@@ -11,8 +11,9 @@
           </div>
           <div class="column50 align-text-r account">
             <span id="account">
+              
             <?php if($log == "Quitter"): ?>
-              <a href="favorites.php" class="login"><i class="fa-solid fa-heart account-icon"></i> </a>
+              <a href="favorites.php" class="login"><i class="fa-solid fa-heart account-icon"></i></a>
             <?php endif; 
             ?>
             <i class="fas fa-user account-icon"></i> <a href="<?= $logLink; ?>"  class="login"><?= $log ?></a>
@@ -21,12 +22,6 @@
             <?php endif; ?>
             <?php if($cart && !empty($cart)): ?> |</span> <a href="index.php?shopping=1" class="login"><i class="fa-solid fa-cart-shopping account-icon"></i> </a>
             <?php endif; ?> 
-              
-            <!-- <?php if($log="Quitter"): ?> |</span> <a href="favorites.php" class="login"><i class="fa-solid fa-heart account-icon"></i> </a>
-            <?php endif; 
-            ?> --> 
-
-            
           </div>
         </div>
       </div>
