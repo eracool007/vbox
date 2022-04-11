@@ -97,6 +97,11 @@ $tools = ['HTML', 'CSS', 'Javascript', 'Programmation orientée objet', 'PHP', '
     </div>
 
     </div></div>
-    <?php echo dirname(__DIR__); ?>
+    <?php 
+     $url="";
+     $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http' ) . '://' .  $_SERVER['HTTP_HOST'];
+     echo "base url: " . $base_url; 
+     $url = $base_url . $_SERVER["REQUEST_URI"];
+    ?>
    
 </section>
