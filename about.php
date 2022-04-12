@@ -134,7 +134,7 @@ $tools = ['HTML', 'CSS', 'Javascript', 'Programmation orientée objet', 'PHP', '
         <h3 class="about-subtitle mt-50">Photos et images</h3> 
         <p class="p-about">Toutes les photos proviennent du site Unsplash et les icones du site FontAwesome.<br>
         <span class="credit">
-            La photo d'entête de cette page provient d'<a class="footer-links" href="https://unsplash.com/@wasdrew?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"> Andras Vas</a> sur <a class="footer-links"  href="https://unsplash.com/s/photos/programmer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            La photo d'entête de cette page provient d'<a class="footer-links" target="_blank" href="https://unsplash.com/@wasdrew?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"> Andras Vas</a> sur <a class="footer-links"  target="_blank" href="https://unsplash.com/s/photos/programmer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </span> </p>
     </div>
 

@@ -216,7 +216,7 @@ section, .top {
   line-height: 110%;
 }
 .credit{
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: var(--grey-medium);
   font-style: italic;
 }
@@ -1174,7 +1174,7 @@ tr{
 
 }
 .form-input{
-  
+  margin-top: 5px;
   padding: 5px;
   border: none;
   outline: 0;
@@ -1215,6 +1215,7 @@ tr{
   .user-form{
     display: block;
   }
+
 }
 .register{
   font-size: 0.9rem;

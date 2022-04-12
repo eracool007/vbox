@@ -51,6 +51,13 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
         </div>
     </div>
 </section> 
+<section>
+    <nav class="main-content">
+        <ul class="page-nav list-none pagination">
+            <li><a href="blog.php" class="page-nav-link"><i class="fas fa-chevron-left chevrons"></i> Retour au blog</a></li>
+            </ul>
+      </nav>
+</section>
 </main> 
     <script>loadImage("<?= $singleArticle->imagef; ?>", "blog-img"); </script>
 

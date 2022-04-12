@@ -14,7 +14,7 @@ window.onclick = function(event) {
   }
 }
 
-//ingredients modal
+//Gets elements for add ingredients modal
 var modal2 = document.getElementById("myModal2");
 
 var span2 = document.getElementsByClassName("close2")[0];
@@ -26,7 +26,7 @@ span2.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal2) {
     modal2.style.display = "none";
-    window.location.href = "index.php";
+   
   }
 }
 

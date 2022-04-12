@@ -35,7 +35,7 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
 <section class="height-set">
     <div class="row1">
         <div class="main-content align-text-l">
-            <h2 class="section-title mt-100">Mes favoris: </h2>
+            <h2 class="section-title">Mes favoris: </h2>
         </div>
 
     </div>
