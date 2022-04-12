@@ -113,14 +113,14 @@ $numberOfRecipes = count($categoryItems);
           
     
         <?php 
-         if (!empty($categoryItems)){
+         if (!empty($recipeArray)){
         $count=0;
-        foreach($categoryItems as $categoryItem){ 
+        foreach($recipeArray as $recipeArray){ 
                 
           $count++;
           $idName = "img-recette" . strval($count) ?>
         <script>
-          loadImage("<?= $categoryItem['imagef']; ?>", "img-recette<?= $count; ?>"); 
+          loadImage("<?= $recipeArray['imagef']; ?>", "img-recette<?= $count; ?>"); 
 
         </script>
     <?php } }?>
