@@ -1012,14 +1012,10 @@ p.p-btn-big {
 
 @media screen and (max-width: 992px){
   .admin-links{
-    padding: 40px 0 40px;
+    margin: 20px 0 20px;
   }
 }
-@media screen and (max-width: 768px){
-  .admin-menu{
-    margin-top: 5px;
-  }
-}
+
 /*-----------------Footer---------------------*/
 footer {
   margin: 0;
