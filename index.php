@@ -27,21 +27,6 @@ if(isset($_GET['shopping'])){
   }
 }
 
-//set page to show
-/*if(isset($_GET['page'])){
-  switch($_GET['page']){
-    case "about":
-      $page = "includes/about.php";
-      $mainHeader = false;
-      break;
-    case "contact":
-      $page = "includes/about.php";
-      $mainHeader = false;
-      break;
-    default:
-      $page= "includes/main-page.php";
-  }
-}*/
 ?>
 <header>
   <?php

@@ -33,7 +33,7 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
                     <div id="blog-img" class="bg-image-blog" title="<?= htmlspecialchars($singleArticle->altImage); ?>"></div>
                     <h2 class="section-title pb-0"><?= htmlspecialchars($singleArticle->titre); ?></h2>
                     <?php 
-                    if ($log == "Quitter") :?>
+                    if ($admin) :?>
                         <a href="article-edit.php?id=<?= $singleArticle->id; ?>" class="admin-links">Modifier</a>&nbsp;|&nbsp;<a href="article-delete.php?id=<?= $singleArticle->id; ?>" class="admin-links"> Supprimer</a>&nbsp;|&nbsp;<a href="article-image-edit.php?id=<?= $singleArticle->id; ?>" class="admin-links">Modifier image</a>
                     <?php endif; ?>
                     <!--Article complet-->

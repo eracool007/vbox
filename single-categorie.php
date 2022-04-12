@@ -23,7 +23,7 @@ $numberOfCards = 0;
 </header>
 <?php
 
-$pagination = new Pagination($_GET['page'] ?? 1, 8, count($categoryItems));
+$pagination = new Pagination($_GET['page'] ?? 1, 6, count($categoryItems));
 $recipeArray = Recette::getPage($conn, $pagination->limit, $pagination->offset, $catId);
 $numberOfRecipesOnPage = $pagination->firstRecordOfPage + count($recipeArray) - 1;
 $numberOfRecipes = count($categoryItems);
@@ -68,7 +68,7 @@ $numberOfRecipes = count($categoryItems);
                                 <div class="card-p0b shadow">
                                     <a href="single-recette.php?id=<?= $categoryItem['id']; ?>"><div class="bg-image" id="img-recette<?= $count; ?>" title="<?= $categoryItem['altImage']; ?>"></div></a>
                                     <div class="card-inner">
-                                        <p><h4 aria-description="<?= $categoryItem['titre']; ?>"><?= $categoryItem['titre']; ?></h4> </p>
+                                        <p><h4 role="heading" aria-level="3"><?= $categoryItem['titre']; ?></h4> </p>
                                         <p><h5 aria-description="date ajoutée"><?= $categoryItem['pdate']; ?></h5></p>
                                     </div>
                                 </div>

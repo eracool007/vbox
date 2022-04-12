@@ -33,7 +33,7 @@
               <ul id="main-menu-list">
                 <li><a href="recettes.php">Recettes <i class="fas fa-caret-down"></i></a>
                   <ul>
-                    <div class="sub-nav">
+                    <span class="sub-nav">
                         <?php if (!empty($categoryA)) { 
                             foreach ($categoryA as $category){?>
                                 <div class="div-nav">
@@ -43,12 +43,12 @@
                                   </li>
                                 </div>  
                         <?php } }?>
-                    </div>
+                            </span>
                   </ul>
                 </li>
                 <li><a href="blog.php">Blog</a></li>
-                <li><a href="index.php?page=about">À propos</a></li>
-                <!-- <li><a href="about.php#contact">Contact</a></li> -->
+                <li><a href="about.php">À propos</a></li>
+               
               </ul>
             </nav>
           </div>

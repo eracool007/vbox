@@ -58,7 +58,7 @@ $feature = 'recette';
                         <a class="deco-none" href="single-blog.php?id=<?= $article['id']; ?>">
                         <div class="bg-image" id="<?= $idName ?>" title="<?= $article['altImage']; ?>"></div></a>
                         <div class="card-inner">
-                            <p><h4 aria-description="<?= $article['titre']; ?>"><?= $article['titre']; ?></h4> </p>
+                            <p><h4 role="heading" aria-level="3"><?= $article['titre']; ?></h4> </p>
                             <p class="p-blog-intro"><?= substr($article['texte'], 0, 50) . "... "; ?> <a class="footer-links" href="single-blog.php?id=<?= $article['id']; ?>">Lire</a></p>
                         </div>
                       </article>

@@ -1,4 +1,6 @@
 <?php
+//Variable to set banner image
+$classe="header-subpage";
 
 switch($type) {
   
@@ -15,6 +17,12 @@ switch($type) {
   case "admin";
     $mainTitle = "Administration";
     $sousTitre ="";
+    break;
+  
+  case "about";
+    $mainTitle = "À propos du projet VBox";
+    $sousTitre ="Par Caroline Fontaine";
+    $classe="header-about";
     break;
 
   case "single-categorie":
@@ -47,9 +55,11 @@ switch($type) {
     break;
 }
 
+
 ?>
 <!--header-subpage-->
-<div class="row1 header-subpage">
+
+<div class="row1 <?= $classe; ?>">
         
     <div class="main-content">
         <h1 class="main-title"><?= $mainTitle; ?></h1>

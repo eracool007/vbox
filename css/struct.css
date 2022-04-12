@@ -405,6 +405,16 @@
   color: var(--orange);
   text-decoration: underline;
 }
+
+@media screen and (max-width: 992px) {
+  .cat-box-holder{
+    padding: 10px 0 10px 0;
+
+  }
+  .cat-item{
+    padding: 10px;
+  }
+}
 .h3-sm
 {
   font-size: 1rem;
@@ -451,7 +461,12 @@
   display: flex; 
 
 }
-
+@media screen and (max-width: 992px){
+  .coeur{
+     padding-left: 10px;
+  }
+ 
+}
 
 /*--ingredients--*/
 .ingredients{
@@ -480,6 +495,11 @@
 .pagination{
   width: calc(100% - 14rem);
   max-width: 1400px;
+}
+@media screen and (max-width: 992px){
+  .pagination{
+    width: 100%;
+  }
 }
 .page-nav{
   display: flex;

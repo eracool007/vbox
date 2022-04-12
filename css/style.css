@@ -215,6 +215,11 @@ section, .top {
   padding: 10px 0 30px;
   line-height: 110%;
 }
+.credit{
+  font-size: 0.6rem;
+  color: var(--grey-medium);
+  font-style: italic;
+}
 
 .p-single {
   font-family: Arial, Helvetica, sans-serif;
@@ -301,7 +306,7 @@ h5 {
   margin: 0 0.5rem 0rem;
   line-height: 1.2rem;
 }
-@media screen and (max-width:996px) {
+@media screen and (max-width:992px) {
   h2 {
     font-size: 1.2rem;
   }
@@ -316,6 +321,13 @@ h5 {
   top: 0;
   width: 100%;
   z-index: 100;
+}
+@media screen and (max-width: 768px) {
+  .fixed-top {
+    position: absolute;
+    
+  }
+  
 }
 .logo-big {
   font-size: 2rem;
@@ -345,7 +357,7 @@ h5 {
 
 .account {
   font-size: 0.8rem;
-  padding-top: 20px;
+  padding-top: 15px;
   
 }
 .account-icon {
@@ -355,31 +367,37 @@ h5 {
 }
 
 @media screen and (max-width:992px) {
-  .logo-big {
+  /*.logo-big {
     font-size: 1.5rem;
   }
   .logo-leaf-big {
     font-size: 1.2rem;
-  }
+  }*/
   .account {
     font-size: 0.8rem;
-  }
-  .account-icon {
-    font-size: 0.7rem;
+    padding-top: 12px;
     
   }
-  
+  .account-icon {
+    font-size: 0.8rem;
+    padding-left: 10px;
+    
+  }
+
 }
 @media screen and (max-width: 768px) {
+  .account{
+    font-size: 0.9rem;
+  }
   .logo-big {
     font-size: 1.2rem;
   }
   .logo-leaf-big {
     font-size: 1rem;
   }
-  #account {
+  /*#account {
     display: none;
-  }
+  }*/
   .account-icon {
     display: none;
   }
@@ -401,7 +419,7 @@ h5 {
 .search-icon-container {
   width: 10px;
   float: right;
-  padding: 2px 0;
+  padding: 1px 0 0;
   margin: 0;
 }
 .search-row {
@@ -421,6 +439,14 @@ h5 {
 .btn-search:hover {
   color: var(--main-dark);
 }
+@media screen and (max-width: 768px) {
+
+  .search-icon-container,
+  .search-row {
+    float: left;
+    padding-bottom: 1px;
+  }
+}
 @media screen and (max-width: 992px) {
   .search-icon-container {
     padding-left: 5px;
@@ -434,16 +460,27 @@ h5 {
   .search-icon-container,
   .search-row {
     float: left;
+    padding-top: 3px; 
+    padding-bottom: 3px;
   }
   .search-icon-container {
     padding-left: 5px;
     font-size: 0.7rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .search-icon-container, .search-row{
+    padding-bottom: 1px;
+    padding-top: 5px;
   }
 }
 
 /*-----------------Main Menu-----------------*/
 .nav-bar-links {
   display: flex;
+  height: 100%; 
 }
 .nav-bar-links ul {
   list-style: none;
@@ -459,11 +496,13 @@ h5 {
   text-decoration: none;
   padding-right: 20px;
 }
+/*
 @media screen and (max-width: 992px) {
   .nav-bar-links ul li a {
     font-size: 0.7rem;
   }
 }
+*/
 .nav-bar-links ul > li:not(:first-child) > a {
   margin-left: 20px;
 }
@@ -485,6 +524,7 @@ h5 {
 .nav-bar-links > ul > li:focus {
   color: var(--grey-dark);
   background-color: var(--main-dark);
+  
 }
 
 .nav-bar-links ul ul {
@@ -832,8 +872,8 @@ p.p-btn-big {
     url(../images/image4.jpg) no-repeat;
   background-size: cover;
   background-position-y: 50%;
-  height: 25rem;
-  margin-top: 65px;
+  height: 26rem;
+  margin-top: 75px;
 }
 
 .header-subpage {
@@ -849,13 +889,26 @@ p.p-btn-big {
   height: 12rem;
   margin-top: 40px;
 }
+.header-about {
+  background-color: var(--grey-dark);
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(../images/prog.jpg) no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+  height: 12rem;
+  margin-top: 40px;
+}
 @media screen and (max-width: 992px) {
   .header-main {
-    margin-top: 85px;
+    margin-top: 100px;
     
   }
-  .header-subpage {
-    margin-top: 60px;
+  .header-subpage, .header-about {
+    margin-top: 80px;
     min-height: 9rem;
   }
 }
@@ -863,9 +916,10 @@ p.p-btn-big {
   .header-main {
     margin-top: 65px;
   }
-  .header-subpage {
-    margin-top: 40px;
+  .header-subpage, .header-about {
+    margin-top: 60px;
   }
+  
 }
 @media screen and (max-width: 400px) {
   .header-main {
@@ -955,6 +1009,12 @@ p.p-btn-big {
 .admin-menu{
   margin-top: 0;
 }
+
+@media screen and (max-width: 992px){
+  .admin-links{
+    padding: 40px 0 40px;
+  }
+}
 /*-----------------Footer---------------------*/
 footer {
   margin: 0;
@@ -974,7 +1034,7 @@ footer {
   font-weight: bold;
   text-decoration: none;
 }
-@media screen and (max-width: 996px) {
+@media screen and (max-width: 992px) {
   .p-footer {
     padding: 8px 0 8px;
   }
@@ -1161,4 +1221,5 @@ tr{
   padding-top: 10px;
 }
 
-/* ---------------   ---------------*/
+
+/* ---------------about   ---------------*/
