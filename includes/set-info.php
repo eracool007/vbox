@@ -12,7 +12,6 @@ $mainHeader = true;
 $page= "includes/main-page.php";
 
 //check url and sets main array for page.
-
 $url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 if(strpos($url, 'single-recette')) {
@@ -69,7 +68,7 @@ if(strpos($url, 'single-recette')) {
     
 } elseif(strpos($url, 'about')) {
     
-    $page = "includes/about.php";
+    $page = "about.php";
     $mainHeader = false;
     $titrePage="À propos du projet V-Box";
     $descriptionPage = "Description du projet de site web V-Box et ses pricipales fonctionnalités, ainsi que la liste des outils et des technologies utilisés.";

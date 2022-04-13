@@ -39,14 +39,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="main-content">
             <div class="row1">
                 <h2>Ajouter un article</h2>
-                
                 <?php require 'includes/article-form.php'; ?>
-
-            <!--fin row1-->    
             </div>
         </div>
     </div>
 </section>  
 </main>
-    
 <?php require 'includes/footer.php'; ?>

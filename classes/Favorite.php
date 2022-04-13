@@ -1,10 +1,9 @@
 <?php
 
-/**
+/**------------------------------------------------------
  * User favorites managing class
  * 
  */
-
  class Favorite{
 
     /**
@@ -22,7 +21,7 @@
     */
     public $idRecette;
 
-    /**
+    /**------------------------------------------------------
      * Get user favorites
      * 
      * @param $conn Connection to db
@@ -43,8 +42,8 @@
         return $result->fetchAll(PDO::FETCH_ASSOC);
     } 
 
-    /** 
-     * check if recipe in favorites
+    /**------------------------------------------------------ 
+     * check if recipe is in favorites
      * 
      * @param int $idUser
      * @param int $idRecette
@@ -65,7 +64,8 @@
             return $stmt->fetch();
         }
     }
-    /**
+
+    /**------------------------------------------------------
      * Add a new favorite
      * 
      * @object $conn
@@ -87,13 +87,12 @@
         }
     }
 
-    /**
+    /**------------------------------------------------------
      * Delete a recipe from favorites
      * 
      * @var object $conn 
      * 
      * @return true if it worked, false otherwise
-     * 
      */
     public static function deleteFavorite($conn, $idUser, $idRecette){
         $sql = "DELETE FROM tb_favorite
@@ -104,5 +103,4 @@
             return false;
         }
     }
-    
  }

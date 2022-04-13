@@ -9,7 +9,7 @@
 
  class ManageError{
     
-    /**  
+    /**------------------------------------------------------  
     * Manage errors and redirect with correct message
     *
     * @param type for type of page
@@ -42,9 +42,7 @@
             $msg = "Il semble y avoir une erreur";
             $back="index.php";
          }
-         
       }
-      
       Url::redirect("/index.php?error=$msg&back=$back");
       exit;
    }

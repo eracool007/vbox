@@ -1,5 +1,5 @@
 <?php
-/**
+/**------------------------------------------------------
  * Login session methods
  */
     class Auth {
@@ -13,7 +13,7 @@
         return isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'];
     }
 
-    /**
+    /**------------------------------------------------------
      * RequireLogin
      * 
      * @return void
@@ -24,7 +24,7 @@
         }
     }
 
-    /**
+    /**------------------------------------------------------
      * Check if user is admin user
      * 
      * @return boolean True if admin, False otherwise
@@ -34,7 +34,7 @@
         return isset($_SESSION['is_admin']) && $_SESSION['is_admin'];
     }
 
-    /**
+    /**------------------------------------------------------
      * RequireAdmin
      * 
      * @return void
@@ -45,7 +45,7 @@
         }
     }
 
-    /**
+    /**------------------------------------------------------
      * set session
      * 
      * @return void
@@ -56,7 +56,7 @@
         $_SESSION['is_logged_in'] = true;
     }
     
-    /**
+    /**------------------------------------------------------
      * set session admin
      * 
      * @return void
@@ -67,8 +67,7 @@
         $_SESSION['is_admin'] = true;
     }
 
-
-    /**
+    /**------------------------------------------------------
      * Log out of session
      * 
      * @return void
@@ -84,7 +83,6 @@
             setcookie(session_name(), '', time() - 42000, $param["path"], $param["domain"], $param["secure"], $param["httponly"]);
         }
         session_destroy();
-        
     }
 }
 

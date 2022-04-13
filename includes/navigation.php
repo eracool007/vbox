@@ -1,6 +1,5 @@
 <?php
      $categoryA=Categories::getAllCategories($conn);
-     
 ?>
 <!--navigation-->
 <div class="fixed-top">
@@ -29,6 +28,7 @@
       <div class="row1 bg-medium" id="barre-grise">
         <div class="main-content">
           <div class="column75 align-text-l main-menu">
+            
             <nav class="nav-bar-links">
               <ul id="main-menu-list">
                 <li><a href="recettes.php">Recettes <i class="fas fa-caret-down"></i></a>
@@ -51,6 +51,7 @@
                
               </ul>
             </nav>
+
           </div>
           <div class="columnSearch">
             <div class="search-row">
@@ -68,4 +69,3 @@
       </div>
       </div>
       <!--fin navigation-->
-      

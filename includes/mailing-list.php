@@ -2,12 +2,13 @@
 $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
 $email = $POST['mailing'];
 $emailErr="";
+
 //validate email
 if (!filter_var($POST['mailing'], FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Courriel invalide";
-
   }
-if($emailErr == ""){
+
+  if($emailErr == ""){
   
   $to = "caroline@caroline-fontaine.com";
 

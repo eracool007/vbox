@@ -6,7 +6,6 @@ $conn = require 'includes/db.php';
 require 'includes/set-info.php';
 require 'includes/head.php';
 
-
 $type="admin";
 $errorMsg = "L'article ou la recette n'existe pas ou la page a été supprimée";  
 
@@ -20,7 +19,6 @@ if(isset($_GET['id'])){
         echo "aucun article";
     }
 } else {
-        
         ManageError::showErrorPage($type);
         exit; 
 }
@@ -29,7 +27,6 @@ if(isset($_GET['id'])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     try {
-
         if(empty($_FILES)){
             throw new Exception('Fichier non valide.');
         }
@@ -84,7 +81,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(move_uploaded_file($_FILES['file']['tmp_name'], $destination)){
            
            $previous_image = $singleArticle->imagef;
-           
            if ($singleArticle->setImageFile($conn, $filename)){
                
                 //remove old image
@@ -94,15 +90,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 Url::redirect("/single-blog.php?id={$singleArticle->id}");
            }
-
         } else {
             echo $e->getMessage();
         }
-
-
-
     } catch (Exception $e){
-        echo $e->getMessage();
+        die("Il semble y avoir une erreur");
     }
 }
 ?>
@@ -123,6 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <?php if($singleArticle->imagef): ?>
                     <img class="edit-img" src="images/assets/<?= $singleArticle->imagef; ?>" alt="<?= $singleArticle->altImage; ?>">
                 <?php endif; ?>
+            
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-sm">
                         <label for="file">Fichier image</label>
@@ -132,11 +125,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <a href="single-blog.php?id=<?= $singleArticle->id; ?>" class="green-links form-links"> Annuler</a>
                 </form>
 
-            <!--fin row1-->    
             </div>
         </div>
     </div>
 </section>  
 </main>
-
 <?php require 'includes/footer.php'; ?>

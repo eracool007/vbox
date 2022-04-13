@@ -1,5 +1,4 @@
 <?php
-
 require 'includes/init.php';
 Auth::requireAdmin();
 
@@ -7,10 +6,8 @@ $conn = require 'includes/db.php';
 require 'includes/set-info.php';
 require 'includes/head.php';
 
-
 /*variable for type of header*/
 $type="admin";
-
 ?>
 
 <?php
@@ -24,23 +21,18 @@ if(isset($_GET['id'])){
         echo "aucun article";
     }
 } else {
-        
         ManageError::showErrorPage($type);
         exit; 
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
     $singleArticle->titre= $_POST['titre'];
     $singleArticle->texte = htmlentities($_POST['texte']);
     $singleArticle->pdate = $_POST['date'];
-    //$singleArticle->imagef = $_POST['image'];
     $singleArticle->altImage = $_POST['altImage'];
 
     if($singleArticle->updateArticle($conn)){
-        
         Url::redirect("/single-blog.php?id=$singleArticle->id");
-            
     }
 }
 ?>
@@ -60,7 +52,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row1">
                 <h2>Modifier un article</h2>
                 <?php require 'includes/article-form.php'; ?>
-            <!--fin row1-->    
             </div>
         </div>
     </div>

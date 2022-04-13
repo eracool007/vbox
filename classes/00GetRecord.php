@@ -1,5 +1,5 @@
 <?php
-/**
+/**------------------------------------------------------
  * GetRecord
  * Function to get single record
  * 
@@ -22,7 +22,6 @@
     * @return array associative array of selected record
     */
     public static function getSelectedRecord($conn, $table, $id){
-        
        
         $sql="SELECT * 
         FROM $table 
@@ -36,7 +35,5 @@
            
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-        
     }
-
  }

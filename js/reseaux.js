@@ -1,5 +1,4 @@
 //get elements and add event listeners to email recipe
-  
 document.addEventListener("DOMContentLoaded", function(event) {
     
     mail=document.getElementById('mail');

@@ -1,7 +1,6 @@
 //Gets elements for print recipe modal
 
 var modal = document.getElementById("myModal");
-
 var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function() {
@@ -16,7 +15,6 @@ window.onclick = function(event) {
 
 //Gets elements for add ingredients modal
 var modal2 = document.getElementById("myModal2");
-
 var span2 = document.getElementsByClassName("close2")[0];
 
 span2.onclick = function() {

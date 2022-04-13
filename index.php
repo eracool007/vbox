@@ -6,17 +6,13 @@ require 'includes/head.php';
 
 //clears session cart after print.
 if(isset($_GET['clear'])){
-  
   if(isset($_SESSION['cart'])){ 
-    
     $_SESSION['cart'] = [];
     $cart=false;
-    
   }
 }
 
 if(isset($_GET['shopping'])){
-    
   if(isset($_SESSION['cart'])){
     $printCart=true;
     if(empty($_SESSION['cart'])){
@@ -26,7 +22,6 @@ if(isset($_GET['shopping'])){
     }
   }
 }
-
 ?>
 <header>
   <?php
@@ -38,23 +33,26 @@ if(isset($_GET['shopping'])){
 </header>
 <main>
 <?php
+
 //Error msgs here  
 if(isset($_GET['error'])){
     require 'includes/error.php';
-} elseif($printCart) {
 
-  require 'includes/list.php';
+  } elseif($printCart) {
+
+      require 'includes/list.php';
   
-} else {
-  require $page;
+  } else {
+    require $page;
 }
 
 //to subscribe to newsletter
 if(isset($_POST['mailing'])){
-    
    require 'includes/mailing-list.php';
 } ?>
+
 </main>
+
 <?php
 require 'includes/footer.php';
 ?>

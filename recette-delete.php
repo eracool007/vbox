@@ -9,11 +9,7 @@ require 'includes/head.php';
 /*variable for type of header*/
 $type="admin";
 
-?>
-
-<?php
 if(isset($_GET['id'])){
-    
     $numId = $_GET['id'];  
     settype($numId, 'integer');
     $singleRecette = Recette::getRecipeById($conn, $numId);
@@ -22,17 +18,13 @@ if(isset($_GET['id'])){
         echo "Aucune recette"; exit;
     }
 } else {
-        
         ManageError::showErrorPage($type);
         exit; 
 }
 
 if($_SERVER["REQUEST_METHOD"] =="POST"){
-    
     if ($singleRecette->deleteRecipe($conn)){
-        
         Url::redirect("/recettes.php");
-        
     }
 }
 ?>
@@ -43,11 +35,10 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
   require 'includes/header-subpage.php';   
   $errorMsg = "La recette n'existe pas ou la page a été supprimée";           
 ?>
-
 </header>
+
 <main>
 <section>
-
     <div class="row1">
         <div class="main-content">
             <div class="row1">
@@ -57,8 +48,6 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                     <button class="btn btn-voir btn-txt" role="button" aria-label="supprimer la recette">Supprimer</button> 
                     <a href="single-recette.php?id=<?= $singleRecette->id; ?>" class="green-links form-links"> Annuler</a>
                 </form>
-
-            <!--fin row1-->    
             </div>
         </div>
     </div>

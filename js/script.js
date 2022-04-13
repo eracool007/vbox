@@ -1,6 +1,4 @@
 //Load background image in a div
-//@param linK: image name
-//@param elementID: div element id
 function loadImage(link, elementID) {
   
   if (elementID == "recipe-main") {
@@ -13,10 +11,14 @@ function loadImage(link, elementID) {
     ).style.backgroundImage = `url('images/assets/${link}')`;
   }
 }
+
+//Print shopping list
 function printList(){
   window.print();
   window.location.href = "index.php?clear=1";
 }
+
+//Load collapse elements
 function loadCollapse(){
 var acc = document.getElementsByClassName("collapse");
 var i;
@@ -35,6 +37,3 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 }
-
-
-

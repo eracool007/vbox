@@ -1,14 +1,12 @@
 <?php
 
-/**
+/**------------------------------------------------------
  * Recette
  * 
  */
 
  class Recette{
 
-    //Recipe variable declaration
-    
     /** @var int */
     public $id;
 
@@ -83,12 +81,12 @@
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
+    /**------------------------------------------------------
      * Get page of recipes
      * @param object $conn Connection to db
-     * 
      * @param integer $limit Number of recipes to return
      * @param integer $offset Number of recipes to skip
+     * 
      * @return array Associative array of recipes for actual page
      */
 
@@ -111,13 +109,12 @@
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
+    /**------------------------------------------------------
      * Counts number of recipes
      * 
      * @var object $conn Connection to db
      * 
      * @return integer Number of article records
-     * 
      */
     public static function countRecipes($conn){
         return $conn->query('SELECT COUNT(*) FROM tb_recette')->fetchColumn();
@@ -147,7 +144,6 @@
            
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-        
     }
 
     /**----------------------------------------------------------- 
@@ -160,7 +156,6 @@
     * @return object of selected record
     */
     public static function getRecipeById($conn, $id){
-        
        
         $sql="SELECT * 
         FROM tb_recette 
@@ -175,7 +170,6 @@
            
             return $stmt->fetch();
         }
-        
     }
 
     /**------------------------------------------------------
@@ -184,30 +178,15 @@
     * @return bool True if no error
     */
     protected function validateRecipe(){
-        if($this->titre =='') {
+        if(trim($this->titre) =='') {
             $this->errors[] = "Titre requis";
         }
+    
         if(empty($this->category)){
             $this->errors[] = "Au moins une catégorie est requise.";
             
         }
-        /*if($this->pdate != ''){
-
-            $date_time= date_create_from_format('Y-m-d H:i:s', $this->pdate);
-            
-
-            if($date_time === false){
-                
-                $this->errors[] = 'Mauvais format de date';
-                
-            } else {
-                $date_errors = date_get_last_errors();
-                if($date_errors['warning_count'] > 0) {
-                    $this->errors[] = 'Mauvais format de date';
-                }
-            }
-        } */
-        
+    
         if($this->preparation !=""){
             
             if(! is_numeric($this->preparation)){
@@ -230,7 +209,6 @@
         }
        
        return empty($this->errors);
-       
     }
 
     /**------------------------------------------------------
@@ -242,16 +220,12 @@
     */
     public function addRecipe($conn){
 
-        //return false; 
-
         if($this->validateRecipe()){
       
             try{
 
                 $conn->beginTransaction();
 
-                //recipe section here
-                
                 $sql = "INSERT INTO tb_recette(titre, description, instructions, notes, pdate, altImage, preparation, cuisson, portion)
                 VALUES (:titre, :description, :instructions, :notes, :pdate, :altImage, :preparation, :cuisson, :portion);";
 
@@ -303,10 +277,7 @@
                 $stmt->bindValue(':id_nomcategorie', $cat, PDO::PARAM_INT);
 
                 $stmt->execute();
-
                 }
-                
-                //item section here
                 
                 foreach($this->items as $item) {
                   
@@ -318,25 +289,19 @@
                     $stmt->bindValue(':id_recette', intval($this->id), PDO::PARAM_INT);
                     $stmt->bindValue(':item', $item, PDO::PARAM_STR);
                     $stmt->execute();
-                    
                 } 
-                
                 return $conn->commit();
-                
-
+    
             } catch (\PDOException $e) {
                 $conn->rollBack();
                 die("Il semble y avoir eu une erreur."); 
             }
-           
-
+    
         } else {
-             
             return false;
-            
         }
-        
     }
+
     /**------------------------------------------------------
     * Update recette into db
     * 
@@ -353,9 +318,7 @@
             try{
 
                 $conn->beginTransaction();
-
-                //recipe section here
-                
+            
                 $sql = "UPDATE tb_recette
                         SET titre = :titre,
                             description = :description,
@@ -404,10 +367,6 @@
 
                 $stmt->execute();
                 
-               //category section 
-               //delete all categories first?
-
-              
                foreach($this->category as $cat){
 
                 $sql = "INSERT INTO tb_liste_categories(id_recette, id_nom_categorie)
@@ -421,9 +380,6 @@
 
                 }
                 
-                //item section here
-                //delete all ingredients first?
-                
                 foreach($this->items as $item) {
                   
                     $sql ="INSERT INTO tb_liste_ingredients(id_recette, item)
@@ -436,7 +392,6 @@
                     $stmt->execute();
                     
                 } 
-                
                 return $conn->commit();
                 
             } catch (\PDOException $e) {
@@ -444,13 +399,10 @@
                 die("Il semble y avoir eu une erreur."); 
             }
            
-
         } else {
              
             return false;
-            
         }
-
     }
 
     /**------------------------------------------------------
@@ -467,7 +419,6 @@
         $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
         
         return $stmt->execute();
-
     }
 
      /**------------------------------------------------------
@@ -480,11 +431,8 @@
                 WHERE id_recette = :id;";
 
         $stmt = $conn->prepare($sql);
-
         $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-        
         return $stmt->execute();
-
     }
 
     /**------------------------------------------------------
@@ -506,7 +454,6 @@
         $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
         
         return $stmt->execute();
-
     }
 
 

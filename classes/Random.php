@@ -1,14 +1,12 @@
 <?php
-/**
+/**------------------------------------------------------
      * will return a random article or blog array
      * 
      * @param object $conn Connection to the db
-     * 
      * @param string $feature (blog or article)
      * 
      * @return array 1 random record
      */
-
     class Random {
 
         public static function randomItem($conn, $feature) {
@@ -31,8 +29,5 @@
             $result = $conn->query($sql);
             
             return $result->fetchAll(PDO::FETCH_ASSOC);
-            
-            
         }
     }
-    

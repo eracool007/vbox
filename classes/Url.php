@@ -5,7 +5,7 @@
  * 
  */
 class Url{
-    /**
+    /**-----------------------------------------------------
      * Redirection class
      * 
      * @param string $path 

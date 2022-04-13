@@ -9,7 +9,6 @@
   margin: 0 auto;
   text-align: center;
 }
-
 .main-content {
   width: 85%;
   max-width: 1400px;
@@ -20,7 +19,6 @@
     width: 75%;
   }
 }
-
 /* Clear floats after columns */
 .row1::after {
   content: "";
@@ -31,7 +29,6 @@
 .row {
   margin: 0 -5px;
 }
-
 
 /* Columns floating next to each other */
 .column25 {
@@ -73,15 +70,12 @@
 
 }
 
-
-
 /* Responsive columns */
 @media screen and (max-width: 1725px) {
   .col-recette {
     width: 33%;
   }
 }
-
 @media screen and (max-width: 992px) {
   .column25, .column33, .col-recette {
     width: 50%;
@@ -91,10 +85,8 @@
   .columnSearch{
     width: 100%;
     text-align: left !important;
-    
   }
 }
-
 @media screen and (max-width: 768px) {
   .column25, .column33, .col-recette {
     width: 100%;
@@ -102,7 +94,6 @@
     margin-bottom: 20px;
   }
 }
-
 @media screen and (max-width: 600px){
   .column75{
      width: 100%;
@@ -130,7 +121,6 @@
   transform: rotate(7deg) translate(-10px, 40px);
 }
 @media screen and (max-width:992px) {
-
   .double-left {
     width: 40%;
   }
@@ -139,7 +129,6 @@
   }
 }
 @media screen and (max-width:768px) {
-
   .double-left {
     width: 40%;
     height: 100%;
@@ -151,19 +140,17 @@
     transform: rotate(0deg) translate(0px, 0px);
   }
 }
-
 .double-right p {
   padding-top: 30px;
   color: var(--grey-dark);
 }
-
 .double-news-image {
   background: url(../images/assets/image13.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
-/*-----------------double-box : recette vedette---------------------*/
 
+/*-----------------double-box : recette vedette---------------------*/
 .vedette-left {
   position: relative;
   width: 50%;
@@ -182,7 +169,6 @@
 @media screen and (max-width:768px) {
   .vedette-left{
     width: 40%;
-
   }
   .vedette-right{
     width: 60%;
@@ -205,7 +191,6 @@
   text-align: center;
   background-color: #f1f1f1;
 }
-
 .card-p0 {
   padding: 0;
   text-align: left;
@@ -213,7 +198,6 @@
   margin: 0 15px 5px 0px;
  height: 350px;
  max-height: 350px;
-  
 }
 @media screen and (max-width:992px) {
   .card-p0{
@@ -256,6 +240,7 @@
   }
 }
 
+/* Bg images div */
 .bg-image {
   background: url(../images/assets/image10.jpg) no-repeat;
   background-size: cover;
@@ -263,7 +248,6 @@
   height: 220px;
   width: auto;
 }
-
 .bg-image-blog {
   background: url(../images/assets/image10.jpg) no-repeat;
   background-size: cover;
@@ -298,7 +282,6 @@
   margin-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-
 .img-resp {
   width: 12rem;
   height: auto;
@@ -307,7 +290,6 @@
   padding-top: 7px;
   object-fit: cover;
   object-position: center;
-  
 }
 .cat-blog-title {
   width: 12rem;
@@ -318,8 +300,6 @@
 }
 .cat-list-title {
   margin: 2rem 0.5rem 1rem;
-
-  
 }
 #menu-cat-title {
   font-size: 0.7rem;
@@ -328,7 +308,6 @@
   line-height: 1.1rem;
   border-bottom: 1px solid var(--grey-light);
 }
-
 .ul-cat {
   list-style: none;
 }
@@ -347,13 +326,13 @@
   text-decoration: none;
   font-weight: 600;
 }
+
 /*-------------Single recipe box with aside recipe cagtegories ---------------------*/
 .col-right-cat {
   float: right;
   width: 16rem;
   border-top: 1px solid var(--yellow);
   margin-top: var(--mt);
- 
 }
 .col-left-cat {
   margin-top: var(--mt);
@@ -369,7 +348,6 @@
   justify-content: space-between;
   align-content: stretch;
   padding: 0 0 15px 15px;
-
 }
 @media screen and (max-width:992px) {
   .col-left-cat{
@@ -380,6 +358,7 @@
     margin-top: 20px;
   }
 }
+
 .fix-margin{
   margin-left: 0;
 }
@@ -390,13 +369,11 @@
 }
 .cat-item{
   font-size: 0.9rem;
-  
   padding: 0.1rem 0.8rem;
   margin: 0.3rem 0.3rem 0 0;
   background-color: rgba(242,164,19,0.1);
   border-radius: 4px;
 }
-
 .a-cat-single{
   color: var(--orange);
   text-decoration: none;
@@ -415,6 +392,7 @@
     padding: 10px;
   }
 }
+
 .h3-sm
 {
   font-size: 1rem;
@@ -459,7 +437,6 @@
 }
 .flex-div{
   display: flex; 
-
 }
 @media screen and (max-width: 992px){
   .coeur{
@@ -467,7 +444,6 @@
   }
  
 }
-
 
 /*--ingredients--*/
 .ingredients{
@@ -487,7 +463,6 @@
   padding: 0 2px;
   margin: 10px 0 30px 0;
 }
-
 .item-print{
   font-size: 12px;
 }
@@ -506,12 +481,10 @@
   display: flex;
   justify-content: space-between;
 }
-
 .page-nav-link{
   font-size: 1rem;
   text-decoration: none;
   color: var(--grey-medium);
-  
 }
 .page-nav-link:hover{
   text-shadow: 2px 2px 4px #82aa2a;
@@ -530,4 +503,3 @@
 .hidden{
   display: none;
 }
-

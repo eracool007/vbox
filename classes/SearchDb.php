@@ -6,7 +6,7 @@
  */
 
  class SearchDb{
-    /**
+    /**-----------------------------------------------------
      * Search database for specific string
      * 
      * @param $conn Connection to db

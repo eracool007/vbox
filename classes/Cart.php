@@ -1,5 +1,5 @@
 <?php
-/**
+/**------------------------------------------------------
  * Cart session to store shopping list items
  */
 class Cart {
@@ -12,7 +12,6 @@ class Cart {
         
         return !empty($_SESSION['cart']);
     }
-
     
 }
 

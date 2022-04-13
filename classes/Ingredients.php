@@ -1,6 +1,6 @@
 <?php
 
-/**
+/**------------------------------------------------------
  * class managing ingredients 
  * 
  */
@@ -15,13 +15,11 @@ class Ingredients {
     /**@var varchar 150 $item Ingredient item */
     public $item;
 
-
     public function __constructor($id, $id_recette, $item){
         
         $this->id = $id;
         $this->id_recette = $id_recette;
         $this->item = $item;
-
     }
 
     /**
@@ -46,7 +44,5 @@ class Ingredients {
            
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-        
-        
     }
 }

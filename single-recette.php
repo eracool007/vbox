@@ -7,15 +7,17 @@ require 'includes/head.php';
 
 /*variable for type of header*/
 $type = "recette";
+
 /*return page if error*/
 $back = "recettes.php";
-
 ?>
+
 <header>
   <?php
   require 'includes/navigation.php';
   ?>
 </header>
+
 <?php
   //check for valid url
   $url="";
@@ -23,18 +25,16 @@ $back = "recettes.php";
   $url = $base_url . $_SERVER["REQUEST_URI"];
 
   $categoryList = Categories::getCategory($conn, $singleRecette->id, false);
-  ?>
-  <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v13.0" nonce="4FGfHdDn"></script>
+?>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v13.0" nonce="4FGfHdDn"></script>
       <main class="top">
           <div class="row1">
             <div class="main-content">
               <!--Details de la recette-->
-
               <div class="row1">
                 <div id="recipe-main" title="<?= $singleRecette->altImage; ?>" class="col-left-cat">
-              
                     <h1 class="main-title-recipe"><?= $singleRecette->titre; ?></h1>
                     <img src="images/assets/<?= $singleRecette->imagef; ?>" id="main-image" alt="<?= $singleRecette->altImage; ?>">
                     <p class="recipe-info">
@@ -44,18 +44,16 @@ $back = "recettes.php";
                     </p>
                   
                   <div class="social">
-                    
                     <div id="pinterest" class="align-text-l social-icons">
                         <div class="social-box pinterest align-v">
                           <a class="share" href="https://pinterest.com/pin/create/button/?url=<?= urlencode($url);?>">
                           <i class="fab fa-pinterest-p"></i> </a>
-                          
                         </div>
+
                         <div data-href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" data-layout="button" data-size="small" id="facebook" class="social-box facebook align-v">
                           <a  class="share" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($url);?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
                           <i class="fab fa-facebook-f"></i></a>
                         </div>
-                      
                         <!-- class="fb-xfbml-parse-ignore" -->
                         <div id="linkedin" class="social-box linkedin align-v">
                           <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($url);?>">
@@ -66,16 +64,13 @@ $back = "recettes.php";
                         <div id="mail" class="social-box envelope align-v">
                           <i class="fas fa-envelope"></i>
                         </div>
-                      
                     </div>
                     <div class="partager">Partager cette recette!
-
                     </div>
                   </div>
-                  
                 </div>
-        
                 <!--fin column-left-->
+
                 <!--section menu des categories-->
                 <aside class="col-right-cat">
                   <div class="cat-sidebar-title">
@@ -129,17 +124,14 @@ $back = "recettes.php";
                 </div>  
                 <?php endif; ?> 
                 
-             
               <!--Description recette-->
               <section id="description">
                 <div class="row1">
-                  
                   <h3 class="h3-sm">DESCRIPTION</h3>
                   <p class="p-single">
                   <?= html_entity_decode($singleRecette->description); ?>
                   </p>
               </div>
-             
               </section>
 
               <!--Ingredients-->
@@ -157,9 +149,7 @@ $back = "recettes.php";
                           <li class="ing">
                           <input type="checkbox" id="ing<?= $ing['id']; ?>" name="ingredient<?= $ing['id']; ?>" value="<?= $ing['item']; ?>">
                           <label for="ingredient<?= $ing['id']; ?>"> <?= $ing['item']; ?>
-                          
                         </label>
-                          
                           </li>
                           <?php
                         }
@@ -167,7 +157,6 @@ $back = "recettes.php";
                           echo "Aucun ingrédient mentionné."; 
                       } ?>
                     </ul>
-                    
 
                   <div class="ingredients mt-0" id="add-to-list">
                       &#8595;
@@ -184,9 +173,7 @@ $back = "recettes.php";
                 <div class="modal-content">
                   <span class="close2">&times;</span>
                   <h2 class="align-text-c">Les ingrédients sélectionnés ont été ajoutés à votre liste d'épicerie!</h2>
-                  <p class="align-text-c"><img src="images/help/cart.png" width="175"alt="Panier pour liste d'épicerie"></p><p class="align-text-c"><br>Pour accéder à votre liste et l'imprimer, cliquer sur le panier dans le menu du haut de la page.</p>
-                  
-                  
+                  <p class="align-text-c">Pour accéder à votre liste et l'imprimer, cliquer sur le panier dans le menu du haut de la page.</p>
                 </div>
               </div>  
               
@@ -197,7 +184,6 @@ $back = "recettes.php";
                   <p class="p-single">
                   <?= html_entity_decode($singleRecette->instructions); ?>
                 </p>
-              
               </div>
               </section>
              
@@ -215,21 +201,14 @@ $back = "recettes.php";
                   </div>
                 </section>
               <?php } ?>
-              
             </div>
           </div>
         
-  <?php
-    if(isset($_POST['mailrecipe'])){
-      require 'includes/email-recipe.php';
-    }
-    
-
-    
-  ?>
-      <script>loadImage("<?= $singleRecette->imagef; ?>", "recipe-main"); </script>
-      
-    
-    <?php require 'includes/footer.php'; ?>
-    
+<?php
+if(isset($_POST['mailrecipe'])){
+  require 'includes/email-recipe.php';
+}
+?>
+<script>loadImage("<?= $singleRecette->imagef; ?>", "recipe-main"); </script>
+<?php require 'includes/footer.php'; ?>
 <?php ob_end_flush(); ?>

@@ -5,12 +5,9 @@ if(!isset($_SESSION)) {
   session_start();
   
   $log="Se connecter";
-  
- 
 } else {
   
-  if(Auth::isLoggedIn())
-  {
+  if(Auth::isLoggedIn()){
   
   $log="Quitter";
   $logLink = "/vbox/logout.php";
@@ -20,11 +17,11 @@ if(!isset($_SESSION)) {
     $admin=true;  
   }
   
-  } else {
-  
-      $log="Se connecter";
-      $logLink = "/vbox/login.php";
-   }
+} else {
+
+    $log="Se connecter";
+    $logLink = "/vbox/login.php";
+  }
 }
 
 //set cart
@@ -32,11 +29,9 @@ $cart = false;
 
 if(!isset($_SESSION['cart'])){
   $_SESSION['cart'] = [];
-  
 }
 
 $cart= Cart::itemInCart();
-
 
 //check if print.css needs to be loaded
 if (strpos($_SERVER['REQUEST_URI'], "single-recette") !== false) {
@@ -59,11 +54,10 @@ if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add"){
      
   } 
   $cart=true;
-  
 } 
-//check if shopping list is required
-$printCart=False;
 
+//Will be used to check if shopping list is required
+$printCart=False;
 
 ?>
 
@@ -94,9 +88,9 @@ $printCart=False;
 
     <!-- Styles ands JS -->
     <link rel="icon" type="text/png" href="favicon-32x32.png">
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/struct.css" />
-
+    <link rel="stylesheet" href="css/style.css" />
+  
     <?php if($toprint || $printList) : ?>
       <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
     <?php endif; ?>

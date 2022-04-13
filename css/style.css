@@ -56,8 +56,8 @@ body {
   align-items: center;
   
 }
-/*------------------typo & style--------------*/
 
+/*------------------typo & style--------------*/
 .main-title {
   color: white;
   font-weight: 700;
@@ -164,13 +164,13 @@ section, .top {
     margin-top: 35px;
   }
 }
+
 .mt-100 {
   margin-top: 100px;
 }
 .mt-50 {
   margin-top: 50px;
 }
-
 .mt-0 {
   margin-top: 0 !important;
 }
@@ -325,9 +325,7 @@ h5 {
 @media screen and (max-width: 768px) {
   .fixed-top {
     position: absolute;
-    
   }
-  
 }
 .logo-big {
   font-size: 2rem;
@@ -337,12 +335,10 @@ h5 {
   font-size: 1.4rem;
   padding: 0px 0px 2px 4px;
 }
-
 .logo-small {
   font-size: 1rem;
   padding-bottom: 20px;
 }
-
 .logo-leaf-small {
   font-size: 1rem;
   padding: 0px 0px 2px 4px;
@@ -355,24 +351,17 @@ h5 {
   color: white;
 }
 
+/* account */
 .account {
   font-size: 0.8rem;
   padding-top: 15px;
-  
 }
 .account-icon {
   font-size: 0.7rem;
   padding-left: 2px;
   padding-right: 2px;
 }
-
 @media screen and (max-width:992px) {
-  /*.logo-big {
-    font-size: 1.5rem;
-  }
-  .logo-leaf-big {
-    font-size: 1.2rem;
-  }*/
   .account {
     font-size: 0.8rem;
     padding-top: 12px;
@@ -381,9 +370,7 @@ h5 {
   .account-icon {
     font-size: 0.8rem;
     padding-left: 10px;
-    
   }
-
 }
 @media screen and (max-width: 768px) {
   .account{
@@ -395,14 +382,12 @@ h5 {
   .logo-leaf-big {
     font-size: 1rem;
   }
-  /*#account {
-    display: none;
-  }*/
   .account-icon {
     display: none;
   }
 }
 
+/* Search container */
 .search-container {
   padding-left: 5px;
   float: left;
@@ -410,7 +395,6 @@ h5 {
   margin-right: 0;
   text-align: right;
 }
-
 .search {
   background-color: transparent;
   border: 1px solid var(--grey-medium);
@@ -434,13 +418,12 @@ h5 {
   padding: 0;
   margin: 0;
   font-size: 1rem;
-  
 }
 .btn-search:hover {
   color: var(--main-dark);
 }
-@media screen and (max-width: 768px) {
 
+@media screen and (max-width: 768px) {
   .search-icon-container,
   .search-row {
     float: left;
@@ -467,7 +450,6 @@ h5 {
     padding-left: 5px;
     font-size: 0.7rem;
   }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -496,13 +478,6 @@ h5 {
   text-decoration: none;
   padding-right: 20px;
 }
-/*
-@media screen and (max-width: 992px) {
-  .nav-bar-links ul li a {
-    font-size: 0.7rem;
-  }
-}
-*/
 .nav-bar-links ul > li:not(:first-child) > a {
   margin-left: 20px;
 }
@@ -519,14 +494,11 @@ h5 {
   padding-left: 10px;
   padding-right: 10px;
 }
-
 .nav-bar-links > ul > li:hover,
 .nav-bar-links > ul > li:focus {
   color: var(--grey-dark);
   background-color: var(--main-dark);
-  
 }
-
 .nav-bar-links ul ul {
   display: none;
   position: absolute;
@@ -535,17 +507,18 @@ h5 {
   padding: 1.5rem;
   min-width: 400px;
 }
-
 .nav-bar-links ul li:hover > ul {
   /*display: inherit;*/
   display: block;
   margin-top: -4px;
 }
+
 @media screen and (max-width: 768px) {
   .nav-bar-links ul li:hover > ul {
     margin-top: -10px;
   }
 }
+
 .div-nav {
   position: relative;
 }
@@ -582,8 +555,8 @@ h5 {
 .login:active {
   color: var(--yellow);
 }
-/*-----------------Buttons & links---------------------*/
 
+/*-----------------Buttons & links---------------------*/
 .btn {
   border-radius: 30px;
 }
@@ -614,7 +587,6 @@ p.p-btn-big {
   font-weight: 600;
   text-transform: uppercase;
 }
-
 .btn-recette {
   width: 6.7rem;
   margin: 0 auto;
@@ -680,7 +652,6 @@ p.p-btn-big {
 }
 
 /*return arrow*/
-
 .return,
 .return:visited {
   color: var(--main-dark);
@@ -696,6 +667,7 @@ p.p-btn-big {
 .link_category:hover {
   color: var(--orange);
 }
+
 /*-----------------Social Media---------------------*/
 .partager {
   color: white;
@@ -760,6 +732,7 @@ p.p-btn-big {
 .share:focus {
   color: white;
 }
+
 /*-----------------about---------------------*/
 .bullseye {
   color: var(--orange);
@@ -790,6 +763,7 @@ p.p-btn-big {
     font-size: 1rem;
    }
 }
+
 .collapse-box{
   border: 1px dotted rgba(242,164,19,0.8);
   max-width: 600px;
@@ -809,20 +783,16 @@ p.p-btn-big {
   outline: none;
   transition: 0.4s;
 }
-
 .active, .collapse:hover {
   background-color: rgba(242,164,19,0.1);
 }
-
 .panel {
   padding: 0 40px;
   max-width: 800px;
   background-color: white;
   display: none;
   overflow: hidden;
-
 }
-
 .collapse::after{
   content: '\2b'; 
   font-size: 18px;
@@ -830,7 +800,6 @@ p.p-btn-big {
   float: right;
   margin-right: 15px;
 }
-
 .active:after {
   content: "\2d"; 
   font-size: 24px;
@@ -919,19 +888,18 @@ p.p-btn-big {
   .header-subpage, .header-about {
     margin-top: 60px;
   }
-  
 }
 @media screen and (max-width: 400px) {
   .header-main {
     height: 27rem;
   }
 }
+
 /*-----------------cta ---------------------*/
 .cta {
   max-width: 600px;
   margin: 40px auto;
 }
-
 .title-cta {
   padding: 70px 5px 20px;
   color: var(--grey-medium);
@@ -953,7 +921,6 @@ p.p-btn-big {
   font-style: italic;
   background-color: white;
 }
-
 .btn-mailing {
   background-color: white;
   color: var(--main-dark);
@@ -967,7 +934,6 @@ p.p-btn-big {
   color: var(--orange);
 }
 
-
 @media screen and (max-width: 992px) {
   .cta {
     margin: 10px auto;
@@ -979,6 +945,7 @@ p.p-btn-big {
     margin: 10px auto 40px;
   }
 }
+
 /*-----------------ADMIN----------------------*/
 .circle-btn {
   display: inline-block;
@@ -1026,7 +993,6 @@ footer {
   color: var(--main-dark);
   font-size: 0.75rem;
 }
-
 .footer-links,
 .footer-links:visited {
   color: var(--main-dark);
@@ -1040,6 +1006,7 @@ footer {
     padding: 8px 0 8px;
   }
 }
+
 /*------------------Error-----------------------*/
 .error {
   padding-bottom: 3rem;
@@ -1055,8 +1022,9 @@ footer {
   font-size: 0.9rem;
   padding-bottom: 0.5rem;
 }
+
 /* ---------------Email recipe modal ---------------*/
-/* The Modal (background) */
+/* Modal (background) */
 .modal {
   display: none;
   position: fixed;
@@ -1080,8 +1048,7 @@ footer {
   border-radius: 10px;
   width: 80%;
 }
-
-/* The Close Button */
+/* Close button */
 .close,
 .close2 {
   color: #aaaaaa;
@@ -1089,7 +1056,6 @@ footer {
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus,
 .close2:hover,
@@ -1109,19 +1075,15 @@ table {
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
-  
 }
-
 th, td {
  padding-left: 8px; 
 }
-
 thead tr {
   height: 40px;
   background: var(--grey-light);
   font-size: 14px;
 }
-
 tbody tr {
   height: 48px;
   border-bottom: 1px solid var(--grey-light);
@@ -1151,8 +1113,6 @@ tr{
   color: var(--main-dark);
 }
 
-
-
 /* ---------------forms---------------*/
 #form-title {
   padding: 20px 0 30px;
@@ -1160,7 +1120,6 @@ tr{
 .user-form{
   display: flex;
   align-items: flex-start;
-  
 }
 .col-form-sm{
   width: 150px;
@@ -1216,12 +1175,9 @@ tr{
   .user-form{
     display: block;
   }
-
 }
 .register{
   font-size: 0.9rem;
   padding-top: 10px;
 }
 
-
-/* ---------------about   ---------------*/

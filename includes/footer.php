@@ -24,31 +24,30 @@
       <div class="row1 bg-medium">
         <div class="main-content align-text-c">
           <p class="p-footer">Tous droits réservés &copy; <?php echo date("Y"); ?> V-BOX</p>
-         <div class="logo-small align-text-c">
+          <div class="logo-small align-text-c">
           V-Box<i class="fas fa-leaf logo-leaf-small"></i>
+          </div>
          </div>
-         
-        
-        </div>
       </div>
     </footer>
+
     <?php if(isset($type) && ($type=="admin")) : ?>
-      
         <script src="js/admin.js"></script>
-    
     <?php endif; ?>
 
     <?php if($toprint) : ?>
       <script src="js/modal.js"></script>
       <script src="js/reseaux.js"></script>
     <?php endif; ?>
+    
     <?php if(isset($_POST) && isset($_GET['action']) && $_GET['action']=="add") : ?>
       <script>showModal2();</script>
     <?php endif; ?>
     
-    <?php if($page == "includes/about.php") : ?>
+    <?php if($page == "about.php") : ?>
       <script>loadCollapse();</script>
     <?php endif; ?>
+
   </body>
   
   

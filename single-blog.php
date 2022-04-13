@@ -4,7 +4,6 @@ $conn = require 'includes/db.php';
 require 'includes/set-info.php';
 require 'includes/head.php';
 
-
 /*variable for type of header*/
 $type="blog";
 
@@ -12,20 +11,16 @@ $type="blog";
 $feature = 'recette';
 $errorMsg = "L'article n'existe pas ou la page a été supprimée";  
 ?>
-
-
-</header>
-
 <header>
   <?php
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';   
            
 ?>
+</header>
 <!--section articles-->
 <main>
 <section>
-
     <div class="row1">
         <div class="main-content">
             <div class="row1">
@@ -46,7 +41,6 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
                 <!--section menu des categories-->
                 <?php require 'includes/navigation-vertical.php'; ?>
             <!--fin column-right-->    
-            <!--fin row1-->    
             </div>
         </div>
     </div>
@@ -59,6 +53,5 @@ $errorMsg = "L'article n'existe pas ou la page a été supprimée";
       </nav>
 </section>
 </main> 
-    <script>loadImage("<?= $singleArticle->imagef; ?>", "blog-img"); </script>
-
+<script>loadImage("<?= $singleArticle->imagef; ?>", "blog-img"); </script>
 <?php require 'includes/footer.php'; ?>

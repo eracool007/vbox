@@ -5,18 +5,16 @@ $conn = require 'includes/db.php';
 require 'includes/set-info.php';
 require 'includes/head.php';
 
-//check if user cookie
+//check if user cookie if not, redirects to login page
 if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
-   
     $idUser = ($_SESSION['user_id']);
     $favoris=Favorite::getUserFavorites($conn, $idUser);
- 
 } else {
     Url::redirect("/login.php");
     exit; 
 }
-
 ?>
+
 <header>
   <?php
   require 'includes/navigation.php';
@@ -24,7 +22,6 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
 </header>
 
 <main>
-
 <?php if($admin) : ?>
   <div class="mt-100">
       <?php include 'includes/menu-admin.php'; ?>
@@ -35,20 +32,18 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
 <section class="height-set">
     <div class="row1">
         <div class="main-content align-text-l">
-            <h2 class="section-title">Mes favoris: </h2>
+            <h2 class="section-title <?php echo (!$admin) ? "mt-100" : ""; ?>">Mes favoris: </h2>
         </div>
-
     </div>
     <div class="row1">
     <div class="main-content align-text-l">
     <table class="table">
-        
         <tbody>
             <!--Debut -->
             <?php
                 if (empty($favoris)){
                     
-                    echo "<h3>Aucun favori enregistré</h3>";
+                    echo "<p>Aucun favori enregistré</p>";
             } else{
                 
                 foreach($favoris as $favori){
@@ -77,5 +72,4 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
     </div>
 </section>
 </main>
-
 <?php require 'includes/footer.php'; ?>

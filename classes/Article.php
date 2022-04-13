@@ -48,6 +48,7 @@
         $this->imagef= $imagef;
         $this->altImage= $altImage;
     }
+
     /**----------------------------------------------------------- 
     * Get an article by id
     *
@@ -57,7 +58,6 @@
     * @return object of selected record
     */
     public static function getArticleById($conn, $id){
-        
        
         $sql="SELECT * 
         FROM tb_article 
@@ -74,7 +74,8 @@
         }
         
     }
-     /**------------------------------------------------------
+    
+    /**------------------------------------------------------
      * Get all the articles
      * 
      * @param object $conn Connection to the db
@@ -92,7 +93,8 @@
      }
 
 
-    /** Get page of articles
+    /**------------------------------------------------------
+     * Get page of articles
     *
     * @param object $conn Connection to db
     * @param integer $limit Number of article to return
@@ -116,7 +118,7 @@
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
+    /**------------------------------------------------------
      * Count number of articles
      * 
      * @var object $conn Connection to db
@@ -155,24 +157,21 @@
     * 
     * @return bool True if no error
     */
-    protected function validateArticle()
-    {
-         
-        if($this->titre == ''){
+    protected function validateArticle() {
+        
+        if(trim($this->titre) == ''){
             
             $this->errors[]= 'Titre requis';
         }
     
-        if($this->texte == ''){
+        if(trim($this->texte) == ''){
             $this->errors[] = 'Contenu requis';
         }
     
         return empty($this->errors);
         
-        
     }
     
-
     /**------------------------------------------------------
     * Add article into db
     * 
@@ -210,6 +209,7 @@
             return false;
         }
     }
+    
     /**------------------------------------------------------
     * Update article into db
     * 

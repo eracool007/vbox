@@ -5,13 +5,15 @@
                     <?php foreach($singleArticle->errors as $error): ?>
                         <p class="error-msg oups"><i class="fas fa-exclamation-triangle oups"></i> <?= $error; ?></p>
                     <?php endforeach; ?>
+                
                 <?php endif; ?>
+                
                 <!--article-form-->
                 <form method="post">
                     <div class="mb-sm">
                         <label for="titre">Titre</label><div>
                     <div>
-                        <input class="form-input width100" name="titre" id="titre" placeholder="Titre de l'article" size="100" value="<?= htmlspecialchars($singleArticle->titre); ?>"> 
+                        <input class="form-input width100" name="titre" id="titre" placeholder="Titre de l'article" size="100" value="<?= htmlspecialchars($singleArticle->titre);?>"> 
                     </div>
                     <div>
                         <label for="texte">Contenu</label>
@@ -21,7 +23,6 @@
                     </div>
                     <div class="mb-sm">
                         <label for="date">Date</label>
-                       
                         <input type="date" name="date" id="date" value="<?= htmlspecialchars($singleArticle->pdate); ?>">
                     </div>
                         <label for="altImage">Texte alternatif pour image</label>

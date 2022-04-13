@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const plus = document.getElementsByClassName("circle-plus");
     const minus = document.getElementsByClassName("circle-minus");
     
-    
     for (var i=0; i < plus.length; i++){
         plus[i].addEventListener('click', function(){
             
@@ -40,10 +39,4 @@ document.addEventListener("DOMContentLoaded", function () {
         textboxSection.append(newItem);
         temp++;
     }   
-
-
-        
 });
- 
-//count and returns number of text boxes for ingredients
-

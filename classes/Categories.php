@@ -1,6 +1,6 @@
 <?php
 
-/**
+/**------------------------------------------------------
  * class for recipe category list
  * 
  */
@@ -43,8 +43,6 @@ class Categories {
         $result = $conn->query($sql);
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
-        
-        
     }
 
     /**------------------------------------------------------
@@ -105,7 +103,8 @@ class Categories {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
-     /**------------------------------------------------------
+    
+    /**------------------------------------------------------
      * Get category name
      * 
      * @param $conn to db and recipie id
@@ -127,7 +126,5 @@ class Categories {
             $name = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $name[0]['nom_categorie']; 
         }
-       
     }
-
 }

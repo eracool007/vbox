@@ -26,7 +26,7 @@ class User {
     /** @var array Error array*/
     public $errors = [];
    
-    /**
+    /**-----------------------------------------------------
      * Class constructor
      * 
      * @param int $id Article id
@@ -179,7 +179,7 @@ class User {
             }
         }return false;
     }
-    /**
+    /**-----------------------------------------------------
      * Insert new user into db
      * 
      * @param object $conn Db connection

@@ -1,5 +1,4 @@
 <?php
-
 require 'includes/init.php';
 Auth::requireAdmin();
 
@@ -7,17 +6,13 @@ $conn = require 'includes/db.php';
 require 'includes/set-info.php';
 require 'includes/head.php';
 
-
-
 /*variable for type of header*/
 $type="admin";
 
 //create new recipe array
 $singleRecipe = new Recette();
 
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-
     $singleRecipe->titre= $_POST['titre'];
     $singleRecipe->description = htmlentities($_POST['description']);
     $singleRecipe->instructions= htmlentities($_POST['instructions']);
@@ -30,17 +25,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //put selected category ids in array
     if(isset($_POST['cat'])){
-        
         foreach($_POST['cat'] as $cat){
-    
             $singleRecipe->category[] = $cat;
-      
         }
     }
-   
-   //put ingredients in array
+
+    //put ingredients in array
    if(isset($_POST['ing'])){
-          
        $i=0;
        foreach ($_POST['ing'] as $ingredient){
         if($ingredient!= ""){
@@ -61,16 +52,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //end $_post
 
 $allCategories = Categories::getAllCategories($conn);
-
 ?>
+
 <header>
   <?php
   require 'includes/navigation.php';
   require 'includes/header-subpage.php';   
-       
-?>
-
+  ?>
 </header>
+
 <main>
 <section>
     <div class="row1">
@@ -80,8 +70,6 @@ $allCategories = Categories::getAllCategories($conn);
                 
                 <?php require 'includes/recette-form.php'; ?>
 
-            <!--fin row1-->
-               
             </div>
         </div>
     </div>

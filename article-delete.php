@@ -58,7 +58,6 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                     <button class="btn btn-voir btn-txt" role="button" aria-label="supprimer l'article">Supprimer</button> 
                     <a href="single-blog.php?id=<?= $singleArticle->id; ?>" class="green-links form-links"> Annuler</a>
                 </form>
-                <!--fin row1-->    
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <?php
+//For error message page
 
 if(isset($_GET['error'])){
   $msg= htmlspecialchars($_GET['error']);

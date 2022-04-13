@@ -42,9 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (!isset($_GET['subscribe']))){
         }
     }
 }
-
 require 'includes/head.php';
-
 ?>
 
 <header>
@@ -52,6 +50,7 @@ require 'includes/head.php';
   require 'includes/navigation.php';
   ?>
 </header>
+
 <main>
 <section class="marginTop">
     <div class="row1 mt-100">
@@ -111,12 +110,9 @@ require 'includes/head.php';
                 <p class="register"><em>Je suis déjà inscrit(e)!</em> <a class="green-links" href="?" arial-label="me connecter">Me connecter!</a></p>
                 <?php endif; ?>
                 </div>
-                
             </div>
         <div>
     </div>
 </section>
 </main>
 <?php require 'includes/footer.php'; ?> 
-
-

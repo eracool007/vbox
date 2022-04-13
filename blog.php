@@ -6,13 +6,13 @@ require 'includes/head.php';
 
 $type="blog";
 ?>
-    <header>
-      <?php
-      require 'includes/navigation.php';
-      require 'includes/header-subpage.php';
-      ?>
-  
-    </header>   
+<header>
+<?php
+require 'includes/navigation.php';
+require 'includes/header-subpage.php';
+?>
+</header>   
+
 <?php
 //if 'page' exist will use $_get['page'], if not, will use 1,6
 $pagination = new Pagination($_GET['page'] ?? 1, 6, Article::countArticles($conn));
@@ -20,12 +20,12 @@ $articleArray = Article::getPage($conn, $pagination->limit, $pagination->offset)
 $numberOfArticlesOnPage = $pagination->firstRecordOfPage + count($articleArray) - 1;
 $numberOfArticles = Article::countArticles($conn);
 
-
 $numberOfCards=0;
-$feature = 'recette';
-/*indicates wich type to feature in right navigation*/
 
+/*indicates wich type to feature in right navigation*/
+$feature = 'recette';
 ?>
+
 <!--section articles-->
 <main>
 <?php if($admin){ 
@@ -44,7 +44,6 @@ $feature = 'recette';
     
     <div class="row1">
       <div class="main-content">
-          
           <div class="row1">
               <div class="col-left">
                 <?php if(!empty($articleArray)) { 
@@ -68,7 +67,6 @@ $feature = 'recette';
                     $numberOfCards++; 
                     } 
                 } ?>
-                
               </div>
           <!--fin col-left-->
           <!--section menu des categories-->
@@ -78,7 +76,6 @@ $feature = 'recette';
           <!--fin column-right-->    
           <!--fin row1-->    
           </div>
-
     </div>
   </div>
 </section>  
@@ -112,7 +109,6 @@ $feature = 'recette';
         <?php
         }
       } ?>
-
 <?php
 require 'includes/footer.php';
 ?>

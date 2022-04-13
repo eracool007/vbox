@@ -1,5 +1,5 @@
 <?php
-/**
+/**------------------------------------------------------
  * Pagination
  * 
  * Select page of records
@@ -36,7 +36,7 @@ class Pagination{
      */
     public $firstRecordOfPage;
 
-    /**
+    /**------------------------------------------------------
      * object constructor
      * 
      * @param integer $page Page number
@@ -70,7 +70,5 @@ class Pagination{
        }
 
        $this->offset = $recordsPerPage * ($page - 1);
-       
     }
-
 }

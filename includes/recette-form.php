@@ -1,5 +1,4 @@
 <?php
-
 if(! empty($singleRecipe->errors)): ?>
     <?php 
         foreach($singleRecipe->errors as $error): ?>
@@ -22,9 +21,9 @@ if(! empty($singleRecipe->errors)): ?>
         <textarea class="form-input width100" rows="10" name="description" id="description" placeholder="Description de la recette"><?= html_entity_decode($singleRecipe->description); ?></textarea>
         
     </div>
+
     <!-- CATEGORIES -->
     Catégories
-
     <div class="mb-sm">
         <?php
         
@@ -38,15 +37,11 @@ if(! empty($singleRecipe->errors)): ?>
                 if(in_array($cat['id_categorie'], $singleRecipe->category)){
 
                 echo "checked";
+                }
             }
-            
-            }
-       
             ?>> 
             <label for="cat[<?= $i ?>] "><?=$cat['nom_categorie'] ?></label> <br>
-            
         <?php $i++; } ?>
-        
     </div>
     <!-- INGREDIENTS -->
     Ingrédients
@@ -80,10 +75,6 @@ if(! empty($singleRecipe->errors)): ?>
             </div>
         </div>
      <?php }?>
-    
-
-    
-        
     </div>
     
     <!--Add new ingredient button-->

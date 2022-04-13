@@ -2,10 +2,10 @@
 $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
 $email = $POST['mailrecipe'];
 $emailErr="";
+
 //validate email
 if (!filter_var($POST['mailrecipe'], FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Courriel invalide";
-
   }
 
 if($emailErr == ""){
@@ -55,8 +55,8 @@ if($emailErr == ""){
         $comment .= "</p></div>";
 
       }
-
-        
+      
+//try sending email       
  try {
     mail($to, $subject, $comment, $headers);
     echo "<script> alert('Merci, la recette été envoyée avec succès'); </script>";

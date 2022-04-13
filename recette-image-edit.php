@@ -10,7 +10,6 @@ $type="admin";
 $errorMsg = "L'article ou la recette n'existe pas ou la page a été supprimée";  
 
 if(isset($_GET['id'])){
-    
     $numId = $_GET['id'];  
     settype($numId, 'integer');
     $singleRecette = Recette::getRecipeById($conn, $numId);
@@ -19,16 +18,14 @@ if(isset($_GET['id'])){
         echo "Aucune recette";
     }
 } else {
-        
         ManageError::showErrorPage($type);
         exit; 
 }
 
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     try {
-
+        
         if(empty($_FILES)){
             throw new Exception('Fichier non valide.');
         }
@@ -79,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $destination = "images/assets/$filename";
             $i++;
         }
-
+        
         if(move_uploaded_file($_FILES['file']['tmp_name'], $destination)){
            
            $previous_image = $singleRecette->imagef;
@@ -99,12 +96,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
     } catch (Exception $e){
-        echo $e->getMessage();
+        die("Il semble y avoir eu une erreur");
     }
 }
-
-
-
 
 ?>
 <header>
@@ -134,12 +128,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <button class="btn btn-voir btn-txt" role="button" aria-label="Ajouter l'image">Ajouter</button>
                     <a href="single-recette.php?id=<?= $singleRecette->id; ?>" class="green-links form-links"> Annuler</a>
                 </form>
-
-            <!--fin row1-->    
             </div>
         </div>
     </div>
 </section>  
 </main>
-
 <?php require 'includes/footer.php'; ?>
