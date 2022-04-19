@@ -59,7 +59,9 @@ $back = "recettes.php";
                           <a class="share" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($url);?>">
                             <i class="fab fa-linkedin"></i></a>
                         </div>
-                        <div id="twitter" class="social-box twitter align-v"><i class="fab fa-twitter"></i></a>
+                        <div id="twitter" class="social-box twitter align-v">
+                        <a class="share" type="button" role="button" title="Share on twitter" href="https://twitter.com/intent/tweet?url=<?= urlencode($url);?>"
+                          rel="noopener"><i class="fab fa-twitter"></i></a>
                         </div>
                         <div id="mail" class="social-box envelope align-v">
                           <i class="fas fa-envelope"></i>
